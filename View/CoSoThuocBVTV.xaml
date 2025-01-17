@@ -1,4 +1,4 @@
-﻿<Window x:Class="adc.View.CoSoPBView"
+﻿<Window x:Class="adc.View.CoSoThuocBVTV"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:uc="clr-namespace:adc.UserControllADC"
@@ -31,7 +31,7 @@ WindowStartupLocation="CenterScreen"
             </Grid.RowDefinitions>
 
             <!-- Tiêu đề -->
-            <TextBlock Text="Quản lý cơ sở phân bón"
+            <TextBlock Text="Quản lý cơ sở thuốc BVTV"
                    FontSize="28" FontWeight="Bold"
                    HorizontalAlignment="Center" Foreground="DarkBlue"
                    Grid.Row="0" Margin="10"/>

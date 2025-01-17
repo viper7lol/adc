@@ -42,17 +42,61 @@ WindowStartupLocation="CenterScreen"
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Trường tìm kiếm -->
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBox Text="{Binding SearchText}"
-                             Margin="5"
-                             Width="300"
-                             VerticalAlignment="Center"
-                             materialDesign:HintAssist.Hint="Nhập tên hoặc email để tìm kiếm"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <!-- Input Fields -->
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                        <!-- Tên người dùng -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding TenNguoiDung}" 
+                                Width="100" 
+                                materialDesign:HintAssist.Hint="Tên người dùng" 
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Account" 
+                                VerticalAlignment="Center" 
+                                Margin="-15,10,0,0" 
+                                Foreground="Blue" 
+                                HorizontalAlignment="Right"/>
 
+                        </StackPanel>
+
+                        <!-- Email -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding Email}" 
+                              Width="50" 
+                              materialDesign:HintAssist.Hint="Email" 
+                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Email" 
+                            VerticalAlignment="Center" 
+                            Margin="-20,10,0,0" 
+                            Foreground="IndianRed" 
+                            HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Vai trò -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding VaiTro}" 
+                            Width="60" 
+                            materialDesign:HintAssist.Hint="Vai trò" 
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="UserSupervisor" 
+                             VerticalAlignment="Center" 
+                             Margin="-30,10,0,0" 
+                             Foreground="LightSlateGray" 
+                             HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Trạng thái -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding TrangThai}" 
+                            Width="80" 
+                           materialDesign:HintAssist.Hint="Trạng thái" 
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="ToggleSwitch" 
+                             VerticalAlignment="Center" 
+                             Margin="-20,10,0,0" 
+                             Foreground="Green" 
+                             HorizontalAlignment="Right"/>
+                        </StackPanel>
                     </StackPanel>
-
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"

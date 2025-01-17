@@ -48,29 +48,105 @@ WindowStartupLocation="CenterScreen"
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Trường nhập liệu -->
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBox Text="{Binding TenThuoc}"
-                             Margin="5"
-                             VerticalAlignment="Center"
-                             materialDesign:HintAssist.Hint="Tên thuốc BVTV"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    </StackPanel>
+                    <!-- Input Fields -->
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                        <!--  Tên -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding Ten}" 
+                        Width="40" 
+                        materialDesign:HintAssist.Hint="Tên" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="ChemicalWeapon" 
+                        VerticalAlignment="Center" 
+                         Margin="-50,10,0,0" 
+                         Foreground="Green" 
+                         HorizontalAlignment="Right"/>
 
-                    <!-- Nút chức năng -->
+                        </StackPanel>
+
+                        <!-- Loại -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding Loai }" 
+                        Width="50" 
+                        materialDesign:HintAssist.Hint="Loại" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="ChemicalWeapon" 
+                                VerticalAlignment="Center" 
+                                Margin="-50,10,0,0" 
+                                Foreground="Orange" 
+                                HorizontalAlignment="Right"/>
+
+
+                        </StackPanel>
+                        <!-- Mô tả -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding MoTa}" 
+                         Width="50" 
+                         materialDesign:HintAssist.Hint="Mô tả" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="InfoCircle" 
+                             VerticalAlignment="Center" 
+                             Margin="-45,10,0,0" 
+                             Foreground="Orange" 
+                             HorizontalAlignment="Right"/>  
+
+
+                        </StackPanel>
+                        <!-- Ngày sx -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding NgaySX}" 
+                        Width="70" 
+                        materialDesign:HintAssist.Hint="Ngày SX" 
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Calendar" 
+                        VerticalAlignment="Center" 
+                        Margin="-20,10,0,0" 
+                        Foreground="DeepSkyBlue" 
+                        HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Ngày hh -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding NgayHH}" 
+                    Width="70" 
+                    materialDesign:HintAssist.Hint="Ngày HH" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Calendar" 
+                        VerticalAlignment="Center" 
+                        Margin="-20,10,0,0" 
+                        Foreground="IndianRed" 
+                        HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                    </StackPanel>
+                    <!-- Buttons -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Command="{Binding TimKiemCommand}" Content="Tìm kiếm"
-                            Margin="5" Width="100" Background="#4CAF50"
-                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
-                        <Button Command="{Binding AddCommand}" Content="Thêm"
-                            Margin="5" Width="100" Background="#4CAF50"/>
-                        <Button Command="{Binding EditCommand}" Content="Sửa"
-                            Margin="5" Width="100" Background="#4CAF50"
-                            Style="{StaticResource MaterialDesignRaisedButton}"/>
-                        <Button Command="{Binding DeleteCommand}" Content="Xóa"
-                            Margin="5" Width="100" Background="#4CAF50"
-                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        <Button Command="{Binding AddCommand}" 
+Content="Tìm kiếm" 
+Margin="5" 
+Width="100" 
+Background="#2196F3"  
+materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding AddCommand}" 
+Content="Thêm" 
+Margin="5" 
+Width="100" 
+Background="#4CAF50"  
+materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding EditCommand}" 
+Content="Sửa" 
+Margin="5" 
+Width="100" 
+Background="#FF9800" 
+Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        <Button Command="{Binding DeleteCommand}" 
+Content="Xóa" 
+Margin="5"
+Width="100" 
+Background="#F44336" 
+Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>

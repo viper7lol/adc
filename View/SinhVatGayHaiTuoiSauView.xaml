@@ -49,15 +49,75 @@ WindowStartupLocation="CenterScreen"
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Trường nhập liệu -->
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBox Text="{Binding TenSinhVat}"
-                             Margin="5"
-                             VerticalAlignment="Center"
-                             materialDesign:HintAssist.Hint="Tên sinh vật gây hại"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    </StackPanel>
+                    <!-- Input Fields -->
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                        <!-- Tên SV -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding TenSinhVat}" 
+                                Width="60" 
+                                materialDesign:HintAssist.Hint="Tên SV" 
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Bug" 
+                            VerticalAlignment="Center" 
+                            Margin="-20,10,0,0" 
+                            Foreground="Brown" 
+                            HorizontalAlignment="Right"/>
 
+                        </StackPanel>
+
+                        <!-- Loại SV -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding LoaiSV}" 
+                              Width="60" 
+                              materialDesign:HintAssist.Hint="Loại SV" 
+                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Bug" 
+                                VerticalAlignment="Center" 
+                                Margin="-20,10,0,0" 
+                                Foreground="DarkOrange" 
+                                HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Tuổi sâu -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding TuoiSau}" 
+                            Width="70" 
+                            materialDesign:HintAssist.Hint="Tuổi Sâu" 
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Bug" 
+                             VerticalAlignment="Center" 
+                             Margin="-20,10,0,0" 
+                             Foreground="DeepSkyBlue" 
+                             HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Cấp độ -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding CapDo}" 
+                            Width="60" 
+                           materialDesign:HintAssist.Hint="Cấp độ" 
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Bug" 
+                             VerticalAlignment="Center" 
+                             Margin="-20,10,0,0" 
+                             Foreground="Green" 
+                             HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Mô tả -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding MoTa}" 
+                            Width="50" 
+                             materialDesign:HintAssist.Hint="Mô tả" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Bug" 
+                              VerticalAlignment="Center" 
+                              Margin="-30,10,0,0" 
+                              Foreground="DeepSkyBlue" 
+                              HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                    </StackPanel>
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding TimKiemCommand}" Content="Tìm kiếm"
