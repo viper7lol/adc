@@ -60,45 +60,93 @@ WindowStartupLocation="CenterScreen"
                     </Grid.ColumnDefinitions>
 
                     <!-- Input Fields -->
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBox Text="{Binding TenPhanBon}" 
-                             Margin="5" 
-                             VerticalAlignment="Center" 
-                             materialDesign:HintAssist.Hint="Tên phân bón" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    </StackPanel>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                        <!--  Tên -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding Ten}" 
+                              Width="40" 
+                              materialDesign:HintAssist.Hint="Tên" 
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Seedling" 
+                              VerticalAlignment="Center" 
+                               Margin="-50,10,0,0" 
+                               Foreground="Green" 
+                               HorizontalAlignment="Right" Width="80"/>
 
+                        </StackPanel>
+
+                        <!-- Loại -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding Loai }" 
+                              Width="50" 
+                              materialDesign:HintAssist.Hint="Loại" 
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Seedling" 
+                                      VerticalAlignment="Center" 
+                                      Margin="-50,10,0,0" 
+                                      Foreground="Orange" 
+                                      HorizontalAlignment="Right"
+                                      Width="80"                           />
+
+                        </StackPanel>
+                        <!-- Ngày sx -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5" Width="90">
+                            <TextBox Text="{Binding NgaySX}" 
+                              Width="70" 
+                              materialDesign:HintAssist.Hint="Ngày SX" 
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Calendar" 
+                              VerticalAlignment="Center" 
+                              Margin="-20,10,0,0" 
+                              Foreground="DeepSkyBlue" 
+                              HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Ngày hh -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding NgayHH}" 
+                          Width="70" 
+                          materialDesign:HintAssist.Hint="Ngày HH" 
+                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Calendar" 
+                              VerticalAlignment="Center" 
+                              Margin="-20,10,0,0" 
+                              Foreground="IndianRed" 
+                              HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                    </StackPanel>
                     <!-- Buttons -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Command="{Binding TimKiemcommand}" 
-                        Content="Tìm kiếm" 
-                        Margin="5" 
-                        Width="100" 
-                        Background="DarkOrange"  
-                        materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                         <Button Command="{Binding AddCommand}" 
-                            Content="Thêm" 
-                            Margin="5" 
-                            Width="100" 
-                            Background="DarkOrange"  
-                            />
+      Content="Tìm kiếm" 
+      Margin="5" 
+      Width="100" 
+      Background="#2196F3"  
+      materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+      materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding AddCommand}" 
+      Content="Thêm" 
+      Margin="5" 
+      Width="100" 
+      Background="#4CAF50"  
+      materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+      materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                         <Button Command="{Binding EditCommand}" 
-                            Content="Sửa" 
-                            Margin="5" 
-                            Width="100" 
-                            Background="DarkOrange" 
-                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+      Content="Sửa" 
+      Margin="5" 
+      Width="100" 
+      Background="#FF9800" 
+      Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
-                            Content="Xóa" 
-                            Margin="5"
-                            Width="100" 
-                            Background="DarkOrange"
-                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+      Content="Xóa" 
+      Margin="5"
+      Width="100" 
+      Background="#F44336" 
+      Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
-
             <!-- Data Table -->
             <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">

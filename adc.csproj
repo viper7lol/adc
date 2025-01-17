@@ -284,6 +284,9 @@
     <Compile Include="View\CoSoPBView.xaml.cs">
       <DependentUpon>CoSoPBView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CoSoThuocBVTV.xaml.cs">
+      <DependentUpon>CoSoThuocBVTV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DonViHanhChinhView.xaml.cs">
       <DependentUpon>DonViHanhChinhView.xaml</DependentUpon>
     </Compile>
@@ -341,6 +344,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CoSoPBView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CoSoThuocBVTV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
