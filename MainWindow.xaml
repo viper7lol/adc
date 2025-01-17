@@ -36,7 +36,7 @@
             <!-- logo-->
             <StackPanel Height="800">
                 <WrapPanel Margin="0 35 5 50" HorizontalAlignment="Center">
-                    <Image RenderOptions.BitmapScalingMode="HighQuality" Source="Resources/logo_Mqo_icon.ico" Height="80" Width="80"/>
+                    <Image RenderOptions.BitmapScalingMode="HighQuality" Source="Resources/logo.png" Height="80" Width="80"/>
                     <TextBlock FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="44">
                 Quản Lý
                 <LineBreak />
