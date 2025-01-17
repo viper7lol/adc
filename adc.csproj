@@ -423,6 +423,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="niem-vui-duoc-mua-56-0.jpg" />
     <Resource Include="Resources\logo_Mqo_icon.ico" />
     <Resource Include="Resources\logo.png" />
   </ItemGroup>

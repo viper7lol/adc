@@ -9,64 +9,60 @@
         DataContext="{StaticResource LoginVM}"
         mc:Ignorable="d"
         Title="loginWindow" Height="550" Width="850" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
-    <Grid x:Name="grid">
-        <Grid x:Name="login" HorizontalAlignment="Left" VerticalAlignment="Center" Width="775">
-            <Rectangle x:Name="imagelogin" HorizontalAlignment="Left" Height="550" VerticalAlignment="Center" Width="322" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-                <Rectangle.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Pink" Offset="0"/>
-                        <GradientStop Color="LightPink" Offset="1"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <Grid x:Name="login1" HorizontalAlignment="Left" Height="362" Margin="415,115,0,0" VerticalAlignment="Top" Width="360" RenderTransformOrigin="0.5,0.5">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <TextBlock HorizontalAlignment="Center" Height="58" TextWrapping="Wrap" VerticalAlignment="Top" Width="295"><Run Language="vi-vn" Text="Chào Mừng" FontSize="45" FontFamily="Georgia Pro Black" BaselineAlignment="Center" Foreground="#FF06AF2F"/></TextBlock>
-                <TextBox
+    <Grid x:Name="grid" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX="-1"/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid.Background>
+            <ImageBrush ImageSource="/niem-vui-duoc-mua-56-0.jpg"/>
+        </Grid.Background>
+        <Grid x:Name="login1" HorizontalAlignment="Left" Height="283" Margin="48,171,0,0" VerticalAlignment="Top" Width="375" RenderTransformOrigin="0.5,0.5" >
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.4"/>
+            </Grid.Background>
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Width="284" Margin="0,0,0,209" Height="58" VerticalAlignment="Bottom"><Run Language="vi-vn" Text="Chào Mừng" FontSize="45" FontFamily="Georgia Pro Black" BaselineAlignment="Center" Foreground="#FF06AF2F"/></TextBlock>
+            <TextBox
                     materialDesign:HintAssist.Hint="Tài Khoản" Text="{Binding TenNguoiDung}"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="52,126,64,190" />
-                <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint="Mật Khẩu"
-                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="52,196,64,120">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PasswordChanged">
-                            <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="58,0,58,145" Height="46" VerticalAlignment="Bottom" />
+            <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint="Mật Khẩu"
+                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="58,0,58,90" Height="46" VerticalAlignment="Bottom">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PasswordChanged">
+                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
              CommandParameter="{Binding ElementName=FloatingPasswordBox}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </PasswordBox>
-                <Button
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </PasswordBox>
+            <Button
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton"
                     materialDesign:ButtonAssist.CornerRadius="15"
-                    materialDesign:RippleAssist.Feedback="#DD000000" Margin="52,266,64,54" 
+                    materialDesign:RippleAssist.Feedback="#DD000000" Margin="52,0,64,45" 
                     Content="Đăng Nhập" FontSize="17" 
                     Command="{Binding LoginCommand}"
-                    FontFamily="Segoe UI Black" Foreground="#DDFFFFFF"/>
-                <TextBlock HorizontalAlignment="Left" Height="21" Margin="132,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"><Run Language="vi-vn" Text="Chưa"/><Run Text=" có tài khoản?"/></TextBlock>
-                <Button
+                    FontFamily="Segoe UI Black" Foreground="#DDFFFFFF" Height="32" VerticalAlignment="Bottom" Grid.Row="1"/>
+            <TextBlock HorizontalAlignment="Left" Height="21" Margin="132,0,0,14" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="104" Grid.Row="1"><Run Language="vi-vn" Text="Chưa"/><Run Text=" có tài khoản?"/></TextBlock>
+            <Button
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-                    materialDesign:RippleAssist.Feedback="#DD000000" Margin="233,335,79,0" 
+                    materialDesign:RippleAssist.Feedback="#DD000000" Margin="233,0,79,19" 
                     Content="Đăng Kí" FontSize="12" Foreground="Pink"
                     Background="Transparent"
                     BorderBrush="Transparent"
-                    Padding="0" Height="17" VerticalAlignment="Top"/>
-            </Grid>
+                    Padding="0" Height="17" VerticalAlignment="Bottom" Grid.Row="1"/>
         </Grid>
     </Grid>
 </Window>
