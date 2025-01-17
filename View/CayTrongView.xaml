@@ -1,0 +1,191 @@
+﻿<Window x:Class="adc.View.CayTrongView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{StaticResource CTVM}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+                ResizeMode="NoResize"
+WindowStyle="None"
+WindowStartupLocation="CenterScreen"
+        Name="CTView"
+        Title="Quản lý giống cây trồng" Height="600" Width="900">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=CTView}"></uc:ControllBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <TextBlock Grid.Row="0" Text="Quản lý giống cây trồng" 
+                   FontSize="28" FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Foreground="DarkGreen" Margin="10"/>
+
+            <!-- Toolbar -->
+            <materialDesign:Card Grid.Row="1" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Input Fields -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox Text="{Binding TenGiongCay}" 
+                             Margin="5" 
+                             VerticalAlignment="Center" 
+                             materialDesign:HintAssist.Hint="Tên giống cây trồng" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    </StackPanel>
+
+                    <!-- Buttons -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding AddCommand}" 
+                            Content="Thêm" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkGreen"  
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding EditCommand}" 
+                            Content="Sửa" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkGreen" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        <Button Command="{Binding DeleteCommand}" 
+                            Content="Xóa" 
+                            Margin="5"
+                            Width="100" 
+                            Background="DarkGreen" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- List View to display Data -->
+            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding GiongCayTrongList}" 
+                          SelectedItem="{Binding SelectedGiongCayTrong, Mode=OneWayToSource}" 
+                          HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch">
+                        <ListView.View>
+                            <GridView>
+                                <!-- Cột Mã giống cây -->
+                                <GridViewColumn Width="120">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkGreen" Padding="5">
+                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="50"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding MaCayTrong}" TextAlignment="Center" Foreground="Black" Width="120"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Tên giống cây -->
+                                <GridViewColumn Width="200">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkGreen" Padding="5">
+                                                <TextBlock Text="Tên giống cây" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding TenGiongCay}" TextAlignment="Center" Foreground="Black" Width="200"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Loại cây trồng -->
+                                <GridViewColumn Width="180">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkGreen" Padding="5">
+                                                <TextBlock Text="Loại cây trồng" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="120"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding LoaiCayTrong.TenLoaiCayTrong}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Mô tả -->
+                                <GridViewColumn Width="200">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkGreen" Padding="5">
+                                                <TextBlock Text="Mô tả" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding MoTa}" TextAlignment="Center" Foreground="Black" Width="200"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Vùng trồng -->
+                                <GridViewColumn Width="180">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkGreen" Padding="5">
+                                                <TextBlock Text="Vùng trồng" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding VungTrong.TenVung}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

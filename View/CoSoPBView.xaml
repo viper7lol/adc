@@ -1,0 +1,92 @@
+﻿<Window x:Class="adc.View.CoSoPBView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{StaticResource CSPBVM}"
+        Title="Quản lý Cơ sở" Height="600" Width="900"
+        Name="CSPBView"
+                ResizeMode="NoResize"
+WindowStyle="None"
+WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource MaterialDesignPaper}">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=CSPBView}"></uc:ControllBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition> </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- Tiêu đề -->
+            <TextBlock Text="Quản lý cơ sở phân bón"
+                   FontSize="28" FontWeight="Bold"
+                   HorizontalAlignment="Center" Foreground="DarkBlue"
+                   Grid.Row="0" Margin="10"/>
+
+            <!-- Thanh công cụ -->
+            <materialDesign:Card Grid.Row="1" Padding="10">
+                <WrapPanel Margin="0 0 0 10">
+                    <TextBox Text="{Binding MaCoSo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Text="{Binding TenCoSo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgayCapGiayPhep, StringFormat='dd/MM/yyyy',UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày cấp" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                    <TextBox Text="{Binding MaHanhChinh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã HC" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </WrapPanel>
+            </materialDesign:Card>
+            <!-- các nút-->
+            <materialDesign:Card Grid.Row="2" Margin="5">
+                <WrapPanel>
+                    <Button Command="{Binding SearchCommand}" Content="Tìm kiếm" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <!-- Bảng dữ liệu -->
+            <materialDesign:Card Grid.Row="3" Margin="0,10,0,0" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding CoSoList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                          SelectedItem="{Binding SelectedCoSo, Mode=TwoWay}" 
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListView.View>
+                            <GridView>
+                                <!-- Cột Mã cơ sở -->
+                                <GridViewColumn Width="100" Header="Mã" DisplayMemberBinding="{Binding MaCoSo}"/>
+
+                                <!-- Cột Tên cơ sở -->
+                                <GridViewColumn Width="180" Header="Tên" DisplayMemberBinding="{Binding TenCoSo}"/>
+
+                                <!-- Cột Địa chỉ -->
+                                <GridViewColumn Width="200" Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"/>
+
+                                <!-- Cột Ngày cấp giấy phép -->
+                                <GridViewColumn Width="150" Header="Ngày cấp" DisplayMemberBinding="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}"/>
+                                <!-- Cột Tên loại cơ sở -->
+                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding TenLoaiCoSo}"/>
+
+                                <!-- Cột Mã hành chính -->
+                                <GridViewColumn Width="150" Header="Mã HC" DisplayMemberBinding="{Binding MaHanhChinh}"/>
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

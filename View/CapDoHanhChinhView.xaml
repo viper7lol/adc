@@ -1,0 +1,142 @@
+﻿<Window x:Class="adc.View.CapDoHanhChinhView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{StaticResource CDHCVM}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+          ResizeMode="NoResize"
+  WindowStyle="None"
+  WindowStartupLocation="CenterScreen"
+        Name="CDHCView"
+        Title="Quản lý cấp hành chính" Height="600" Width="900">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=CDHCView}"></uc:ControllBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- Title -->
+            <TextBlock Grid.Row="0" Text="Quản lý cấp hành chính" 
+                   FontSize="28" FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Foreground="DarkBlue" Margin="10"/>
+
+            <!-- Toolbar -->
+            <materialDesign:Card Grid.Row="1" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Input Fields -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox Text="{Binding TenCapDo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                             Margin="5" 
+                             VerticalAlignment="Center" 
+                             materialDesign:HintAssist.Hint="Tên cấp hành chính" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    </StackPanel>
+
+                    <!-- Buttons -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding SearchCommand}" 
+                            Content="Tìm kiếm" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkBlue"  
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding AddCommand}" 
+                            Content="Thêm" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkBlue"  
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding EditCommand}" 
+                            Content="Sửa" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkBlue" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        <Button Command="{Binding DeleteCommand}" 
+                            Content="Xóa" 
+                            Margin="5"
+                            Width="100" 
+                            Background="DarkBlue" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- List View to display Data -->
+            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding CapDoList}" 
+                          SelectedItem="{Binding SelectedCapDo, Mode=TwoWay}" 
+                          HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch">
+                        <ListView.View>
+                            <GridView>
+                                <!-- Cột Mã cấp độ -->
+                                <GridViewColumn Width="200">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkBlue" Padding="5">
+                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="120"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Tên cấp độ-->
+                                <GridViewColumn Width="300">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkBlue" Padding="5">
+                                                <TextBlock Text="Tên cấp độ" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding TenCapDo}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

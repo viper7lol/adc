@@ -1,0 +1,93 @@
+﻿<Window x:Class="adc.View.LichSuTruyCapView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{StaticResource LSTCVM}"
+                ResizeMode="NoResize"
+WindowStyle="None"
+WindowStartupLocation="CenterScreen"
+        Name="LSTCView"
+        Title="Quản lý Lịch Sử Truy Cập" Height="600" Width="1000"
+        Background="#F0F4F8">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=LSTCView}"></uc:ControllBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Tiêu đề -->
+            <TextBlock Grid.Row="0" Text="Quản lý Lịch Sử Truy Cập"
+                   FontSize="28" FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Foreground="#5E35B1" Margin="10"/>
+
+            <!-- Toolbar -->
+            <materialDesign:Card Grid.Row="1" Padding="10" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Trường tìm kiếm -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox Text="{Binding SearchText}"
+                             Margin="5"
+                             Width="300"
+                             VerticalAlignment="Center"
+                             materialDesign:HintAssist.Hint="Nhập tên hoặc hành động để tìm kiếm"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    </StackPanel>
+
+                    <!-- Nút chức năng -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"
+                            Margin="5" Width="100" Background="#66BB6A" Foreground="White"/>
+
+                        <Button Command="{Binding ClearCommand}" Content="Xóa"
+                            Margin="5" Width="100" Background="#FF8A65" Foreground="White"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- Bảng danh sách -->
+            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <DataGrid ItemsSource="{Binding LSTCList}"
+                          SelectedItem="{Binding SelectedLichSuTruyCap}"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          CanUserResizeColumns="True"
+                          CanUserSortColumns="True"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <!-- Cột ID -->
+                            <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="200"/>
+                            <!-- Cột Tên người dùng -->
+                            <DataGridTextColumn Header="ID người dùng" Binding="{Binding TenNguoiDung}" Width="300"/>
+                            <!-- Cột Thời gian truy cập -->
+                            <DataGridTextColumn Header="Thời gian truy cập" Binding="{Binding ThoiGianTruyCap}" Width="300"/>
+                            <!-- Cột Mô tả hành động -->
+                            <DataGridTextColumn Header="Mô tả hành động" Binding="{Binding MoTaHanhDong}" Width="300"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

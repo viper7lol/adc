@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:adc.ViewModel"
+                    xmlns:local="clr-namespace:adc">
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <viewmodel:CDHCViewModel x:Key="CDHCVM"></viewmodel:CDHCViewModel>
+    <viewmodel:DVHCViewModel x:Key="DVHCVM"></viewmodel:DVHCViewModel>
+    <viewmodel:CayTrongViewModel x:Key="CTVM"></viewmodel:CayTrongViewModel>
+    <viewmodel:VungTrongViewModel x:Key="VTVM"></viewmodel:VungTrongViewModel>
+    <viewmodel:PhanBonViewModel x:Key="PBVM"></viewmodel:PhanBonViewModel>
+    <viewmodel:CoSoPBViewModel x:Key="CSPBVM"></viewmodel:CoSoPBViewModel>
+    <viewmodel:ThuocBVTVViewModel x:Key="TBVTVVM"></viewmodel:ThuocBVTVViewModel>
+    <viewmodel:LoaiCoSoViewModel x:Key="LCSVM"></viewmodel:LoaiCoSoViewModel>
+    <viewmodel:SVGHVTSViewModel x:Key="SVGHVTSVM"></viewmodel:SVGHVTSViewModel>
+    <viewmodel:QLNDViewModel x:Key="QLNDVM"></viewmodel:QLNDViewModel>
+    <viewmodel:LSTCViewModel x:Key="LSTCVM"></viewmodel:LSTCViewModel>
+</ResourceDictionary>

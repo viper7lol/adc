@@ -1,0 +1,226 @@
+﻿<Window x:Class="adc.View.PhanBonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        DataContext="{StaticResource PBVM}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Name="PBView"
+                ResizeMode="NoResize"
+WindowStyle="None"
+WindowStartupLocation="CenterScreen"
+        Title="Quản lý phân bón" Height="600" Width="900">
+
+    <!-- Định nghĩa tài nguyên LinearGradientBrush màu cam -->
+    <Window.Resources>
+        <LinearGradientBrush x:Key="GradientBackground" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#FF7F00" Offset="0"/>
+            <!-- Màu cam sáng -->
+            <GradientStop Color="#FF4500" Offset="1"/>
+            <!-- Màu cam đậm -->
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=PBView}"></uc:ControllBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <TextBlock Grid.Row="0" Text="Quản lý danh mục phân bón" 
+                   FontSize="28" FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Foreground="DarkOrange" Margin="10"/>
+
+            <!-- Toolbar -->
+            <materialDesign:Card Grid.Row="1" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Input Fields -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox Text="{Binding TenPhanBon}" 
+                             Margin="5" 
+                             VerticalAlignment="Center" 
+                             materialDesign:HintAssist.Hint="Tên phân bón" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    </StackPanel>
+
+                    <!-- Buttons -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding TimKiemcommand}" 
+                        Content="Tìm kiếm" 
+                        Margin="5" 
+                        Width="100" 
+                        Background="DarkOrange"  
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                        materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding AddCommand}" 
+                            Content="Thêm" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkOrange"  
+                            />
+                        <Button Command="{Binding EditCommand}" 
+                            Content="Sửa" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkOrange" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        <Button Command="{Binding DeleteCommand}" 
+                            Content="Xóa" 
+                            Margin="5"
+                            Width="100" 
+                            Background="DarkOrange"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- Data Table -->
+            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding PhanBonList}" 
+                          SelectedItem="{Binding SelectedPhanBon, Mode=OneWayToSource}" 
+                          HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch">
+                        <ListView.View>
+                            <GridView>
+                                <!-- Mã phân bón -->
+                                <GridViewColumn Width="100">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="100" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Tên phân bón -->
+                                <GridViewColumn Width="170">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Tên phân bón" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding TenPhanBon}" TextAlignment="Center" Foreground="Black" Width="170" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Loại phân bón -->
+                                <GridViewColumn Width="170">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Loại phân bón" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding LoaiPhanBon}" TextAlignment="Center" Foreground="Black" Width="170" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+
+
+                                <!-- Ngày sản xuất -->
+                                <GridViewColumn Width="170">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Ngày sản xuất" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding NgaySanXuat}" TextAlignment="Center" Foreground="Black" Width="170" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Ngày hết hạn -->
+                                <GridViewColumn Width="160">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Ngày hết hạn" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding NgayHetHan}" TextAlignment="Center" Foreground="Black" Width="160"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!-- Mã cơ sở -->
+                                <GridViewColumn Width="150">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Mã cơ sở" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding NgayHetHan}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

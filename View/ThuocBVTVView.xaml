@@ -1,0 +1,218 @@
+﻿<Window x:Class="adc.View.ThuocBVTVView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{StaticResource TBVTVVM}"
+        Background="#F0F4F8"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+                ResizeMode="NoResize"
+WindowStyle="None"
+WindowStartupLocation="CenterScreen"
+        Name="TBVTVView"
+        Title="Quản lý thuốc BVTV" Height="600" Width="900">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=TBTVView}"></uc:ControllBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Tiêu đề -->
+            <TextBlock Grid.Row="0" Text="Quản lý thuốc BVTV"
+                   FontSize="28" FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Foreground="#4CAF50" Margin="10"/>
+
+            <!-- Toolbar -->
+            <materialDesign:Card Grid.Row="1" Padding="10" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Trường nhập liệu -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox Text="{Binding TenThuoc}"
+                             Margin="5"
+                             VerticalAlignment="Center"
+                             materialDesign:HintAssist.Hint="Tên thuốc BVTV"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    </StackPanel>
+
+                    <!-- Nút chức năng -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding TimKiemCommand}" Content="Tìm kiếm"
+                            Margin="5" Width="100" Background="#4CAF50"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding AddCommand}" Content="Thêm"
+                            Margin="5" Width="100" Background="#4CAF50"/>
+                        <Button Command="{Binding EditCommand}" Content="Sửa"
+                            Margin="5" Width="100" Background="#4CAF50"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        <Button Command="{Binding DeleteCommand}" Content="Xóa"
+                            Margin="5" Width="100" Background="#4CAF50"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- Bảng danh sách -->
+            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding ThuocBVTVList}"
+                          SelectedItem="{Binding SelectedThuocBVTV, Mode=OneWayToSource}"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListView.View>
+                            <GridView>
+                                <!-- Cột Mã thuốc -->
+                                <GridViewColumn Width="120">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="50"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="120"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Tên thuốc -->
+                                <GridViewColumn Width="180">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Tên thuốc" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="{Binding TenThuoc}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Loại thuốc -->
+                                <GridViewColumn Width="150">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Loại thuốc" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="{Binding LoaiThuoc}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Mô tả -->
+                                <GridViewColumn Width="150">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Mô tả" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="{Binding MoTa}" TextAlignment="Center" Foreground="Black"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Ngày sản xuất -->
+                                <GridViewColumn Width="150">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Ngày SX" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="{Binding NgaySanXuat}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Ngày hết hạn -->
+                                <GridViewColumn Width="130">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Ngày HH" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="60"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="{Binding NgayHetHan}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Cơ sở -->
+                                <GridViewColumn Width="180">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Cơ sở" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="{Binding CoSo.TenCoSo}" TextAlignment="Center" Foreground="Black"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,224 @@
+﻿<Window x:Class="adc.View.DonViHanhChinhView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{StaticResource DVHCVM}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Name="DVHCView"
+                        ResizeMode="NoResize"
+WindowStyle="None"
+WindowStartupLocation="CenterScreen"
+        Title="Quản lý đơn vị hành chính" Height="600" Width="900">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=DVHCView}"></uc:ControllBarUC>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- Title -->
+            <TextBlock Grid.Row="0" Text="Quản lý đơn vị hành chính" 
+                   FontSize="28" FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Foreground="DarkBlue"  Margin="10"/>
+
+            <!-- Toolbar -->
+            <materialDesign:Card Grid.Row="1" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                        <!-- Mã đơn vị -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding MaDonVi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                             Width="80" 
+                             materialDesign:HintAssist.Hint="Mã đơn vị" 
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="LocationCity" 
+                                 VerticalAlignment="Center" 
+                                 Margin="-100,10,0,0" 
+                                 Foreground="Gray" 
+                                 HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+
+                        <!-- Tên đơn vị hành chính -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding TenDonVi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                            Width="80" 
+                            materialDesign:HintAssist.Hint="Tên đơn vị" 
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="LocationCity" 
+                            VerticalAlignment="Center" 
+                            Margin="-100,10,0,0" 
+                            Foreground="Gray" 
+                            HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Cấp độ ID -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding CapDoID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                             Width="80" 
+                             materialDesign:HintAssist.Hint="Cấp độ ID" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="LocationCity" 
+                             VerticalAlignment="Center" 
+                             Margin="-100,10,0,0" 
+                             Foreground="Gray" 
+                             HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Buttons -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding SearchCommand}" 
+                            Content="Tìm kiếm" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="DarkBlue"  
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding AddCommand}" 
+                            Content="Thêm" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="Green"  
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                        <Button Command="{Binding EditCommand}" 
+                            Content="Sửa" 
+                            Margin="5" 
+                            Width="100" 
+                            Background="Orange" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        <Button Command="{Binding DeleteCommand}" 
+                            Content="Xóa" 
+                            Margin="5"
+                            Width="100" 
+                            Background="Red" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+
+
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding DonViList}" 
+                  SelectedItem="{Binding SelectedDonVi, Mode=TwoWay}" 
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <ListView.View>
+                            <GridView>
+                                <!-- Cột Mã đơn vị -->
+                                <GridViewColumn Width="220">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkBlue" Padding="5">
+                                                <TextBlock Text="Mã đơn vị" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="225"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding MaDonVi}" TextAlignment="Center" Foreground="Black" Width="200"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!-- Cột Tên đơn vị -->
+                                <GridViewColumn Width="300">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkBlue" Padding="5">
+                                                <TextBlock Text="Tên đơn vị"  Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="250"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding TenDonVi}" TextAlignment="Center" Foreground="Black" Width="250"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Cấp độ -->
+                                <GridViewColumn Width="180">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkBlue" Padding="5">
+                                                <TextBlock Text="Cấp độ" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="105"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding CapDoID}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <!-- Cột Cấp trên -->
+                                <GridViewColumn Width="180">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="DarkBlue" BorderBrush="DarkBlue" BorderThickness="2,0,2,0"  Padding="5" >
+                                                <TextBlock Text="Cấp trên"  Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="105"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding CapTrenID}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.Resources>
+                            <!-- Style cho Header -->
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="DarkBlue"/>
+                                <Setter Property="BorderBrush" Value="Gray"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                            </Style>
+                        </ListView.Resources>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>
