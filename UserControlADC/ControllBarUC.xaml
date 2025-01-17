@@ -25,24 +25,23 @@
                         </Style>
                     </StackPanel.Resources>
                     <Button Command="{Binding MinimizeWindowCommand}" 
-                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            CommandParameter="{Binding ElementName=ucControllBar}"
                         ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="ForestGreen">
                         <materialDesign:PackIcon Kind="WindowMinimize" />
                     </Button>
                     <Button Command="{Binding MaximizeWindowCommand}" 
-                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            CommandParameter="{Binding ElementName=ucControllBar}"
                         ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="ForestGreen">
                         <materialDesign:PackIcon Kind="WindowMaximize" />
                     </Button>
                     <Button Command="{Binding CloseWindowCommand}" 
-                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            CommandParameter="{Binding ElementName=ucControllBar}"
                             ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="OrangeRed">
                         <materialDesign:PackIcon Kind="WindowClose" />
                     </Button>
                 </StackPanel>
 
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                    <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
                     <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{Binding Tag, ElementName=ucControlBar}"></TextBlock>
                 </StackPanel>
             </DockPanel>
