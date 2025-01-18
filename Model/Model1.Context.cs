@@ -13,10 +13,10 @@ namespace adc.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyTrongTrotEntities : DbContext
+    public partial class QuanLyTrongTrotEntities1 : DbContext
     {
-        public QuanLyTrongTrotEntities()
-            : base("name=QuanLyTrongTrotEntities")
+        public QuanLyTrongTrotEntities1()
+            : base("name=QuanLyTrongTrotEntities1")
         {
         }
     
@@ -25,21 +25,22 @@ namespace adc.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BanDoPhanBo> BanDoPhanBo { get; set; }
-        public virtual DbSet<CapDoHanhChinh> CapDoHanhChinh { get; set; }
-        public virtual DbSet<CoSo> CoSo { get; set; }
-        public virtual DbSet<DonViHanhChinh> DonViHanhChinh { get; set; }
-        public virtual DbSet<GiongCayTrong> GiongCayTrong { get; set; }
-        public virtual DbSet<LichSuTruyCap> LichSuTruyCap { get; set; }
-        public virtual DbSet<LoaiCayTrong> LoaiCayTrong { get; set; }
-        public virtual DbSet<LoaiCoSo> LoaiCoSo { get; set; }
-        public virtual DbSet<NguoiDung> NguoiDung { get; set; }
-        public virtual DbSet<PhanBon> PhanBon { get; set; }
-        public virtual DbSet<SinhVatGayHaiVaTuoiSau> SinhVatGayHaiVaTuoiSau { get; set; }
-        public virtual DbSet<SoLieuThongKe> SoLieuThongKe { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<ThuocBVTV> ThuocBVTV { get; set; }
-        public virtual DbSet<VaiTro> VaiTro { get; set; }
-        public virtual DbSet<VungTrong> VungTrong { get; set; }
+        public virtual DbSet<BanDoPhanBo> BanDoPhanBoes { get; set; }
+        public virtual DbSet<CapDoHanhChinh> CapDoHanhChinhs { get; set; }
+        public virtual DbSet<CoSo> CoSoes { get; set; }
+        public virtual DbSet<CoSoATTP> CoSoATTPs { get; set; }
+        public virtual DbSet<CoSoPB> CoSoPBs { get; set; }
+        public virtual DbSet<CoSoThuocBVTV> CoSoThuocBVTVs { get; set; }
+        public virtual DbSet<DonViHanhChinh> DonViHanhChinhs { get; set; }
+        public virtual DbSet<GiongCayTrong> GiongCayTrongs { get; set; }
+        public virtual DbSet<LichSuTruyCap> LichSuTruyCaps { get; set; }
+        public virtual DbSet<LoaiCayTrong> LoaiCayTrongs { get; set; }
+        public virtual DbSet<LoaiCoSo> LoaiCoSoes { get; set; }
+        public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
+        public virtual DbSet<PhanBon> PhanBons { get; set; }
+        public virtual DbSet<SinhVatGayHaiVaTuoiSau> SinhVatGayHaiVaTuoiSaus { get; set; }
+        public virtual DbSet<ThuocBVTV> ThuocBVTVs { get; set; }
+        public virtual DbSet<VaiTro> VaiTroes { get; set; }
+        public virtual DbSet<VungTrong> VungTrongs { get; set; }
     }
 }

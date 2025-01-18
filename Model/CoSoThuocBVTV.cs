@@ -12,12 +12,16 @@ namespace adc.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class CoSoThuocBVTV
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int MaCoSo { get; set; }
+        public string TenCoSo { get; set; }
+        public string DiaChi { get; set; }
+        public Nullable<System.DateTime> NgayCapGiayPhep { get; set; }
+        public Nullable<int> LoaiCoSoID { get; set; }
+        public string MaHanhChinh { get; set; }
+    
+        public virtual LoaiCoSo LoaiCoSo { get; set; }
+        public virtual DonViHanhChinh DonViHanhChinh { get; set; }
     }
 }

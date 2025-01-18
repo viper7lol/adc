@@ -17,13 +17,13 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VaiTro()
         {
-            this.NguoiDung = new HashSet<NguoiDung>();
+            this.NguoiDungs = new HashSet<NguoiDung>();
         }
     
         public int ID { get; set; }
         public string TenVaiTro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NguoiDung> NguoiDung { get; set; }
+        public virtual ICollection<NguoiDung> NguoiDungs { get; set; }
     }
 }

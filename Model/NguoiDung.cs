@@ -17,7 +17,7 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NguoiDung()
         {
-            this.LichSuTruyCap = new HashSet<LichSuTruyCap>();
+            this.LichSuTruyCaps = new HashSet<LichSuTruyCap>();
         }
     
         public int ID { get; set; }
@@ -30,7 +30,7 @@ namespace adc.Model
     
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichSuTruyCap> LichSuTruyCap { get; set; }
+        public virtual ICollection<LichSuTruyCap> LichSuTruyCaps { get; set; }
         public virtual VaiTro VaiTro { get; set; }
     }
 }

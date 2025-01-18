@@ -17,10 +17,9 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VungTrong()
         {
-            this.BanDoPhanBo = new HashSet<BanDoPhanBo>();
-            this.GiongCayTrong = new HashSet<GiongCayTrong>();
-            this.SinhVatGayHaiVaTuoiSau = new HashSet<SinhVatGayHaiVaTuoiSau>();
-            this.SoLieuThongKe = new HashSet<SoLieuThongKe>();
+            this.BanDoPhanBoes = new HashSet<BanDoPhanBo>();
+            this.GiongCayTrongs = new HashSet<GiongCayTrong>();
+            this.SinhVatGayHaiVaTuoiSaus = new HashSet<SinhVatGayHaiVaTuoiSau>();
         }
     
         public int ID { get; set; }
@@ -29,13 +28,11 @@ namespace adc.Model
         public string MaVungTrongID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BanDoPhanBo> BanDoPhanBo { get; set; }
+        public virtual ICollection<BanDoPhanBo> BanDoPhanBoes { get; set; }
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiongCayTrong> GiongCayTrong { get; set; }
+        public virtual ICollection<GiongCayTrong> GiongCayTrongs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SinhVatGayHaiVaTuoiSau> SinhVatGayHaiVaTuoiSau { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SoLieuThongKe> SoLieuThongKe { get; set; }
+        public virtual ICollection<SinhVatGayHaiVaTuoiSau> SinhVatGayHaiVaTuoiSaus { get; set; }
     }
 }

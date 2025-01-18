@@ -17,10 +17,9 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CoSo()
         {
-            this.BanDoPhanBo = new HashSet<BanDoPhanBo>();
-            this.PhanBon = new HashSet<PhanBon>();
-            this.SoLieuThongKe = new HashSet<SoLieuThongKe>();
-            this.ThuocBVTV = new HashSet<ThuocBVTV>();
+            this.BanDoPhanBoes = new HashSet<BanDoPhanBo>();
+            this.PhanBons = new HashSet<PhanBon>();
+            this.ThuocBVTVs = new HashSet<ThuocBVTV>();
         }
     
         public int MaCoSo { get; set; }
@@ -28,18 +27,15 @@ namespace adc.Model
         public string DiaChi { get; set; }
         public Nullable<System.DateTime> NgayCapGiayPhep { get; set; }
         public Nullable<int> LoaiCoSoID { get; set; }
-        public Nullable<byte> TinhTrang { get; set; }
         public string MaHanhChinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BanDoPhanBo> BanDoPhanBo { get; set; }
+        public virtual ICollection<BanDoPhanBo> BanDoPhanBoes { get; set; }
         public virtual LoaiCoSo LoaiCoSo { get; set; }
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanBon> PhanBon { get; set; }
+        public virtual ICollection<PhanBon> PhanBons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SoLieuThongKe> SoLieuThongKe { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThuocBVTV> ThuocBVTV { get; set; }
+        public virtual ICollection<ThuocBVTV> ThuocBVTVs { get; set; }
     }
 }

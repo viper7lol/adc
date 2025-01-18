@@ -14,12 +14,6 @@ namespace adc.Model
     
     public partial class GiongCayTrong
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GiongCayTrong()
-        {
-            this.SoLieuThongKe = new HashSet<SoLieuThongKe>();
-        }
-    
         public int MaCayTrong { get; set; }
         public string TenGiongCay { get; set; }
         public Nullable<int> LoaiCayTrongID { get; set; }
@@ -28,7 +22,5 @@ namespace adc.Model
     
         public virtual LoaiCayTrong LoaiCayTrong { get; set; }
         public virtual VungTrong VungTrong { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SoLieuThongKe> SoLieuThongKe { get; set; }
     }
 }

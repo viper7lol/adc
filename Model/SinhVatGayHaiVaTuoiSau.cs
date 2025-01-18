@@ -14,12 +14,6 @@ namespace adc.Model
     
     public partial class SinhVatGayHaiVaTuoiSau
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SinhVatGayHaiVaTuoiSau()
-        {
-            this.SoLieuThongKe = new HashSet<SoLieuThongKe>();
-        }
-    
         public int ID { get; set; }
         public string TenSinhVat { get; set; }
         public string LoaiSinhVat { get; set; }
@@ -29,7 +23,5 @@ namespace adc.Model
         public Nullable<int> VungTrongID { get; set; }
     
         public virtual VungTrong VungTrong { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SoLieuThongKe> SoLieuThongKe { get; set; }
     }
 }

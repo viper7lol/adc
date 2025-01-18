@@ -17,13 +17,13 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiCayTrong()
         {
-            this.GiongCayTrong = new HashSet<GiongCayTrong>();
+            this.GiongCayTrongs = new HashSet<GiongCayTrong>();
         }
     
         public int ID { get; set; }
         public string TenLoaiCayTrong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiongCayTrong> GiongCayTrong { get; set; }
+        public virtual ICollection<GiongCayTrong> GiongCayTrongs { get; set; }
     }
 }

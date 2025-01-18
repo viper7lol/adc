@@ -12,15 +12,16 @@ namespace adc.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ThuocBVTV
+    public partial class CoSoPB
     {
-        public int ID { get; set; }
-        public string TenThuoc { get; set; }
-        public string LoaiThuoc { get; set; }
-        public Nullable<System.DateTime> NgaySanXuat { get; set; }
-        public Nullable<System.DateTime> NgayHetHan { get; set; }
-        public Nullable<int> CoSoID { get; set; }
+        public int MaCoSo { get; set; }
+        public string TenCoSo { get; set; }
+        public string DiaChi { get; set; }
+        public Nullable<System.DateTime> NgayCapGiayPhep { get; set; }
+        public Nullable<int> LoaiCoSoID { get; set; }
+        public string MaHanhChinh { get; set; }
     
-        public virtual CoSo CoSo { get; set; }
+        public virtual LoaiCoSo LoaiCoSo { get; set; }
+        public virtual DonViHanhChinh DonViHanhChinh { get; set; }
     }
 }

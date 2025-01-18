@@ -14,22 +14,13 @@ namespace adc.Model
     
     public partial class PhanBon
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PhanBon()
-        {
-            this.SoLieuThongKe = new HashSet<SoLieuThongKe>();
-        }
-    
         public int ID { get; set; }
         public string TenPhanBon { get; set; }
         public string LoaiPhanBon { get; set; }
-        public string MoTa { get; set; }
         public Nullable<System.DateTime> NgaySanXuat { get; set; }
         public Nullable<System.DateTime> NgayHetHan { get; set; }
         public Nullable<int> CoSoID { get; set; }
     
         public virtual CoSo CoSo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SoLieuThongKe> SoLieuThongKe { get; set; }
     }
 }
