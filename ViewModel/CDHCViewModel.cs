@@ -38,14 +38,14 @@ namespace adc.ViewModel
         public ICommand DeleteCommand { get; set; }
         public ICommand SearchCommand { get; set; }
         public CDHCViewModel() {
-            CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinh);
+            CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinhs);
             AddCommand = new RelayCommand<object>((p) =>
             {
                 return true;
             }, (p) =>
             {
                 var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
-                DataProvider.Ins.DB.CapDoHanhChinh.Add(capdo);
+                DataProvider.Ins.DB.CapDoHanhChinhs.Add(capdo);
                 DataProvider.Ins.DB.SaveChanges();
                 CapDoList.Add(capdo);
             });
@@ -56,7 +56,7 @@ namespace adc.ViewModel
                 {
                     return false;
                 }
-                var capdolist = DataProvider.Ins.DB.CapDoHanhChinh.Where(x => x.TenCapDo == TenCapDo);
+                var capdolist = DataProvider.Ins.DB.CapDoHanhChinhs.Where(x => x.TenCapDo == TenCapDo);
                 if (capdolist != null || capdolist.Count() != 0)
                 {
                     return true;
@@ -64,7 +64,7 @@ namespace adc.ViewModel
                 return true;
             }, (p) =>
             {
-                var capdohanhchinh = DataProvider.Ins.DB.CapDoHanhChinh.Where(x => x.ID == SelectedCapDo.ID).SingleOrDefault();
+                var capdohanhchinh = DataProvider.Ins.DB.CapDoHanhChinhs.Where(x => x.ID == SelectedCapDo.ID).SingleOrDefault();
                 capdohanhchinh.TenCapDo = TenCapDo;
                 DataProvider.Ins.DB.SaveChanges();
             });
@@ -74,7 +74,7 @@ namespace adc.ViewModel
                 {
                     return false;
                 }
-                var capdolist = DataProvider.Ins.DB.CapDoHanhChinh.Where(x => x.TenCapDo == TenCapDo);
+                var capdolist = DataProvider.Ins.DB.CapDoHanhChinhs.Where(x => x.TenCapDo == TenCapDo);
                 if (capdolist != null || capdolist.Count() != 0)
                 {
                     return true;
@@ -84,7 +84,7 @@ namespace adc.ViewModel
             {
                 var tencapdo = SelectedCapDo;
                 CapDoList.Remove(SelectedCapDo);
-                DataProvider.Ins.DB.CapDoHanhChinh.Remove(tencapdo);
+                DataProvider.Ins.DB.CapDoHanhChinhs.Remove(tencapdo);
                 DataProvider.Ins.DB.SaveChanges();
             });
             SearchCommand = new RelayCommand<object>((p) =>

@@ -14,7 +14,7 @@ namespace adc.ViewModel
         public ObservableCollection<NguoiDung> NguoiDungList { get => _NguoiDungList; set { _NguoiDungList = value; OnPropertyChanged(); } }
         public QLNDViewModel()
         {
-            NguoiDungList = new ObservableCollection<NguoiDung>(DataProvider.Ins.DB.NguoiDung);
+            NguoiDungList = new ObservableCollection<NguoiDung>(DataProvider.Ins.DB.NguoiDungs);
         }
     }
 }

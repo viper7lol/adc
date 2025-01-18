@@ -46,7 +46,7 @@ namespace adc.ViewModel
             staff
              */
 
-            var accCount = DataProvider.Ins.DB.NguoiDung.Where(x => x.TenNguoiDung == TenNguoiDung && x.MatKhau == MatKhau).Count();
+            var accCount = DataProvider.Ins.DB.NguoiDungs.Where(x => x.TenNguoiDung == TenNguoiDung && x.MatKhau == MatKhau).Count();
 
             if (accCount > 0)
             {

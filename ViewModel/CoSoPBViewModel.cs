@@ -40,14 +40,14 @@ namespace adc.ViewModel
         public ICommand AddCommand { get; set; }
         public CoSoPBViewModel()
         {
-            CoSoList = new ObservableCollection<CoSo>(DataProvider.Ins.DB.CoSo);
+            CoSoList = new ObservableCollection<CoSo>(DataProvider.Ins.DB.CoSoes);
             AddCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || string.IsNullOrEmpty(MaHanhChinh))
                 {
                     return false;
                 }
-                var cosolist = DataProvider.Ins.DB.CoSo.Where(x => x.MaCoSo == MaCoSo);
+                var cosolist = DataProvider.Ins.DB.CoSoes.Where(x => x.MaCoSo == MaCoSo);
                 if(cosolist == null || cosolist.Count() != 0)
                 {
                     return false;
@@ -56,7 +56,7 @@ namespace adc.ViewModel
 
             }, (P) => {
                 var coso = new CoSo() { MaCoSo = MaCoSo, TenCoSo = TenCoSo, DiaChi = DiaChi, MaHanhChinh = MaHanhChinh };
-                DataProvider.Ins.DB.CoSo.Add(coso);
+                DataProvider.Ins.DB.CoSoes.Add(coso);
                 DataProvider.Ins.DB.SaveChanges();
                 CoSoList.Add(coso);
             });

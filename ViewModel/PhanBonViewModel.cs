@@ -14,7 +14,7 @@ namespace adc.ViewModel
         public ObservableCollection<PhanBon> PhanBonList { get => _PhanBonList; set { _PhanBonList = value; OnPropertyChanged(); } }
         public PhanBonViewModel()
         {
-            PhanBonList = new ObservableCollection<PhanBon>(DataProvider.Ins.DB.PhanBon);
+            PhanBonList = new ObservableCollection<PhanBon>(DataProvider.Ins.DB.PhanBons);
         }
     }
 }

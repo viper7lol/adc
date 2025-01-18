@@ -23,11 +23,11 @@ namespace adc.Model
             }
         }
 
-        public QuanLyTrongTrotEntities DB { get; set; }
+        public QuanLyTrongTrotEntities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new QuanLyTrongTrotEntities();
+            DB = new QuanLyTrongTrotEntities1();
         }
     }
 }

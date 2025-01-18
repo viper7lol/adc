@@ -14,7 +14,7 @@ namespace adc.ViewModel
         public ObservableCollection<ThuocBVTV> ThuocBVTVList { get => _ThuocBVTVList; set { _ThuocBVTVList = value; OnPropertyChanged(); } }
         public ThuocBVTVViewModel()
         {
-            ThuocBVTVList = new ObservableCollection<ThuocBVTV>(DataProvider.Ins.DB.ThuocBVTV);
+            ThuocBVTVList = new ObservableCollection<ThuocBVTV>(DataProvider.Ins.DB.ThuocBVTVs);
         }
     }
 }

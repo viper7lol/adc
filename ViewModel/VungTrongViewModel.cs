@@ -14,7 +14,7 @@ namespace adc.ViewModel
             public ObservableCollection<VungTrong> VungTrongList { get => _VungTrongList; set { _VungTrongList = value; OnPropertyChanged(); } }
         public VungTrongViewModel()
         {
-            VungTrongList = new ObservableCollection<VungTrong>(DataProvider.Ins.DB.VungTrong);
+            VungTrongList = new ObservableCollection<VungTrong>(DataProvider.Ins.DB.VungTrongs);
         }
     }
 }
