@@ -50,34 +50,88 @@ WindowStartupLocation="CenterScreen"
                     </Grid.ColumnDefinitions>
 
                     <!-- Input Fields -->
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBox Text="{Binding TenGiongCay}" 
-                             Margin="5" 
-                             VerticalAlignment="Center" 
-                             materialDesign:HintAssist.Hint="Tên giống cây trồng" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    </StackPanel>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                        <!-- Tên giống cây -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding TenGiongCay}" 
+                                 Width="100" 
+                                 materialDesign:HintAssist.Hint="Tên giống cây" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Plant" 
+                                  VerticalAlignment="Center" 
+                                   Margin="-20,10,0,0" 
+                                   Foreground="Green" 
+                                   HorizontalAlignment="Right"/>
 
+                        </StackPanel>
+
+                        <!-- Loại cây trồng -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding LoaiCayTrong}" 
+              Width="100" 
+              materialDesign:HintAssist.Hint="Loại cây trồng" 
+              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Flower" 
+                  VerticalAlignment="Center" 
+                  Margin="-10,10,0,0" 
+                  Foreground="Orange" 
+                  HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Mô tả -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding MoTa}" 
+                                  Width="80" 
+                                  materialDesign:HintAssist.Hint="Mô tả" 
+                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Flower" 
+                              VerticalAlignment="Center" 
+                              Margin="-20,10,0,0" 
+                              Foreground="IndianRed" 
+                              HorizontalAlignment="Right"/>     
+
+                        </StackPanel>
+                        <!-- Vùng trồng -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding VungTrong}" 
+                                   Width="80" 
+                                   materialDesign:HintAssist.Hint="Vùng trồng" 
+                                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"/> 
+                            <materialDesign:PackIcon Kind="Location" 
+                                   VerticalAlignment="Center" 
+                                   Margin="-20,10,0,0" 
+                                   Foreground="DeepSkyBlue" 
+                                   HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                    </StackPanel>
                     <!-- Buttons -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding SearchCommand}" 
+                             Content="Tìm kiếm" 
+                             Margin="5" 
+                             Width="100" 
+                             Background="DarkSlateBlue" 
+                             materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>    
                         <Button Command="{Binding AddCommand}" 
                             Content="Thêm" 
                             Margin="5" 
                             Width="100" 
-                            Background="DarkGreen"  
+                            Background="GreenYellow"  
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                         <Button Command="{Binding EditCommand}" 
                             Content="Sửa" 
                             Margin="5" 
                             Width="100" 
-                            Background="DarkGreen" 
+                            Background="Orange" 
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
                             Content="Xóa" 
                             Margin="5"
                             Width="100" 
-                            Background="DarkGreen" 
+                            Background="DarkRed" 
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
