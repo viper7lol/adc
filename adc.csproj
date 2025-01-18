@@ -287,6 +287,9 @@
     <Compile Include="View\CoSoThuocBVTV.xaml.cs">
       <DependentUpon>CoSoThuocBVTV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\dangkypage.xaml.cs">
+      <DependentUpon>dangkypage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DonViHanhChinhView.xaml.cs">
       <DependentUpon>DonViHanhChinhView.xaml</DependentUpon>
     </Compile>
@@ -348,6 +351,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CoSoThuocBVTV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\dangkypage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -414,6 +421,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Linotte Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -430,6 +440,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\anhnguoinongdan.jpg" />
     <Resource Include="niem-vui-duoc-mua-56-0.jpg" />
     <Resource Include="Resources\logo_Mqo_icon.ico" />
     <Resource Include="Resources\logo.png" />

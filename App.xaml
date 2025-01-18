@@ -10,8 +10,11 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-                <ResourceDictionary Source="/ResourceXAML/MainResource.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceXAML/MainResource.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+            
+            <FontFamily x:Key="CustomFont">pack://application:,,,/Resources/#Linotte</FontFamily>
+        </ResourceDictionary> 
     </Application.Resources>
 </Application>

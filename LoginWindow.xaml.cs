@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using adc.UserControllADC;
+using adc.View;
 
 namespace adc
 {
@@ -23,6 +24,12 @@ namespace adc
         public LoginWindow()
         {
             InitializeComponent();
-        }
+			MainFrame.Navigate(null);
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			MainFrame.Navigate(new dangkypage());
+		}
     }
 }
