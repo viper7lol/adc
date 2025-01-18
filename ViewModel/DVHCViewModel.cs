@@ -86,7 +86,7 @@ namespace adc.ViewModel
                 string searchMa = MaDonVi;
                 string searchTen = TenDonVi;
                 int searchCapDo = CapDoID;
-                if (searchMa != null &&searchTen != null &&searchCapDo > 0) {
+                if (searchMa != null && searchTen != null && searchCapDo > 0) {
                     foreach (var item in DonViList) {
                         if (item.MaDonVi.Contains(searchMa) && item.TenDonVi.Contains(searchTen) && item.CapDoID.Equals(searchCapDo)) SelectedDonVi = item;
                     }
