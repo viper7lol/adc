@@ -96,7 +96,6 @@ WindowStartupLocation="CenterScreen"
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding SearchCommand}" 
                             Content="Tìm kiếm"
-                            Click="SearchButton_Click"
                             Margin="5" 
                             Width="100" 
                             Background="DarkBlue"  
