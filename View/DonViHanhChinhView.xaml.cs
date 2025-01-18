@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using adc.ViewModel;
 
 namespace adc.View
 {
@@ -19,9 +20,24 @@ namespace adc.View
     /// </summary>
     public partial class DonViHanhChinhView : Window
     {
+        private DVHCViewModel DVHCVM;
         public DonViHanhChinhView()
         {
             InitializeComponent();
+            DVHCVM = new DVHCViewModel();
+            DataContext = DVHCVM;
+            DVHCVM.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == nameof(DVHCVM.SelectedDonVi))
+                {
+                    if (DVHCVM.SelectedDonVi != null)
+                    {
+                        {
+                            ListViewControll.ScrollIntoView(DVHCVM.SelectedDonVi);
+                        }
+                    }
+                }
+            };
         }
     }
 }

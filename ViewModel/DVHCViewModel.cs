@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using adc.Model;
-using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows;
+using adc.View;
 
 namespace adc.ViewModel
 {
@@ -29,6 +30,7 @@ namespace adc.ViewModel
                     CapDoID = SelectedDonVi.CapDoID;
                     CapTrenID = SelectedDonVi.CapTrenID;
                 }
+                
             }
         }
         private string _MaDonVi;
@@ -42,6 +44,7 @@ namespace adc.ViewModel
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
         public DVHCViewModel()
         {
             DonViList = new ObservableCollection<DonViHanhChinh>(DataProvider.Ins.DB.DonViHanhChinh);
@@ -75,6 +78,22 @@ namespace adc.ViewModel
                 donvihanhchinh.TenDonVi = TenDonVi;
                 donvihanhchinh.CapDoID = CapDoID;
                 DataProvider.Ins.DB.SaveChanges();
+            });
+            SearchCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) => {
+                string searchMa = MaDonVi;
+                string searchTen = TenDonVi;
+                int searchCapDo = CapDoID;
+                if (searchMa != null &&searchTen != null &&searchCapDo > 0) {
+                    foreach (var item in DonViList) {
+                        if (item.MaDonVi.Contains(searchMa) && item.TenDonVi.Contains(searchTen) && item.CapDoID.Equals(searchCapDo)) SelectedDonVi = item;
+                    }
+                } else
+                {
+                    MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             });
         }
     }

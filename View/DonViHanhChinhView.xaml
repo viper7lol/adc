@@ -95,7 +95,8 @@ WindowStartupLocation="CenterScreen"
                     <!-- Buttons -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding SearchCommand}" 
-                            Content="Tìm kiếm" 
+                            Content="Tìm kiếm"
+                            Click="SearchButton_Click"
                             Margin="5" 
                             Width="100" 
                             Background="DarkBlue"  
@@ -126,8 +127,8 @@ WindowStartupLocation="CenterScreen"
                 </Grid>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView ItemsSource="{Binding DonViList}" 
+                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                    <ListView ItemsSource="{Binding DonViList}" x:Name="ListViewControll"
                   SelectedItem="{Binding SelectedDonVi, Mode=TwoWay}" 
                   HorizontalAlignment="Stretch" 
                   VerticalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}">
