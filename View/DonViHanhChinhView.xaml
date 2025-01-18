@@ -90,6 +90,19 @@ WindowStartupLocation="CenterScreen"
                              HorizontalAlignment="Right"/>
 
                         </StackPanel>
+                        <!-- Cấp trên ID -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding CapTrenID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+       Width="80" 
+       materialDesign:HintAssist.Hint="Cấp trên ID" 
+       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="LocationCity" 
+       VerticalAlignment="Center" 
+       Margin="-100,10,0,0" 
+       Foreground="Gray" 
+       HorizontalAlignment="Right"/>
+
+                        </StackPanel>
                     </StackPanel>
 
                     <!-- Buttons -->
