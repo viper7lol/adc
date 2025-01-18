@@ -25,7 +25,7 @@ WindowStartupLocation="CenterScreen"
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControllBarUC Tag="{Binding Title, ElementName=TBTVView}"></uc:ControllBarUC>
+            <uc:ControllBarUC Tag="{Binding Title, ElementName=TBVTVView}"></uc:ControllBarUC>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>

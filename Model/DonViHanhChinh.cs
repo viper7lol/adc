@@ -30,7 +30,8 @@ namespace adc.Model
         public string TenDonVi { get => _TenDonVi; set { _TenDonVi = value; OnPropertyChanged(); } }
         private int _CapDoID;
         public int CapDoID { get => _CapDoID; set { _CapDoID = value; OnPropertyChanged(); } }
-        public string CapTrenID { get; set; }
+        private string _CapTrenID;
+        public string CapTrenID { get => _CapTrenID; set { _CapTrenID = value; OnPropertyChanged(); } }
     
         public virtual CapDoHanhChinh CapDoHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

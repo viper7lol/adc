@@ -92,8 +92,8 @@
             <!-- List View to display Data -->
             <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView ItemsSource="{Binding CapDoList}" 
-                          SelectedItem="{Binding SelectedCapDo, Mode=OneWayToSource}" 
+                    <ListView  ItemsSource="{Binding CapDoList}" 
+                          SelectedItem="{Binding SelectedCapDo, Mode=TwoWay}" 
                           HorizontalAlignment="Stretch" 
                           VerticalAlignment="Stretch">
                         <ListView.View>
