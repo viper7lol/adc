@@ -7,6 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
          mc:Ignorable="d" 
+      DataContext="{StaticResource dkVM}"
       Title="dangkypage" Width="278" Height="340">
 
     <Grid Margin="0,0,0,0">
@@ -20,29 +21,35 @@
                        Margin="57,24,57,0" TextWrapping="Wrap" Text="Đăng Kí" VerticalAlignment="Top"/>
         </Border>
 
-        <TextBox materialDesign:HintAssist.Hint="Tài Khoản" Padding="0"
+        <TextBox materialDesign:HintAssist.Hint="Tài Khoản" Padding="0" Text="{Binding TenNguoiDung}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="37,92,0,0" 
                  Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="202"/>
-        <TextBox materialDesign:HintAssist.Hint="Email"
+            <TextBox materialDesign:HintAssist.Hint="Email" Text="{Binding Email}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="37,132,0,0" Padding="0"
                 Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="202"/>
         <TextBox materialDesign:HintAssist.Hint="Họ và tên"
                  Padding="0"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="202" Margin="37,173,0,0" TextChanged="TextBox_TextChanged"/>
-        <PasswordBox
-                x:Name="FloatingPasswordBox"
+        <PasswordBox x:Name="FloatingPasswordBox"
                 materialDesign:HintAssist.Hint="Mật Khẩu"
                 Padding="0"
                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Height="34" 
-                VerticalAlignment="Top" Margin="37,217,39,0"  />
+                VerticalAlignment="Top" Margin="37,217,39,0" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="PasswordChanged">
+                    <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
+CommandParameter="{Binding ElementName=FloatingPasswordBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </PasswordBox>
         <Button
         Style="{StaticResource MaterialDesignRaisedAccentButton}"
         ToolTip="Resource name: MaterialDesignRaisedAccentButton"
         materialDesign:ButtonAssist.CornerRadius="15"
         materialDesign:RippleAssist.Feedback="#DD000000" Margin="37,265,0,0" 
         Content="Đăng Kí" FontSize="17" 
-        Command="{Binding LoginCommand}"
+        Command="{Binding SignUpCommand}"
         FontFamily="Segoe UI Black" Foreground="#DDFFFFFF" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="202" Background="#FF0C8329" BorderBrush="{x:Null}"/>
         <TextBlock HorizontalAlignment="Right" Height="17" Margin="0,305,103,0" 
                    TextWrapping="Wrap" VerticalAlignment="Top" Width="104">

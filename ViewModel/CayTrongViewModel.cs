@@ -72,10 +72,10 @@ namespace adc.ViewModel
                 return true;
             }, (p) =>
             {
-                var giongcaytrong = DataProvider.Ins.DB.DonViHanhChinhs.Where(x => x.MaDonVi == SelectedDonVi.MaDonVi).SingleOrDefault();
-                donvihanhchinh.MaDonVi = MaDonVi;
-                donvihanhchinh.TenDonVi = TenDonVi;
-                donvihanhchinh.CapDoID = CapDoID;
+                var giongcaytrong = DataProvider.Ins.DB.GiongCayTrongs.Where(x => x.MaCayTrong == SelectedGiongCayTrong.MaCayTrong).SingleOrDefault();
+                SelectedGiongCayTrong.MaCayTrong = MaCayTrong;
+                SelectedGiongCayTrong.TenGiongCay = TenGiongCay;
+                SelectedGiongCayTrong.MoTa = MoTa;
                 DataProvider.Ins.DB.SaveChanges();
             });
         }
