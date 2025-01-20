@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace adc.View
 {
 	/// <summary>
-	/// Interaction logic for dangkypage.xaml
+	/// Interaction logic for signup.xaml
 	/// </summary>
-	public partial class dangkypage : Page
+	public partial class signup : Window
 	{
-		public dangkypage()
+		public signup()
 		{
 			InitializeComponent();
-		}
-
-		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-		{
-
 		}
 	}
 }

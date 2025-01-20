@@ -25,6 +25,7 @@
             <LineBreak />
             TỈNH BẮC NINH
         </TextBlock>
+        
         <Border CornerRadius="15" BorderThickness="2" 
                 HorizontalAlignment="Left" VerticalAlignment="Center" Height="263" Width="277" 
                 BorderBrush="Transparent" Grid.Column="1">
@@ -65,12 +66,8 @@
                     Content="Đăng kí" FontSize="12" Foreground="DarkOliveGreen"
                     Background="Transparent"
                     BorderBrush="Transparent"
-                    Padding="0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="59" Click="Button_Click"/>
+                    Padding="0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="59"/>
             </Grid>
         </Border>
-        
-        
-        <!-- frame cho dang ky va dang nhap-->
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Width="277" />
     </Grid>
 </Window>

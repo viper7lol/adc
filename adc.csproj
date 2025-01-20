@@ -290,9 +290,6 @@
     <Compile Include="View\CoSoThuocBVTV.xaml.cs">
       <DependentUpon>CoSoThuocBVTV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\dangkypage.xaml.cs">
-      <DependentUpon>dangkypage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\DonViHanhChinhView.xaml.cs">
       <DependentUpon>DonViHanhChinhView.xaml</DependentUpon>
     </Compile>
@@ -307,6 +304,9 @@
     </Compile>
     <Compile Include="View\QuanLyNguoiDungView.xaml.cs">
       <DependentUpon>QuanLyNguoiDungView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\signup.xaml.cs">
+      <DependentUpon>signup.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SinhVatGayHaiTuoiSauView.xaml.cs">
       <DependentUpon>SinhVatGayHaiTuoiSauView.xaml</DependentUpon>
@@ -357,10 +357,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\dangkypage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\DonViHanhChinhView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -378,6 +374,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\QuanLyNguoiDungView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\signup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
