@@ -17,22 +17,19 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiCoSo()
         {
-            this.CoSoes = new HashSet<CoSo>();
-            this.CoSoATTPs = new HashSet<CoSoATTP>();
-            this.CoSoPBs = new HashSet<CoSoPB>();
-            this.CoSoThuocBVTVs = new HashSet<CoSoThuocBVTV>();
+            this.CoSoATTP = new HashSet<CoSoATTP>();
+            this.CoSoPB = new HashSet<CoSoPB>();
+            this.CoSoThuocBVTV = new HashSet<CoSoThuocBVTV>();
         }
     
         public int ID { get; set; }
         public string TenLoaiCoSo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSo> CoSoes { get; set; }
+        public virtual ICollection<CoSoATTP> CoSoATTP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSoATTP> CoSoATTPs { get; set; }
+        public virtual ICollection<CoSoPB> CoSoPB { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSoPB> CoSoPBs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoSoThuocBVTV> CoSoThuocBVTVs { get; set; }
+        public virtual ICollection<CoSoThuocBVTV> CoSoThuocBVTV { get; set; }
     }
 }

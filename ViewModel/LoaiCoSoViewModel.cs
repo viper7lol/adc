@@ -14,7 +14,7 @@ namespace adc.ViewModel
         public ObservableCollection<LoaiCoSo> LoaiCoSoList { get => _LoaiCoSoList; set { _LoaiCoSoList = value; OnPropertyChanged(); } }
         public LoaiCoSoViewModel()
         {
-            LoaiCoSoList = new ObservableCollection<LoaiCoSo>(DataProvider.Ins.DB.LoaiCoSoes);
+            LoaiCoSoList = new ObservableCollection<LoaiCoSo>(DataProvider.Ins.DB.LoaiCoSo);
         }
     }
 }

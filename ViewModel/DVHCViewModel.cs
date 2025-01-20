@@ -47,14 +47,14 @@ namespace adc.ViewModel
         public ICommand SearchCommand { get; set; }
         public DVHCViewModel()
         {
-            DonViList = new ObservableCollection<DonViHanhChinh>(DataProvider.Ins.DB.DonViHanhChinhs);
+            DonViList = new ObservableCollection<DonViHanhChinh>(DataProvider.Ins.DB.DonViHanhChinh);
             AddCommand = new RelayCommand<object>((p) =>
             {
                 return true;
             }, (p) =>
             {
                 var donvi = new DonViHanhChinh() { MaDonVi = MaDonVi, TenDonVi = TenDonVi, CapDoID = CapDoID, CapTrenID = CapTrenID };
-                DataProvider.Ins.DB.DonViHanhChinhs.Add(donvi);
+                DataProvider.Ins.DB.DonViHanhChinh.Add(donvi);
                 DataProvider.Ins.DB.SaveChanges();
                 DonViList.Add(donvi);
             }
@@ -65,7 +65,7 @@ namespace adc.ViewModel
                 {
                     return false;
                 }
-                var donvilist = DataProvider.Ins.DB.DonViHanhChinhs.Where(x => x.MaDonVi == MaDonVi);
+                var donvilist = DataProvider.Ins.DB.DonViHanhChinh.Where(x => x.MaDonVi == MaDonVi);
                 if (donvilist != null || donvilist.Count() != 0)
                 {
                     return true;
@@ -73,7 +73,7 @@ namespace adc.ViewModel
                 return true;
             }, (p) =>
             {
-                var donvihanhchinh = DataProvider.Ins.DB.DonViHanhChinhs.Where(x => x.MaDonVi == SelectedDonVi.MaDonVi).SingleOrDefault();
+                var donvihanhchinh = DataProvider.Ins.DB.DonViHanhChinh.Where(x => x.MaDonVi == SelectedDonVi.MaDonVi).SingleOrDefault();
                 donvihanhchinh.MaDonVi = MaDonVi;
                 donvihanhchinh.TenDonVi = TenDonVi;
                 donvihanhchinh.CapDoID = CapDoID;

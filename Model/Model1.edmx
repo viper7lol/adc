@@ -5,33 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="QuanLyTrongTrotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="BanDoPhanBo">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="CoSoID" Type="int" />
-          <Property Name="KinhDo" Type="decimal" Precision="9" Scale="6" />
-          <Property Name="ViDo" Type="decimal" Precision="9" Scale="6" />
-          <Property Name="KhuSVID" Type="int" />
-        </EntityType>
         <EntityType Name="CapDoHanhChinh">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="TenCapDo" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CoSo">
-          <Key>
-            <PropertyRef Name="MaCoSo" />
-          </Key>
-          <Property Name="MaCoSo" Type="int" Nullable="false" />
-          <Property Name="TenCoSo" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
-          <Property Name="NgayCapGiayPhep" Type="date" />
-          <Property Name="LoaiCoSoID" Type="int" />
-          <Property Name="MaHanhChinh" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CoSoATTP">
           <Key>
@@ -112,24 +91,13 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenNguoiDung" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="MatKhau" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VaiTroID" Type="int" Nullable="false" />
           <Property Name="TrangThai" Type="tinyint" Nullable="false" />
           <Property Name="DonViHanhChinhID" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="PhanBon">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="TenPhanBon" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="LoaiPhanBon" Type="nvarchar" MaxLength="255" />
-          <Property Name="NgaySanXuat" Type="date" />
-          <Property Name="NgayHetHan" Type="date" />
-          <Property Name="CoSoID" Type="int" />
         </EntityType>
         <EntityType Name="SinhVatGayHaiVaTuoiSau">
           <Key>
@@ -143,17 +111,6 @@
           <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
           <Property Name="VungTrongID" Type="int" />
         </EntityType>
-        <EntityType Name="ThuocBVTV">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="TenThuoc" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="LoaiThuoc" Type="nvarchar" MaxLength="255" />
-          <Property Name="NgaySanXuat" Type="date" />
-          <Property Name="NgayHetHan" Type="date" />
-          <Property Name="CoSoID" Type="int" />
-        </EntityType>
         <EntityType Name="VaiTro">
           <Key>
             <PropertyRef Name="ID" />
@@ -165,60 +122,12 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenVungTrong" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
           <Property Name="MaVungTrongID" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__BanDoPhan__CoSoI__5832119F">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="0..1" />
-          <End Role="BanDoPhanBo" Type="Self.BanDoPhanBo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCoSo" />
-            </Principal>
-            <Dependent Role="BanDoPhanBo">
-              <PropertyRef Name="CoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__BanDoPhan__KhuSV__592635D8">
-          <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="0..1" />
-          <End Role="BanDoPhanBo" Type="Self.BanDoPhanBo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VungTrong">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BanDoPhanBo">
-              <PropertyRef Name="KhuSVID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CoSo__LoaiCoSoID__6CA31EA0">
-          <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiCoSo">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CoSo">
-              <PropertyRef Name="LoaiCoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CoSo__MaHanhChin__6D9742D9">
-          <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DonViHanhChinh">
-              <PropertyRef Name="MaDonVi" />
-            </Principal>
-            <Dependent Role="CoSo">
-              <PropertyRef Name="MaHanhChinh" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CoSoATTP__LoaiCo__4460231C">
+        <Association Name="FK__CoSoATTP__LoaiCo__5EBF139D">
           <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
           <End Role="CoSoATTP" Type="Self.CoSoATTP" Multiplicity="*" />
           <ReferentialConstraint>
@@ -230,7 +139,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoATTP__MaHanh__45544755">
+        <Association Name="FK__CoSoATTP__MaHanh__5FB337D6">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="CoSoATTP" Type="Self.CoSoATTP" Multiplicity="*" />
           <ReferentialConstraint>
@@ -242,7 +151,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoPB__LoaiCoSo__1A69E950">
+        <Association Name="FK__CoSoPB__LoaiCoSo__571DF1D5">
           <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
           <End Role="CoSoPB" Type="Self.CoSoPB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -254,7 +163,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoPB__MaHanhCh__1B5E0D89">
+        <Association Name="FK__CoSoPB__MaHanhCh__5812160E">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="CoSoPB" Type="Self.CoSoPB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -266,7 +175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoThuoc__LoaiC__3335971A">
+        <Association Name="FK__CoSoThuoc__LoaiC__5AEE82B9">
           <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
           <End Role="CoSoThuocBVTV" Type="Self.CoSoThuocBVTV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -278,7 +187,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoThuoc__MaHan__3429BB53">
+        <Association Name="FK__CoSoThuoc__MaHan__5BE2A6F2">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="CoSoThuocBVTV" Type="Self.CoSoThuocBVTV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -314,7 +223,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GiongCayT__LoaiC__44952D46">
+        <Association Name="FK__GiongCayT__LoaiC__4E88ABD4">
           <End Role="LoaiCayTrong" Type="Self.LoaiCayTrong" Multiplicity="0..1" />
           <End Role="GiongCayTrong" Type="Self.GiongCayTrong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -326,7 +235,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GiongCayT__VungT__4589517F">
+        <Association Name="FK__GiongCayT__VungT__4F7CD00D">
           <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="0..1" />
           <End Role="GiongCayTrong" Type="Self.GiongCayTrong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -338,7 +247,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LichSuTru__UserI__67DE6983">
+        <Association Name="FK__LichSuTru__UserI__49C3F6B7">
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
           <End Role="LichSuTruyCap" Type="Self.LichSuTruyCap" Multiplicity="*" />
           <ReferentialConstraint>
@@ -350,7 +259,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NguoiDung__DonVi__47DBAE45">
+        <Association Name="FK__NguoiDung__DonVi__4316F928">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
           <ReferentialConstraint>
@@ -362,7 +271,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NguoiDung__VaiTr__46E78A0C">
+        <Association Name="FK__NguoiDung__VaiTr__4222D4EF">
           <End Role="VaiTro" Type="Self.VaiTro" Multiplicity="1" />
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
           <ReferentialConstraint>
@@ -374,19 +283,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhanBon__CoSoID__5772F790">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="0..1" />
-          <End Role="PhanBon" Type="Self.PhanBon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCoSo" />
-            </Principal>
-            <Dependent Role="PhanBon">
-              <PropertyRef Name="CoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SinhVatGa__VungT__5C6CB6D7">
+        <Association Name="FK__SinhVatGa__VungT__52593CB8">
           <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="0..1" />
           <End Role="SinhVatGayHaiVaTuoiSau" Type="Self.SinhVatGayHaiVaTuoiSau" Multiplicity="*" />
           <ReferentialConstraint>
@@ -398,19 +295,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ThuocBVTV__CoSoI__5555A4F4">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="0..1" />
-          <End Role="ThuocBVTV" Type="Self.ThuocBVTV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCoSo" />
-            </Principal>
-            <Dependent Role="ThuocBVTV">
-              <PropertyRef Name="CoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__VungTrong__MaVun__09A971A2">
+        <Association Name="FK__VungTrong__MaVun__45F365D3">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -423,9 +308,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QuanLyTrongTrotModelStoreContainer">
-          <EntitySet Name="BanDoPhanBo" EntityType="Self.BanDoPhanBo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CapDoHanhChinh" EntityType="Self.CapDoHanhChinh" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoSoATTP" EntityType="Self.CoSoATTP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoSoPB" EntityType="Self.CoSoPB" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoSoThuocBVTV" EntityType="Self.CoSoThuocBVTV" Schema="dbo" store:Type="Tables" />
@@ -435,48 +318,30 @@
           <EntitySet Name="LoaiCayTrong" EntityType="Self.LoaiCayTrong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiCoSo" EntityType="Self.LoaiCoSo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PhanBon" EntityType="Self.PhanBon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SinhVatGayHaiVaTuoiSau" EntityType="Self.SinhVatGayHaiVaTuoiSau" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ThuocBVTV" EntityType="Self.ThuocBVTV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VaiTro" EntityType="Self.VaiTro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VungTrong" EntityType="Self.VungTrong" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BanDoPhan__CoSoI__5832119F" Association="Self.FK__BanDoPhan__CoSoI__5832119F">
-            <End Role="CoSo" EntitySet="CoSo" />
-            <End Role="BanDoPhanBo" EntitySet="BanDoPhanBo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BanDoPhan__KhuSV__592635D8" Association="Self.FK__BanDoPhan__KhuSV__592635D8">
-            <End Role="VungTrong" EntitySet="VungTrong" />
-            <End Role="BanDoPhanBo" EntitySet="BanDoPhanBo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CoSo__LoaiCoSoID__6CA31EA0" Association="Self.FK__CoSo__LoaiCoSoID__6CA31EA0">
-            <End Role="LoaiCoSo" EntitySet="LoaiCoSo" />
-            <End Role="CoSo" EntitySet="CoSo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CoSo__MaHanhChin__6D9742D9" Association="Self.FK__CoSo__MaHanhChin__6D9742D9">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
-            <End Role="CoSo" EntitySet="CoSo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CoSoATTP__LoaiCo__4460231C" Association="Self.FK__CoSoATTP__LoaiCo__4460231C">
+          <AssociationSet Name="FK__CoSoATTP__LoaiCo__5EBF139D" Association="Self.FK__CoSoATTP__LoaiCo__5EBF139D">
             <End Role="LoaiCoSo" EntitySet="LoaiCoSo" />
             <End Role="CoSoATTP" EntitySet="CoSoATTP" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSoATTP__MaHanh__45544755" Association="Self.FK__CoSoATTP__MaHanh__45544755">
+          <AssociationSet Name="FK__CoSoATTP__MaHanh__5FB337D6" Association="Self.FK__CoSoATTP__MaHanh__5FB337D6">
             <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
             <End Role="CoSoATTP" EntitySet="CoSoATTP" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSoPB__LoaiCoSo__1A69E950" Association="Self.FK__CoSoPB__LoaiCoSo__1A69E950">
+          <AssociationSet Name="FK__CoSoPB__LoaiCoSo__571DF1D5" Association="Self.FK__CoSoPB__LoaiCoSo__571DF1D5">
             <End Role="LoaiCoSo" EntitySet="LoaiCoSo" />
             <End Role="CoSoPB" EntitySet="CoSoPB" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSoPB__MaHanhCh__1B5E0D89" Association="Self.FK__CoSoPB__MaHanhCh__1B5E0D89">
+          <AssociationSet Name="FK__CoSoPB__MaHanhCh__5812160E" Association="Self.FK__CoSoPB__MaHanhCh__5812160E">
             <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
             <End Role="CoSoPB" EntitySet="CoSoPB" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSoThuoc__LoaiC__3335971A" Association="Self.FK__CoSoThuoc__LoaiC__3335971A">
+          <AssociationSet Name="FK__CoSoThuoc__LoaiC__5AEE82B9" Association="Self.FK__CoSoThuoc__LoaiC__5AEE82B9">
             <End Role="LoaiCoSo" EntitySet="LoaiCoSo" />
             <End Role="CoSoThuocBVTV" EntitySet="CoSoThuocBVTV" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSoThuoc__MaHan__3429BB53" Association="Self.FK__CoSoThuoc__MaHan__3429BB53">
+          <AssociationSet Name="FK__CoSoThuoc__MaHan__5BE2A6F2" Association="Self.FK__CoSoThuoc__MaHan__5BE2A6F2">
             <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
             <End Role="CoSoThuocBVTV" EntitySet="CoSoThuocBVTV" />
           </AssociationSet>
@@ -488,39 +353,31 @@
             <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
             <End Role="DonViHanhChinh1" EntitySet="DonViHanhChinh" />
           </AssociationSet>
-          <AssociationSet Name="FK__GiongCayT__LoaiC__44952D46" Association="Self.FK__GiongCayT__LoaiC__44952D46">
+          <AssociationSet Name="FK__GiongCayT__LoaiC__4E88ABD4" Association="Self.FK__GiongCayT__LoaiC__4E88ABD4">
             <End Role="LoaiCayTrong" EntitySet="LoaiCayTrong" />
             <End Role="GiongCayTrong" EntitySet="GiongCayTrong" />
           </AssociationSet>
-          <AssociationSet Name="FK__GiongCayT__VungT__4589517F" Association="Self.FK__GiongCayT__VungT__4589517F">
+          <AssociationSet Name="FK__GiongCayT__VungT__4F7CD00D" Association="Self.FK__GiongCayT__VungT__4F7CD00D">
             <End Role="VungTrong" EntitySet="VungTrong" />
             <End Role="GiongCayTrong" EntitySet="GiongCayTrong" />
           </AssociationSet>
-          <AssociationSet Name="FK__LichSuTru__UserI__67DE6983" Association="Self.FK__LichSuTru__UserI__67DE6983">
+          <AssociationSet Name="FK__LichSuTru__UserI__49C3F6B7" Association="Self.FK__LichSuTru__UserI__49C3F6B7">
             <End Role="NguoiDung" EntitySet="NguoiDung" />
             <End Role="LichSuTruyCap" EntitySet="LichSuTruyCap" />
           </AssociationSet>
-          <AssociationSet Name="FK__NguoiDung__DonVi__47DBAE45" Association="Self.FK__NguoiDung__DonVi__47DBAE45">
+          <AssociationSet Name="FK__NguoiDung__DonVi__4316F928" Association="Self.FK__NguoiDung__DonVi__4316F928">
             <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
             <End Role="NguoiDung" EntitySet="NguoiDung" />
           </AssociationSet>
-          <AssociationSet Name="FK__NguoiDung__VaiTr__46E78A0C" Association="Self.FK__NguoiDung__VaiTr__46E78A0C">
+          <AssociationSet Name="FK__NguoiDung__VaiTr__4222D4EF" Association="Self.FK__NguoiDung__VaiTr__4222D4EF">
             <End Role="VaiTro" EntitySet="VaiTro" />
             <End Role="NguoiDung" EntitySet="NguoiDung" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhanBon__CoSoID__5772F790" Association="Self.FK__PhanBon__CoSoID__5772F790">
-            <End Role="CoSo" EntitySet="CoSo" />
-            <End Role="PhanBon" EntitySet="PhanBon" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SinhVatGa__VungT__5C6CB6D7" Association="Self.FK__SinhVatGa__VungT__5C6CB6D7">
+          <AssociationSet Name="FK__SinhVatGa__VungT__52593CB8" Association="Self.FK__SinhVatGa__VungT__52593CB8">
             <End Role="VungTrong" EntitySet="VungTrong" />
             <End Role="SinhVatGayHaiVaTuoiSau" EntitySet="SinhVatGayHaiVaTuoiSau" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThuocBVTV__CoSoI__5555A4F4" Association="Self.FK__ThuocBVTV__CoSoI__5555A4F4">
-            <End Role="CoSo" EntitySet="CoSo" />
-            <End Role="ThuocBVTV" EntitySet="ThuocBVTV" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VungTrong__MaVun__09A971A2" Association="Self.FK__VungTrong__MaVun__09A971A2">
+          <AssociationSet Name="FK__VungTrong__MaVun__45F365D3" Association="Self.FK__VungTrong__MaVun__45F365D3">
             <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
             <End Role="VungTrong" EntitySet="VungTrong" />
           </AssociationSet>
@@ -530,41 +387,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyTrongTrotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="BanDoPhanBo">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="CoSoID" Type="Int32" />
-          <Property Name="KinhDo" Type="Decimal" Precision="9" Scale="6" />
-          <Property Name="ViDo" Type="Decimal" Precision="9" Scale="6" />
-          <Property Name="KhuSVID" Type="Int32" />
-          <NavigationProperty Name="CoSo" Relationship="Self.FK__BanDoPhan__CoSoI__5832119F" FromRole="BanDoPhanBo" ToRole="CoSo" />
-          <NavigationProperty Name="VungTrong" Relationship="Self.FK__BanDoPhan__KhuSV__592635D8" FromRole="BanDoPhanBo" ToRole="VungTrong" />
-        </EntityType>
         <EntityType Name="CapDoHanhChinh">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="TenCapDo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DonViHanhChinhs" Relationship="Self.FK__DonViHanh__CapDo__3A81B327" FromRole="CapDoHanhChinh" ToRole="DonViHanhChinh" />
-        </EntityType>
-        <EntityType Name="CoSo">
-          <Key>
-            <PropertyRef Name="MaCoSo" />
-          </Key>
-          <Property Name="MaCoSo" Type="Int32" Nullable="false" />
-          <Property Name="TenCoSo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="NgayCapGiayPhep" Type="DateTime" Precision="0" />
-          <Property Name="LoaiCoSoID" Type="Int32" />
-          <Property Name="MaHanhChinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BanDoPhanBoes" Relationship="Self.FK__BanDoPhan__CoSoI__5832119F" FromRole="CoSo" ToRole="BanDoPhanBo" />
-          <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSo__LoaiCoSoID__6CA31EA0" FromRole="CoSo" ToRole="LoaiCoSo" />
-          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__CoSo__MaHanhChin__6D9742D9" FromRole="CoSo" ToRole="DonViHanhChinh" />
-          <NavigationProperty Name="PhanBons" Relationship="Self.FK__PhanBon__CoSoID__5772F790" FromRole="CoSo" ToRole="PhanBon" />
-          <NavigationProperty Name="ThuocBVTVs" Relationship="Self.FK__ThuocBVTV__CoSoI__5555A4F4" FromRole="CoSo" ToRole="ThuocBVTV" />
+          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__DonViHanh__CapDo__3A81B327" FromRole="CapDoHanhChinh" ToRole="DonViHanhChinh" />
         </EntityType>
         <EntityType Name="CoSoATTP">
           <Key>
@@ -576,8 +405,8 @@
           <Property Name="NgayCapGiayPhep" Type="DateTime" Precision="0" />
           <Property Name="LoaiCoSoID" Type="Int32" />
           <Property Name="MaHanhChinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSoATTP__LoaiCo__4460231C" FromRole="CoSoATTP" ToRole="LoaiCoSo" />
-          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__CoSoATTP__MaHanh__45544755" FromRole="CoSoATTP" ToRole="DonViHanhChinh" />
+          <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSoATTP__LoaiCo__5EBF139D" FromRole="CoSoATTP" ToRole="LoaiCoSo" />
+          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__CoSoATTP__MaHanh__5FB337D6" FromRole="CoSoATTP" ToRole="DonViHanhChinh" />
         </EntityType>
         <EntityType Name="CoSoPB">
           <Key>
@@ -589,8 +418,8 @@
           <Property Name="NgayCapGiayPhep" Type="DateTime" Precision="0" />
           <Property Name="LoaiCoSoID" Type="Int32" />
           <Property Name="MaHanhChinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSoPB__LoaiCoSo__1A69E950" FromRole="CoSoPB" ToRole="LoaiCoSo" />
-          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__CoSoPB__MaHanhCh__1B5E0D89" FromRole="CoSoPB" ToRole="DonViHanhChinh" />
+          <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSoPB__LoaiCoSo__571DF1D5" FromRole="CoSoPB" ToRole="LoaiCoSo" />
+          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__CoSoPB__MaHanhCh__5812160E" FromRole="CoSoPB" ToRole="DonViHanhChinh" />
         </EntityType>
         <EntityType Name="CoSoThuocBVTV">
           <Key>
@@ -602,8 +431,8 @@
           <Property Name="NgayCapGiayPhep" Type="DateTime" Precision="0" />
           <Property Name="LoaiCoSoID" Type="Int32" />
           <Property Name="MaHanhChinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSoThuoc__LoaiC__3335971A" FromRole="CoSoThuocBVTV" ToRole="LoaiCoSo" />
-          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__CoSoThuoc__MaHan__3429BB53" FromRole="CoSoThuocBVTV" ToRole="DonViHanhChinh" />
+          <NavigationProperty Name="LoaiCoSo" Relationship="Self.FK__CoSoThuoc__LoaiC__5AEE82B9" FromRole="CoSoThuocBVTV" ToRole="LoaiCoSo" />
+          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__CoSoThuoc__MaHan__5BE2A6F2" FromRole="CoSoThuocBVTV" ToRole="DonViHanhChinh" />
         </EntityType>
         <EntityType Name="DonViHanhChinh">
           <Key>
@@ -614,14 +443,13 @@
           <Property Name="CapDoID" Type="Int32" Nullable="false" />
           <Property Name="CapTrenID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CapDoHanhChinh" Relationship="Self.FK__DonViHanh__CapDo__3A81B327" FromRole="DonViHanhChinh" ToRole="CapDoHanhChinh" />
-          <NavigationProperty Name="CoSoes" Relationship="Self.FK__CoSo__MaHanhChin__6D9742D9" FromRole="DonViHanhChinh" ToRole="CoSo" />
-          <NavigationProperty Name="CoSoATTPs" Relationship="Self.FK__CoSoATTP__MaHanh__45544755" FromRole="DonViHanhChinh" ToRole="CoSoATTP" />
-          <NavigationProperty Name="CoSoPBs" Relationship="Self.FK__CoSoPB__MaHanhCh__1B5E0D89" FromRole="DonViHanhChinh" ToRole="CoSoPB" />
-          <NavigationProperty Name="CoSoThuocBVTVs" Relationship="Self.FK__CoSoThuoc__MaHan__3429BB53" FromRole="DonViHanhChinh" ToRole="CoSoThuocBVTV" />
+          <NavigationProperty Name="CoSoATTP" Relationship="Self.FK__CoSoATTP__MaHanh__5FB337D6" FromRole="DonViHanhChinh" ToRole="CoSoATTP" />
+          <NavigationProperty Name="CoSoPB" Relationship="Self.FK__CoSoPB__MaHanhCh__5812160E" FromRole="DonViHanhChinh" ToRole="CoSoPB" />
+          <NavigationProperty Name="CoSoThuocBVTV" Relationship="Self.FK__CoSoThuoc__MaHan__5BE2A6F2" FromRole="DonViHanhChinh" ToRole="CoSoThuocBVTV" />
           <NavigationProperty Name="DonViHanhChinh1" Relationship="Self.FK__DonViHanh__CapTr__3B75D760" FromRole="DonViHanhChinh" ToRole="DonViHanhChinh1" />
           <NavigationProperty Name="DonViHanhChinh2" Relationship="Self.FK__DonViHanh__CapTr__3B75D760" FromRole="DonViHanhChinh1" ToRole="DonViHanhChinh" />
-          <NavigationProperty Name="NguoiDungs" Relationship="Self.FK__NguoiDung__DonVi__47DBAE45" FromRole="DonViHanhChinh" ToRole="NguoiDung" />
-          <NavigationProperty Name="VungTrongs" Relationship="Self.FK__VungTrong__MaVun__09A971A2" FromRole="DonViHanhChinh" ToRole="VungTrong" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK__NguoiDung__DonVi__4316F928" FromRole="DonViHanhChinh" ToRole="NguoiDung" />
+          <NavigationProperty Name="VungTrong" Relationship="Self.FK__VungTrong__MaVun__45F365D3" FromRole="DonViHanhChinh" ToRole="VungTrong" />
         </EntityType>
         <EntityType Name="GiongCayTrong">
           <Key>
@@ -632,8 +460,8 @@
           <Property Name="LoaiCayTrongID" Type="Int32" />
           <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="VungTrongID" Type="Int32" />
-          <NavigationProperty Name="LoaiCayTrong" Relationship="Self.FK__GiongCayT__LoaiC__44952D46" FromRole="GiongCayTrong" ToRole="LoaiCayTrong" />
-          <NavigationProperty Name="VungTrong" Relationship="Self.FK__GiongCayT__VungT__4589517F" FromRole="GiongCayTrong" ToRole="VungTrong" />
+          <NavigationProperty Name="LoaiCayTrong" Relationship="Self.FK__GiongCayT__LoaiC__4E88ABD4" FromRole="GiongCayTrong" ToRole="LoaiCayTrong" />
+          <NavigationProperty Name="VungTrong" Relationship="Self.FK__GiongCayT__VungT__4F7CD00D" FromRole="GiongCayTrong" ToRole="VungTrong" />
         </EntityType>
         <EntityType Name="LichSuTruyCap">
           <Key>
@@ -643,7 +471,7 @@
           <Property Name="UserID" Type="Int32" />
           <Property Name="ThoiGianTruyCap" Type="DateTime" Precision="3" />
           <Property Name="MoTaHanhDong" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="NguoiDung" Relationship="Self.FK__LichSuTru__UserI__67DE6983" FromRole="LichSuTruyCap" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK__LichSuTru__UserI__49C3F6B7" FromRole="LichSuTruyCap" ToRole="NguoiDung" />
         </EntityType>
         <EntityType Name="LoaiCayTrong">
           <Key>
@@ -651,7 +479,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="TenLoaiCayTrong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="GiongCayTrongs" Relationship="Self.FK__GiongCayT__LoaiC__44952D46" FromRole="LoaiCayTrong" ToRole="GiongCayTrong" />
+          <NavigationProperty Name="GiongCayTrong" Relationship="Self.FK__GiongCayT__LoaiC__4E88ABD4" FromRole="LoaiCayTrong" ToRole="GiongCayTrong" />
         </EntityType>
         <EntityType Name="LoaiCoSo">
           <Key>
@@ -659,37 +487,24 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="TenLoaiCoSo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="CoSoes" Relationship="Self.FK__CoSo__LoaiCoSoID__6CA31EA0" FromRole="LoaiCoSo" ToRole="CoSo" />
-          <NavigationProperty Name="CoSoATTPs" Relationship="Self.FK__CoSoATTP__LoaiCo__4460231C" FromRole="LoaiCoSo" ToRole="CoSoATTP" />
-          <NavigationProperty Name="CoSoPBs" Relationship="Self.FK__CoSoPB__LoaiCoSo__1A69E950" FromRole="LoaiCoSo" ToRole="CoSoPB" />
-          <NavigationProperty Name="CoSoThuocBVTVs" Relationship="Self.FK__CoSoThuoc__LoaiC__3335971A" FromRole="LoaiCoSo" ToRole="CoSoThuocBVTV" />
+          <NavigationProperty Name="CoSoATTP" Relationship="Self.FK__CoSoATTP__LoaiCo__5EBF139D" FromRole="LoaiCoSo" ToRole="CoSoATTP" />
+          <NavigationProperty Name="CoSoPB" Relationship="Self.FK__CoSoPB__LoaiCoSo__571DF1D5" FromRole="LoaiCoSo" ToRole="CoSoPB" />
+          <NavigationProperty Name="CoSoThuocBVTV" Relationship="Self.FK__CoSoThuoc__LoaiC__5AEE82B9" FromRole="LoaiCoSo" ToRole="CoSoThuocBVTV" />
         </EntityType>
         <EntityType Name="NguoiDung">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenNguoiDung" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VaiTroID" Type="Int32" Nullable="false" />
           <Property Name="TrangThai" Type="Byte" Nullable="false" />
           <Property Name="DonViHanhChinhID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__NguoiDung__DonVi__47DBAE45" FromRole="NguoiDung" ToRole="DonViHanhChinh" />
-          <NavigationProperty Name="LichSuTruyCaps" Relationship="Self.FK__LichSuTru__UserI__67DE6983" FromRole="NguoiDung" ToRole="LichSuTruyCap" />
-          <NavigationProperty Name="VaiTro" Relationship="Self.FK__NguoiDung__VaiTr__46E78A0C" FromRole="NguoiDung" ToRole="VaiTro" />
-        </EntityType>
-        <EntityType Name="PhanBon">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="TenPhanBon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LoaiPhanBon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="NgaySanXuat" Type="DateTime" Precision="0" />
-          <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
-          <Property Name="CoSoID" Type="Int32" />
-          <NavigationProperty Name="CoSo" Relationship="Self.FK__PhanBon__CoSoID__5772F790" FromRole="PhanBon" ToRole="CoSo" />
+          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__NguoiDung__DonVi__4316F928" FromRole="NguoiDung" ToRole="DonViHanhChinh" />
+          <NavigationProperty Name="LichSuTruyCap" Relationship="Self.FK__LichSuTru__UserI__49C3F6B7" FromRole="NguoiDung" ToRole="LichSuTruyCap" />
+          <NavigationProperty Name="VaiTro" Relationship="Self.FK__NguoiDung__VaiTr__4222D4EF" FromRole="NguoiDung" ToRole="VaiTro" />
         </EntityType>
         <EntityType Name="SinhVatGayHaiVaTuoiSau">
           <Key>
@@ -702,19 +517,7 @@
           <Property Name="CapDoPhoBien" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="VungTrongID" Type="Int32" />
-          <NavigationProperty Name="VungTrong" Relationship="Self.FK__SinhVatGa__VungT__5C6CB6D7" FromRole="SinhVatGayHaiVaTuoiSau" ToRole="VungTrong" />
-        </EntityType>
-        <EntityType Name="ThuocBVTV">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="TenThuoc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LoaiThuoc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="NgaySanXuat" Type="DateTime" Precision="0" />
-          <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
-          <Property Name="CoSoID" Type="Int32" />
-          <NavigationProperty Name="CoSo" Relationship="Self.FK__ThuocBVTV__CoSoI__5555A4F4" FromRole="ThuocBVTV" ToRole="CoSo" />
+          <NavigationProperty Name="VungTrong" Relationship="Self.FK__SinhVatGa__VungT__52593CB8" FromRole="SinhVatGayHaiVaTuoiSau" ToRole="VungTrong" />
         </EntityType>
         <EntityType Name="VaiTro">
           <Key>
@@ -722,45 +525,20 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="TenVaiTro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="NguoiDungs" Relationship="Self.FK__NguoiDung__VaiTr__46E78A0C" FromRole="VaiTro" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK__NguoiDung__VaiTr__4222D4EF" FromRole="VaiTro" ToRole="NguoiDung" />
         </EntityType>
         <EntityType Name="VungTrong">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenVungTrong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="MaVungTrongID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BanDoPhanBoes" Relationship="Self.FK__BanDoPhan__KhuSV__592635D8" FromRole="VungTrong" ToRole="BanDoPhanBo" />
-          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__VungTrong__MaVun__09A971A2" FromRole="VungTrong" ToRole="DonViHanhChinh" />
-          <NavigationProperty Name="GiongCayTrongs" Relationship="Self.FK__GiongCayT__VungT__4589517F" FromRole="VungTrong" ToRole="GiongCayTrong" />
-          <NavigationProperty Name="SinhVatGayHaiVaTuoiSaus" Relationship="Self.FK__SinhVatGa__VungT__5C6CB6D7" FromRole="VungTrong" ToRole="SinhVatGayHaiVaTuoiSau" />
+          <NavigationProperty Name="DonViHanhChinh" Relationship="Self.FK__VungTrong__MaVun__45F365D3" FromRole="VungTrong" ToRole="DonViHanhChinh" />
+          <NavigationProperty Name="GiongCayTrong" Relationship="Self.FK__GiongCayT__VungT__4F7CD00D" FromRole="VungTrong" ToRole="GiongCayTrong" />
+          <NavigationProperty Name="SinhVatGayHaiVaTuoiSau" Relationship="Self.FK__SinhVatGa__VungT__52593CB8" FromRole="VungTrong" ToRole="SinhVatGayHaiVaTuoiSau" />
         </EntityType>
-        <Association Name="FK__BanDoPhan__CoSoI__5832119F">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="0..1" />
-          <End Role="BanDoPhanBo" Type="Self.BanDoPhanBo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCoSo" />
-            </Principal>
-            <Dependent Role="BanDoPhanBo">
-              <PropertyRef Name="CoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__BanDoPhan__KhuSV__592635D8">
-          <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="0..1" />
-          <End Role="BanDoPhanBo" Type="Self.BanDoPhanBo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VungTrong">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BanDoPhanBo">
-              <PropertyRef Name="KhuSVID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__DonViHanh__CapDo__3A81B327">
           <End Role="CapDoHanhChinh" Type="Self.CapDoHanhChinh" Multiplicity="1" />
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="*" />
@@ -773,55 +551,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSo__LoaiCoSoID__6CA31EA0">
-          <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiCoSo">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CoSo">
-              <PropertyRef Name="LoaiCoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CoSo__MaHanhChin__6D9742D9">
-          <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DonViHanhChinh">
-              <PropertyRef Name="MaDonVi" />
-            </Principal>
-            <Dependent Role="CoSo">
-              <PropertyRef Name="MaHanhChinh" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhanBon__CoSoID__5772F790">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="0..1" />
-          <End Role="PhanBon" Type="Self.PhanBon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCoSo" />
-            </Principal>
-            <Dependent Role="PhanBon">
-              <PropertyRef Name="CoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ThuocBVTV__CoSoI__5555A4F4">
-          <End Role="CoSo" Type="Self.CoSo" Multiplicity="0..1" />
-          <End Role="ThuocBVTV" Type="Self.ThuocBVTV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CoSo">
-              <PropertyRef Name="MaCoSo" />
-            </Principal>
-            <Dependent Role="ThuocBVTV">
-              <PropertyRef Name="CoSoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CoSoATTP__LoaiCo__4460231C">
+        <Association Name="FK__CoSoATTP__LoaiCo__5EBF139D">
           <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
           <End Role="CoSoATTP" Type="Self.CoSoATTP" Multiplicity="*" />
           <ReferentialConstraint>
@@ -833,7 +563,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoATTP__MaHanh__45544755">
+        <Association Name="FK__CoSoATTP__MaHanh__5FB337D6">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="CoSoATTP" Type="Self.CoSoATTP" Multiplicity="*" />
           <ReferentialConstraint>
@@ -845,7 +575,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoPB__LoaiCoSo__1A69E950">
+        <Association Name="FK__CoSoPB__LoaiCoSo__571DF1D5">
           <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
           <End Role="CoSoPB" Type="Self.CoSoPB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -857,7 +587,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoPB__MaHanhCh__1B5E0D89">
+        <Association Name="FK__CoSoPB__MaHanhCh__5812160E">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="CoSoPB" Type="Self.CoSoPB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -869,7 +599,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoThuoc__LoaiC__3335971A">
+        <Association Name="FK__CoSoThuoc__LoaiC__5AEE82B9">
           <End Role="LoaiCoSo" Type="Self.LoaiCoSo" Multiplicity="0..1" />
           <End Role="CoSoThuocBVTV" Type="Self.CoSoThuocBVTV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -881,7 +611,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CoSoThuoc__MaHan__3429BB53">
+        <Association Name="FK__CoSoThuoc__MaHan__5BE2A6F2">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="CoSoThuocBVTV" Type="Self.CoSoThuocBVTV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -905,7 +635,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NguoiDung__DonVi__47DBAE45">
+        <Association Name="FK__NguoiDung__DonVi__4316F928">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
           <ReferentialConstraint>
@@ -917,7 +647,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VungTrong__MaVun__09A971A2">
+        <Association Name="FK__VungTrong__MaVun__45F365D3">
           <End Role="DonViHanhChinh" Type="Self.DonViHanhChinh" Multiplicity="0..1" />
           <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -929,7 +659,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GiongCayT__LoaiC__44952D46">
+        <Association Name="FK__GiongCayT__LoaiC__4E88ABD4">
           <End Role="LoaiCayTrong" Type="Self.LoaiCayTrong" Multiplicity="0..1" />
           <End Role="GiongCayTrong" Type="Self.GiongCayTrong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -941,7 +671,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__GiongCayT__VungT__4589517F">
+        <Association Name="FK__GiongCayT__VungT__4F7CD00D">
           <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="0..1" />
           <End Role="GiongCayTrong" Type="Self.GiongCayTrong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -953,7 +683,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LichSuTru__UserI__67DE6983">
+        <Association Name="FK__LichSuTru__UserI__49C3F6B7">
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
           <End Role="LichSuTruyCap" Type="Self.LichSuTruyCap" Multiplicity="*" />
           <ReferentialConstraint>
@@ -965,7 +695,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NguoiDung__VaiTr__46E78A0C">
+        <Association Name="FK__NguoiDung__VaiTr__4222D4EF">
           <End Role="VaiTro" Type="Self.VaiTro" Multiplicity="1" />
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
           <ReferentialConstraint>
@@ -977,7 +707,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SinhVatGa__VungT__5C6CB6D7">
+        <Association Name="FK__SinhVatGa__VungT__52593CB8">
           <End Role="VungTrong" Type="Self.VungTrong" Multiplicity="0..1" />
           <End Role="SinhVatGayHaiVaTuoiSau" Type="Self.SinhVatGayHaiVaTuoiSau" Multiplicity="*" />
           <ReferentialConstraint>
@@ -990,106 +720,78 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QuanLyTrongTrotEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BanDoPhanBoes" EntityType="Self.BanDoPhanBo" />
-          <EntitySet Name="CapDoHanhChinhs" EntityType="Self.CapDoHanhChinh" />
-          <EntitySet Name="CoSoes" EntityType="Self.CoSo" />
-          <EntitySet Name="CoSoATTPs" EntityType="Self.CoSoATTP" />
-          <EntitySet Name="CoSoPBs" EntityType="Self.CoSoPB" />
-          <EntitySet Name="CoSoThuocBVTVs" EntityType="Self.CoSoThuocBVTV" />
-          <EntitySet Name="DonViHanhChinhs" EntityType="Self.DonViHanhChinh" />
-          <EntitySet Name="GiongCayTrongs" EntityType="Self.GiongCayTrong" />
-          <EntitySet Name="LichSuTruyCaps" EntityType="Self.LichSuTruyCap" />
-          <EntitySet Name="LoaiCayTrongs" EntityType="Self.LoaiCayTrong" />
-          <EntitySet Name="LoaiCoSoes" EntityType="Self.LoaiCoSo" />
-          <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
-          <EntitySet Name="PhanBons" EntityType="Self.PhanBon" />
-          <EntitySet Name="SinhVatGayHaiVaTuoiSaus" EntityType="Self.SinhVatGayHaiVaTuoiSau" />
-          <EntitySet Name="ThuocBVTVs" EntityType="Self.ThuocBVTV" />
-          <EntitySet Name="VaiTroes" EntityType="Self.VaiTro" />
-          <EntitySet Name="VungTrongs" EntityType="Self.VungTrong" />
-          <AssociationSet Name="FK__BanDoPhan__CoSoI__5832119F" Association="Self.FK__BanDoPhan__CoSoI__5832119F">
-            <End Role="CoSo" EntitySet="CoSoes" />
-            <End Role="BanDoPhanBo" EntitySet="BanDoPhanBoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BanDoPhan__KhuSV__592635D8" Association="Self.FK__BanDoPhan__KhuSV__592635D8">
-            <End Role="VungTrong" EntitySet="VungTrongs" />
-            <End Role="BanDoPhanBo" EntitySet="BanDoPhanBoes" />
-          </AssociationSet>
+          <EntitySet Name="CapDoHanhChinh" EntityType="Self.CapDoHanhChinh" />
+          <EntitySet Name="CoSoATTP" EntityType="Self.CoSoATTP" />
+          <EntitySet Name="CoSoPB" EntityType="Self.CoSoPB" />
+          <EntitySet Name="CoSoThuocBVTV" EntityType="Self.CoSoThuocBVTV" />
+          <EntitySet Name="DonViHanhChinh" EntityType="Self.DonViHanhChinh" />
+          <EntitySet Name="GiongCayTrong" EntityType="Self.GiongCayTrong" />
+          <EntitySet Name="LichSuTruyCap" EntityType="Self.LichSuTruyCap" />
+          <EntitySet Name="LoaiCayTrong" EntityType="Self.LoaiCayTrong" />
+          <EntitySet Name="LoaiCoSo" EntityType="Self.LoaiCoSo" />
+          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" />
+          <EntitySet Name="SinhVatGayHaiVaTuoiSau" EntityType="Self.SinhVatGayHaiVaTuoiSau" />
+          <EntitySet Name="VaiTro" EntityType="Self.VaiTro" />
+          <EntitySet Name="VungTrong" EntityType="Self.VungTrong" />
           <AssociationSet Name="FK__DonViHanh__CapDo__3A81B327" Association="Self.FK__DonViHanh__CapDo__3A81B327">
-            <End Role="CapDoHanhChinh" EntitySet="CapDoHanhChinhs" />
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
+            <End Role="CapDoHanhChinh" EntitySet="CapDoHanhChinh" />
+            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSo__LoaiCoSoID__6CA31EA0" Association="Self.FK__CoSo__LoaiCoSoID__6CA31EA0">
-            <End Role="LoaiCoSo" EntitySet="LoaiCoSoes" />
-            <End Role="CoSo" EntitySet="CoSoes" />
+          <AssociationSet Name="FK__CoSoATTP__LoaiCo__5EBF139D" Association="Self.FK__CoSoATTP__LoaiCo__5EBF139D">
+            <End Role="LoaiCoSo" EntitySet="LoaiCoSo" />
+            <End Role="CoSoATTP" EntitySet="CoSoATTP" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSo__MaHanhChin__6D9742D9" Association="Self.FK__CoSo__MaHanhChin__6D9742D9">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
-            <End Role="CoSo" EntitySet="CoSoes" />
+          <AssociationSet Name="FK__CoSoATTP__MaHanh__5FB337D6" Association="Self.FK__CoSoATTP__MaHanh__5FB337D6">
+            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
+            <End Role="CoSoATTP" EntitySet="CoSoATTP" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhanBon__CoSoID__5772F790" Association="Self.FK__PhanBon__CoSoID__5772F790">
-            <End Role="CoSo" EntitySet="CoSoes" />
-            <End Role="PhanBon" EntitySet="PhanBons" />
+          <AssociationSet Name="FK__CoSoPB__LoaiCoSo__571DF1D5" Association="Self.FK__CoSoPB__LoaiCoSo__571DF1D5">
+            <End Role="LoaiCoSo" EntitySet="LoaiCoSo" />
+            <End Role="CoSoPB" EntitySet="CoSoPB" />
           </AssociationSet>
-          <AssociationSet Name="FK__ThuocBVTV__CoSoI__5555A4F4" Association="Self.FK__ThuocBVTV__CoSoI__5555A4F4">
-            <End Role="CoSo" EntitySet="CoSoes" />
-            <End Role="ThuocBVTV" EntitySet="ThuocBVTVs" />
+          <AssociationSet Name="FK__CoSoPB__MaHanhCh__5812160E" Association="Self.FK__CoSoPB__MaHanhCh__5812160E">
+            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
+            <End Role="CoSoPB" EntitySet="CoSoPB" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSoATTP__LoaiCo__4460231C" Association="Self.FK__CoSoATTP__LoaiCo__4460231C">
-            <End Role="LoaiCoSo" EntitySet="LoaiCoSoes" />
-            <End Role="CoSoATTP" EntitySet="CoSoATTPs" />
+          <AssociationSet Name="FK__CoSoThuoc__LoaiC__5AEE82B9" Association="Self.FK__CoSoThuoc__LoaiC__5AEE82B9">
+            <End Role="LoaiCoSo" EntitySet="LoaiCoSo" />
+            <End Role="CoSoThuocBVTV" EntitySet="CoSoThuocBVTV" />
           </AssociationSet>
-          <AssociationSet Name="FK__CoSoATTP__MaHanh__45544755" Association="Self.FK__CoSoATTP__MaHanh__45544755">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
-            <End Role="CoSoATTP" EntitySet="CoSoATTPs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CoSoPB__LoaiCoSo__1A69E950" Association="Self.FK__CoSoPB__LoaiCoSo__1A69E950">
-            <End Role="LoaiCoSo" EntitySet="LoaiCoSoes" />
-            <End Role="CoSoPB" EntitySet="CoSoPBs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CoSoPB__MaHanhCh__1B5E0D89" Association="Self.FK__CoSoPB__MaHanhCh__1B5E0D89">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
-            <End Role="CoSoPB" EntitySet="CoSoPBs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CoSoThuoc__LoaiC__3335971A" Association="Self.FK__CoSoThuoc__LoaiC__3335971A">
-            <End Role="LoaiCoSo" EntitySet="LoaiCoSoes" />
-            <End Role="CoSoThuocBVTV" EntitySet="CoSoThuocBVTVs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CoSoThuoc__MaHan__3429BB53" Association="Self.FK__CoSoThuoc__MaHan__3429BB53">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
-            <End Role="CoSoThuocBVTV" EntitySet="CoSoThuocBVTVs" />
+          <AssociationSet Name="FK__CoSoThuoc__MaHan__5BE2A6F2" Association="Self.FK__CoSoThuoc__MaHan__5BE2A6F2">
+            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
+            <End Role="CoSoThuocBVTV" EntitySet="CoSoThuocBVTV" />
           </AssociationSet>
           <AssociationSet Name="FK__DonViHanh__CapTr__3B75D760" Association="Self.FK__DonViHanh__CapTr__3B75D760">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
-            <End Role="DonViHanhChinh1" EntitySet="DonViHanhChinhs" />
+            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
+            <End Role="DonViHanhChinh1" EntitySet="DonViHanhChinh" />
           </AssociationSet>
-          <AssociationSet Name="FK__NguoiDung__DonVi__47DBAE45" Association="Self.FK__NguoiDung__DonVi__47DBAE45">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
-            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+          <AssociationSet Name="FK__NguoiDung__DonVi__4316F928" Association="Self.FK__NguoiDung__DonVi__4316F928">
+            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
+            <End Role="NguoiDung" EntitySet="NguoiDung" />
           </AssociationSet>
-          <AssociationSet Name="FK__VungTrong__MaVun__09A971A2" Association="Self.FK__VungTrong__MaVun__09A971A2">
-            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinhs" />
-            <End Role="VungTrong" EntitySet="VungTrongs" />
+          <AssociationSet Name="FK__VungTrong__MaVun__45F365D3" Association="Self.FK__VungTrong__MaVun__45F365D3">
+            <End Role="DonViHanhChinh" EntitySet="DonViHanhChinh" />
+            <End Role="VungTrong" EntitySet="VungTrong" />
           </AssociationSet>
-          <AssociationSet Name="FK__GiongCayT__LoaiC__44952D46" Association="Self.FK__GiongCayT__LoaiC__44952D46">
-            <End Role="LoaiCayTrong" EntitySet="LoaiCayTrongs" />
-            <End Role="GiongCayTrong" EntitySet="GiongCayTrongs" />
+          <AssociationSet Name="FK__GiongCayT__LoaiC__4E88ABD4" Association="Self.FK__GiongCayT__LoaiC__4E88ABD4">
+            <End Role="LoaiCayTrong" EntitySet="LoaiCayTrong" />
+            <End Role="GiongCayTrong" EntitySet="GiongCayTrong" />
           </AssociationSet>
-          <AssociationSet Name="FK__GiongCayT__VungT__4589517F" Association="Self.FK__GiongCayT__VungT__4589517F">
-            <End Role="VungTrong" EntitySet="VungTrongs" />
-            <End Role="GiongCayTrong" EntitySet="GiongCayTrongs" />
+          <AssociationSet Name="FK__GiongCayT__VungT__4F7CD00D" Association="Self.FK__GiongCayT__VungT__4F7CD00D">
+            <End Role="VungTrong" EntitySet="VungTrong" />
+            <End Role="GiongCayTrong" EntitySet="GiongCayTrong" />
           </AssociationSet>
-          <AssociationSet Name="FK__LichSuTru__UserI__67DE6983" Association="Self.FK__LichSuTru__UserI__67DE6983">
-            <End Role="NguoiDung" EntitySet="NguoiDungs" />
-            <End Role="LichSuTruyCap" EntitySet="LichSuTruyCaps" />
+          <AssociationSet Name="FK__LichSuTru__UserI__49C3F6B7" Association="Self.FK__LichSuTru__UserI__49C3F6B7">
+            <End Role="NguoiDung" EntitySet="NguoiDung" />
+            <End Role="LichSuTruyCap" EntitySet="LichSuTruyCap" />
           </AssociationSet>
-          <AssociationSet Name="FK__NguoiDung__VaiTr__46E78A0C" Association="Self.FK__NguoiDung__VaiTr__46E78A0C">
-            <End Role="VaiTro" EntitySet="VaiTroes" />
-            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+          <AssociationSet Name="FK__NguoiDung__VaiTr__4222D4EF" Association="Self.FK__NguoiDung__VaiTr__4222D4EF">
+            <End Role="VaiTro" EntitySet="VaiTro" />
+            <End Role="NguoiDung" EntitySet="NguoiDung" />
           </AssociationSet>
-          <AssociationSet Name="FK__SinhVatGa__VungT__5C6CB6D7" Association="Self.FK__SinhVatGa__VungT__5C6CB6D7">
-            <End Role="VungTrong" EntitySet="VungTrongs" />
-            <End Role="SinhVatGayHaiVaTuoiSau" EntitySet="SinhVatGayHaiVaTuoiSaus" />
+          <AssociationSet Name="FK__SinhVatGa__VungT__52593CB8" Association="Self.FK__SinhVatGa__VungT__52593CB8">
+            <End Role="VungTrong" EntitySet="VungTrong" />
+            <End Role="SinhVatGayHaiVaTuoiSau" EntitySet="SinhVatGayHaiVaTuoiSau" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1098,18 +800,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanLyTrongTrotModelStoreContainer" CdmEntityContainer="QuanLyTrongTrotEntities1">
-          <EntitySetMapping Name="BanDoPhanBoes">
-            <EntityTypeMapping TypeName="QuanLyTrongTrotModel.BanDoPhanBo">
-              <MappingFragment StoreEntitySet="BanDoPhanBo">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CoSoID" ColumnName="CoSoID" />
-                <ScalarProperty Name="KinhDo" ColumnName="KinhDo" />
-                <ScalarProperty Name="ViDo" ColumnName="ViDo" />
-                <ScalarProperty Name="KhuSVID" ColumnName="KhuSVID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CapDoHanhChinhs">
+          <EntitySetMapping Name="CapDoHanhChinh">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.CapDoHanhChinh">
               <MappingFragment StoreEntitySet="CapDoHanhChinh">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1117,19 +808,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CoSoes">
-            <EntityTypeMapping TypeName="QuanLyTrongTrotModel.CoSo">
-              <MappingFragment StoreEntitySet="CoSo">
-                <ScalarProperty Name="MaCoSo" ColumnName="MaCoSo" />
-                <ScalarProperty Name="TenCoSo" ColumnName="TenCoSo" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="NgayCapGiayPhep" ColumnName="NgayCapGiayPhep" />
-                <ScalarProperty Name="LoaiCoSoID" ColumnName="LoaiCoSoID" />
-                <ScalarProperty Name="MaHanhChinh" ColumnName="MaHanhChinh" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CoSoATTPs">
+          <EntitySetMapping Name="CoSoATTP">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.CoSoATTP">
               <MappingFragment StoreEntitySet="CoSoATTP">
                 <ScalarProperty Name="MaCoSo" ColumnName="MaCoSo" />
@@ -1141,7 +820,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CoSoPBs">
+          <EntitySetMapping Name="CoSoPB">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.CoSoPB">
               <MappingFragment StoreEntitySet="CoSoPB">
                 <ScalarProperty Name="MaCoSo" ColumnName="MaCoSo" />
@@ -1153,7 +832,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CoSoThuocBVTVs">
+          <EntitySetMapping Name="CoSoThuocBVTV">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.CoSoThuocBVTV">
               <MappingFragment StoreEntitySet="CoSoThuocBVTV">
                 <ScalarProperty Name="MaCoSo" ColumnName="MaCoSo" />
@@ -1165,7 +844,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DonViHanhChinhs">
+          <EntitySetMapping Name="DonViHanhChinh">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.DonViHanhChinh">
               <MappingFragment StoreEntitySet="DonViHanhChinh">
                 <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
@@ -1175,7 +854,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GiongCayTrongs">
+          <EntitySetMapping Name="GiongCayTrong">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.GiongCayTrong">
               <MappingFragment StoreEntitySet="GiongCayTrong">
                 <ScalarProperty Name="MaCayTrong" ColumnName="MaCayTrong" />
@@ -1186,7 +865,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LichSuTruyCaps">
+          <EntitySetMapping Name="LichSuTruyCap">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.LichSuTruyCap">
               <MappingFragment StoreEntitySet="LichSuTruyCap">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1196,7 +875,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoaiCayTrongs">
+          <EntitySetMapping Name="LoaiCayTrong">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.LoaiCayTrong">
               <MappingFragment StoreEntitySet="LoaiCayTrong">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1204,7 +883,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoaiCoSoes">
+          <EntitySetMapping Name="LoaiCoSo">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.LoaiCoSo">
               <MappingFragment StoreEntitySet="LoaiCoSo">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1212,7 +891,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="NguoiDungs">
+          <EntitySetMapping Name="NguoiDung">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.NguoiDung">
               <MappingFragment StoreEntitySet="NguoiDung">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1225,19 +904,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PhanBons">
-            <EntityTypeMapping TypeName="QuanLyTrongTrotModel.PhanBon">
-              <MappingFragment StoreEntitySet="PhanBon">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenPhanBon" ColumnName="TenPhanBon" />
-                <ScalarProperty Name="LoaiPhanBon" ColumnName="LoaiPhanBon" />
-                <ScalarProperty Name="NgaySanXuat" ColumnName="NgaySanXuat" />
-                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
-                <ScalarProperty Name="CoSoID" ColumnName="CoSoID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SinhVatGayHaiVaTuoiSaus">
+          <EntitySetMapping Name="SinhVatGayHaiVaTuoiSau">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.SinhVatGayHaiVaTuoiSau">
               <MappingFragment StoreEntitySet="SinhVatGayHaiVaTuoiSau">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1250,19 +917,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ThuocBVTVs">
-            <EntityTypeMapping TypeName="QuanLyTrongTrotModel.ThuocBVTV">
-              <MappingFragment StoreEntitySet="ThuocBVTV">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
-                <ScalarProperty Name="LoaiThuoc" ColumnName="LoaiThuoc" />
-                <ScalarProperty Name="NgaySanXuat" ColumnName="NgaySanXuat" />
-                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
-                <ScalarProperty Name="CoSoID" ColumnName="CoSoID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VaiTroes">
+          <EntitySetMapping Name="VaiTro">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.VaiTro">
               <MappingFragment StoreEntitySet="VaiTro">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1270,7 +925,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VungTrongs">
+          <EntitySetMapping Name="VungTrong">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.VungTrong">
               <MappingFragment StoreEntitySet="VungTrong">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1294,7 +949,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
