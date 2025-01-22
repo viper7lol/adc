@@ -27,9 +27,6 @@ namespace adc
 			MainFrame.Navigate(null);
 		}
 
-		private void Button_Click(object sender, RoutedEventArgs e)
-		{
-			MainFrame.Navigate(new dangkypage());
-		}
+		
     }
 }
