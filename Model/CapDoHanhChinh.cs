@@ -17,13 +17,13 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CapDoHanhChinh()
         {
-            this.DonViHanhChinhs = new HashSet<DonViHanhChinh>();
+            this.DonViHanhChinh = new HashSet<DonViHanhChinh>();
         }
     
         public int ID { get; set; }
         public string TenCapDo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonViHanhChinh> DonViHanhChinhs { get; set; }
+        public virtual ICollection<DonViHanhChinh> DonViHanhChinh { get; set; }
     }
 }

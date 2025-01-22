@@ -46,14 +46,14 @@ namespace adc.ViewModel
         public ICommand EditCommand { get; set; }
         public CayTrongViewModel()
         {
-            GiongCayTrongList = new ObservableCollection<GiongCayTrong>(DataProvider.Ins.DB.GiongCayTrongs);
+            GiongCayTrongList = new ObservableCollection<GiongCayTrong>(DataProvider.Ins.DB.GiongCayTrong);
             AddCommand = new RelayCommand<object>((p) =>
             {
                 return true;
             }, (p) =>
             {
                 var giongcaytrong = new GiongCayTrong() { MaCayTrong = MaCayTrong, TenGiongCay = TenGiongCay, LoaiCayTrongID = LoaiCayTrongID, MoTa = MoTa, VungTrongID = VungTrongID };
-                DataProvider.Ins.DB.GiongCayTrongs.Add(giongcaytrong);
+                DataProvider.Ins.DB.GiongCayTrong.Add(giongcaytrong);
                 DataProvider.Ins.DB.SaveChanges();
                 GiongCayTrongList.Add(giongcaytrong);
             }
@@ -64,7 +64,7 @@ namespace adc.ViewModel
                 {
                     return false;
                 }
-                var giongcaylist = DataProvider.Ins.DB.GiongCayTrongs.Where(x => x.TenGiongCay == TenGiongCay);
+                var giongcaylist = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.TenGiongCay == TenGiongCay);
                 if (giongcaylist != null || giongcaylist.Count() != 0)
                 {
                     return true;
@@ -72,7 +72,7 @@ namespace adc.ViewModel
                 return true;
             }, (p) =>
             {
-                var giongcaytrong = DataProvider.Ins.DB.GiongCayTrongs.Where(x => x.MaCayTrong == SelectedGiongCayTrong.MaCayTrong).SingleOrDefault();
+                var giongcaytrong = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.MaCayTrong == SelectedGiongCayTrong.MaCayTrong).SingleOrDefault();
                 SelectedGiongCayTrong.MaCayTrong = MaCayTrong;
                 SelectedGiongCayTrong.TenGiongCay = TenGiongCay;
                 SelectedGiongCayTrong.MoTa = MoTa;

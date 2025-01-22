@@ -4,45 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="db7eb3e543e9439eb54a0b40eda585d2" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.BanDoPhanBo" Width="1.5" PointX="7.5" PointY="25.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CapDoHanhChinh" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CoSo" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CoSoATTP" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CoSoPB" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CoSoThuocBVTV" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.DonViHanhChinh" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.GiongCayTrong" Width="1.5" PointX="7.5" PointY="34.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.LichSuTruyCap" Width="1.5" PointX="10.5" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.LoaiCayTrong" Width="1.5" PointX="5.25" PointY="32.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.LoaiCoSo" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.NguoiDung" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.PhanBon" Width="1.5" PointX="7.5" PointY="19" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.SinhVatGayHaiVaTuoiSau" Width="1.5" PointX="7.5" PointY="38.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.ThuocBVTV" Width="1.5" PointX="7.5" PointY="22" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.VaiTro" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyTrongTrotModel.VungTrong" Width="1.5" PointX="5.25" PointY="35.125" IsExpanded="true" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__BanDoPhan__CoSoI__5832119F" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__BanDoPhan__KhuSV__592635D8" ManuallyRouted="false" />
+      <Diagram DiagramId="8dc7ac5d43d443a2a0156d53d42d286b" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CapDoHanhChinh" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CoSoATTP" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CoSoPB" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.CoSoThuocBVTV" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.DonViHanhChinh" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.GiongCayTrong" Width="1.5" PointX="7.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.LichSuTruyCap" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.LoaiCayTrong" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.LoaiCoSo" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.NguoiDung" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.SinhVatGayHaiVaTuoiSau" Width="1.5" PointX="7.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.VaiTro" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyTrongTrotModel.VungTrong" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
         <AssociationConnector Association="QuanLyTrongTrotModel.FK__DonViHanh__CapDo__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSo__LoaiCoSoID__6CA31EA0" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSo__MaHanhChin__6D9742D9" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__PhanBon__CoSoID__5772F790" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__ThuocBVTV__CoSoI__5555A4F4" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoATTP__LoaiCo__4460231C" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoATTP__MaHanh__45544755" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoPB__LoaiCoSo__1A69E950" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoPB__MaHanhCh__1B5E0D89" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoThuoc__LoaiC__3335971A" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoThuoc__MaHan__3429BB53" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoATTP__LoaiCo__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoATTP__MaHanh__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoPB__LoaiCoSo__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoPB__MaHanhCh__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoThuoc__LoaiC__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__CoSoThuoc__MaHan__5BE2A6F2" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyTrongTrotModel.FK__DonViHanh__CapTr__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__NguoiDung__DonVi__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__VungTrong__MaVun__09A971A2" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__GiongCayT__LoaiC__44952D46" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__GiongCayT__VungT__4589517F" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__LichSuTru__UserI__67DE6983" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__NguoiDung__VaiTr__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyTrongTrotModel.FK__SinhVatGa__VungT__5C6CB6D7" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__NguoiDung__DonVi__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__VungTrong__MaVun__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__GiongCayT__LoaiC__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__GiongCayT__VungT__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__LichSuTru__UserI__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__NguoiDung__VaiTr__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyTrongTrotModel.FK__SinhVatGa__VungT__52593CB8" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

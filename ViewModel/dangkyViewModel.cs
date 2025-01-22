@@ -34,9 +34,16 @@ namespace adc.ViewModel
         }
         void SignUp(Page p) {
             if (p == null) return;
-            var tk = new NguoiDung() { TenNguoiDung = _UserName, Email = _Email, MatKhau = _Password, VaiTroID = 2, TrangThai = 1 };
-            DataProvider.Ins.DB.NguoiDungs.Add(tk);
-            DataProvider.Ins.DB.SaveChanges();
+            if (string.IsNullOrEmpty(TenNguoiDung) || string.IsNullOrEmpty(MatKhau) || string.IsNullOrEmpty(Email))
+            {
+                var tk = new NguoiDung() { TenNguoiDung = _UserName, Email = _Email, MatKhau = _Password, VaiTroID = 2, TrangThai = 1 };
+                DataProvider.Ins.DB.NguoiDung.Add(tk);
+                DataProvider.Ins.DB.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Đăng ký không thành công! Vui lòng đăng ký lại", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

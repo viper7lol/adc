@@ -8,13 +8,13 @@ using adc.Model;
 
 namespace adc.ViewModel
 {
-    public class ThuocBVTVViewModel:BaseViewModel
+    public class ThuocBVTVViewModel : BaseViewModel
     {
-        private ObservableCollection<ThuocBVTV> _ThuocBVTVList;
-        public ObservableCollection<ThuocBVTV> ThuocBVTVList { get => _ThuocBVTVList; set { _ThuocBVTVList = value; OnPropertyChanged(); } }
-        public ThuocBVTVViewModel()
-        {
-            ThuocBVTVList = new ObservableCollection<ThuocBVTV>(DataProvider.Ins.DB.ThuocBVTVs);
-        }
+        //private ObservableCollection<ThuocBVTV> _ThuocBVTVList;
+        //public ObservableCollection<ThuocBVTV> ThuocBVTVList { get => _ThuocBVTVList; set { _ThuocBVTVList = value; OnPropertyChanged(); } }
+        //public ThuocBVTVViewModel()
+        //{
+        //    ThuocBVTVList = new ObservableCollection<ThuocBVTV>(DataProvider.Ins.DB.ThuocBVTVs);
+        //}
     }
 }

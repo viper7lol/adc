@@ -14,7 +14,7 @@ namespace adc.ViewModel
         public ObservableCollection<SinhVatGayHaiVaTuoiSau> SVGHVTSList { get => _SVGHVTSList; set { _SVGHVTSList = value; OnPropertyChanged(); } }
         public SVGHVTSViewModel()
         {
-            SVGHVTSList = new ObservableCollection<SinhVatGayHaiVaTuoiSau>(DataProvider.Ins.DB.SinhVatGayHaiVaTuoiSaus);
+            SVGHVTSList = new ObservableCollection<SinhVatGayHaiVaTuoiSau>(DataProvider.Ins.DB.SinhVatGayHaiVaTuoiSau);
         }
     }
 }

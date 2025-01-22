@@ -14,7 +14,7 @@ namespace adc.ViewModel
         public ObservableCollection<LichSuTruyCap> LSTCList { get => _LSTCList; set { _LSTCList = value; OnPropertyChanged(); } }
         public LSTCViewModel()
         {
-            LSTCList = new ObservableCollection<LichSuTruyCap>(DataProvider.Ins.DB.LichSuTruyCaps);
+            LSTCList = new ObservableCollection<LichSuTruyCap>(DataProvider.Ins.DB.LichSuTruyCap);
         }
     }
 }
