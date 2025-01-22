@@ -267,6 +267,7 @@
     <Compile Include="ViewModel\CDHCViewModel.cs" />
     <Compile Include="ViewModel\ControllBarViewModel.cs" />
     <Compile Include="ViewModel\CoSoPBViewModel.cs" />
+    <Compile Include="ViewModel\dangkyViewModel.cs" />
     <Compile Include="ViewModel\DataContext.cs" />
     <Compile Include="ViewModel\DVHCViewModel.cs" />
     <Compile Include="ViewModel\LoaiCoSoViewModel.cs" />

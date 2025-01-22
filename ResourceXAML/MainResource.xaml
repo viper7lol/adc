@@ -15,4 +15,5 @@
     <viewmodel:SVGHVTSViewModel x:Key="SVGHVTSVM"></viewmodel:SVGHVTSViewModel>
     <viewmodel:QLNDViewModel x:Key="QLNDVM"></viewmodel:QLNDViewModel>
     <viewmodel:LSTCViewModel x:Key="LSTCVM"></viewmodel:LSTCViewModel>
+    <viewmodel:dangkyViewModel x:Key="dkVM"></viewmodel:dangkyViewModel>
 </ResourceDictionary>

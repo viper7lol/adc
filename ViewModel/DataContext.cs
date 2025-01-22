@@ -12,7 +12,7 @@ namespace adc.ViewModel
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("LAPTOP-ULJ4Q7AM\\KTPMUD20241;Initial Catalog=QuanLyTrongTrot;Persist Security Info=True;User ID=mailinh;Encrypt=True;Trust Server Certificate=True");
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-J7UA5U3P;Integrated Security=True;Trust Server Certificate=True");
         }
         public DbSet<CapDoHanhChinh> CapDoHanhChinh { get; set; }
     }
