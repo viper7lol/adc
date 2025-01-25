@@ -8,6 +8,7 @@
          xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         DataContext="{StaticResource LoginVM}"
         mc:Ignorable="d"
+        Name="loginWindow"
         Title="loginWindow" Height="550" Width="850" BorderBrush="Transparent" WindowStyle="ToolWindow" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
     <Grid x:Name="grid" RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>
@@ -37,7 +38,7 @@
                            VerticalAlignment="Top" FontFamily="{StaticResource CustomFont}" FontWeight="Bold">
                     <Run Language="vi-vn" Text="Đăng nhập" FontSize="40" BaselineAlignment="Center" Foreground="DarkOliveGreen"/></TextBlock>
                 <TextBox
-                    materialDesign:HintAssist.Hint="Tài Khoản" Text="{Binding TenNguoiDung}"
+                    materialDesign:HintAssist.Hint="Tài Khoản" Text="{Binding Email}"
                     Padding="0"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,78,0,0" Height="34" VerticalAlignment="Top" HorizontalAlignment="Center" Width="202" />
                 <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint="Mật Khẩu"
@@ -56,6 +57,7 @@
                     materialDesign:RippleAssist.Feedback="#DD000000" Margin="0,180,0,0" 
                     Content="Đăng Nhập" FontSize="17" 
                     Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding ElementName=loginWindow}"
                     FontFamily="Segoe UI Black" Foreground="#DDFFFFFF" Height="32" VerticalAlignment="Top" HorizontalAlignment="Center" Width="202" Background="#FF0C8329" BorderBrush="{x:Null}"/>
                 <TextBlock HorizontalAlignment="Right" Height="14" Margin="0,0,92,28" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="103"><Run Language="vi-vn" Text="Chưa"/><Run Text=" có tài khoản?"/></TextBlock>
                 <Button
@@ -66,6 +68,8 @@
                     Content="Đăng kí" FontSize="12" Foreground="DarkOliveGreen"
                     Background="Transparent"
                     BorderBrush="Transparent"
+                    Command="{Binding SignUpCommand}" 
+                    CommandParameter="{Binding ElementName=Signup}"
                     Padding="0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="59"/>
             </Grid>
         </Border>

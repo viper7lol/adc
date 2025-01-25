@@ -1,4 +1,5 @@
 ﻿using adc.Model;
+using adc.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,22 +16,35 @@ namespace adc.ViewModel
     {
         public bool IsLogin { get; set; }
         private string _UserName;
-        public string TenNguoiDung { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
+        public string Email { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
         private string _Password;
         public string MatKhau { get => _Password; set { _Password = value; OnPropertyChanged(); } }
 
         public ICommand CloseCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
+        public ICommand SignUpCommand { get; set; }
         // mọi thứ xử lý sẽ nằm trong này
         public LoginViewModel()
         {
             IsLogin = false;
             MatKhau = "";
-            TenNguoiDung = "";
+            Email = "";
             LoginCommand = new RelayCommand<Window>((p)=> { return true; }, (p) => { Login(p); });
             CloseCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { MatKhau = p.Password; });
+            SignUpCommand = new RelayCommand<Window>((p) => {
+                return true;
+            }, (p) => {
+                signup su = new signup();
+                su.ShowDialog();
+                IsLogin = true;
+                if (IsLogin)
+                {
+                    p.Close();
+                }
+                 
+            });
         }
 
         void Login(Window p)
@@ -46,12 +60,11 @@ namespace adc.ViewModel
             staff
              */
 
-            var accCount = DataProvider.Ins.DB.NguoiDung.Where(x => x.TenNguoiDung == TenNguoiDung && x.MatKhau == MatKhau).Count();
+            var accCount = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau).Count();
 
             if (accCount > 0)
             {
                 IsLogin = true;
-
                 p.Close();
             }
             else

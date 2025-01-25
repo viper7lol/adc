@@ -14,6 +14,7 @@ namespace adc.ViewModel
         {
             optionsBuilder.UseSqlServer("Data Source=LAPTOP-J7UA5U3P;Initial Catalog=QuanLyTrongTrot;Integrated Security=True;Trust Server Certificate=True");
         }
-        public DbSet<CapDoHanhChinh> CapDoHanhChinh { get; set; }
+        public virtual DbSet<CapDoHanhChinh> CapDoHanhChinh { get; set; }
+        public virtual DbSet<NguoiDung> NguoiDung { get; set; }
     }
 }

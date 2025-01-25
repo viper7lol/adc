@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using adc.Model;
 using System.Windows.Input;
+using System.Windows;
 
 namespace adc.ViewModel
 {
@@ -44,6 +45,7 @@ namespace adc.ViewModel
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
         public CayTrongViewModel()
         {
             GiongCayTrongList = new ObservableCollection<GiongCayTrong>(DataProvider.Ins.DB.GiongCayTrong);
@@ -78,6 +80,25 @@ namespace adc.ViewModel
                 SelectedGiongCayTrong.MoTa = MoTa;
                 DataProvider.Ins.DB.SaveChanges();
             });
+            //SearchCommand = new RelayCommand<object>((p) =>
+            //{
+            //    return true;
+            //}, (p) => {
+            //    string searchMa = MaDonVi;
+            //    string searchTen = TenDonVi;
+            //    int searchCapDo = CapDoID;
+            //    if (searchMa != null && searchTen != null && searchCapDo > 0)
+            //    {
+            //        foreach (var item in DonViList)
+            //        {
+            //            if (item.MaDonVi.Contains(searchMa) && item.TenDonVi.Contains(searchTen) && item.CapDoID.Equals(searchCapDo)) SelectedDonVi = item;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            //    }
+            //});
         }
     }
 }

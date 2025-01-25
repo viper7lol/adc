@@ -12,6 +12,7 @@ namespace adc.ViewModel
 {
     public class dangkyViewModel:BaseViewModel
     {
+        public bool IsSignUp { get; set; }
         private string _UserName;
         public string TenNguoiDung { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
         private string _Email;
@@ -20,10 +21,14 @@ namespace adc.ViewModel
         public string MatKhau { get => _Password; set {  _Password = value; OnPropertyChanged(); } }
         public int VaiTroID { get; set; }
         public byte TrangThai {  get; set; }
+
         public ICommand SignUpCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
+   
         public dangkyViewModel() {
-            SignUpCommand = new RelayCommand<Page>((p) =>
+            IsSignUp = false;
+            SignUpCommand = new RelayCommand<Window>((p) =>
             {
                 return true;
             }, (p) =>
@@ -31,14 +36,27 @@ namespace adc.ViewModel
                 SignUp(p);
             });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { MatKhau = p.Password; });
-        }
-        void SignUp(Page p) {
-            if (p == null) return;
-            if (string.IsNullOrEmpty(TenNguoiDung) || string.IsNullOrEmpty(MatKhau) || string.IsNullOrEmpty(Email))
+            LoginCommand = new RelayCommand<Window>((p) =>
             {
-                var tk = new NguoiDung() { TenNguoiDung = _UserName, Email = _Email, MatKhau = _Password, VaiTroID = 2, TrangThai = 1 };
+                return true;
+            }, (p) =>
+            {
+                LoginWindow lg = new LoginWindow();
+                lg.ShowDialog();
+                IsSignUp = true;
+                if (IsSignUp) { 
+                    p.Close();
+                }
+            });
+        }
+        void SignUp(Window p) {
+            if (p == null) return;
+            if (string.IsNullOrEmpty(TenNguoiDung) && string.IsNullOrEmpty(MatKhau) && string.IsNullOrEmpty(Email))
+            {
+                var tk = new NguoiDung() { Email = _Email, TenNguoiDung = _UserName, MatKhau = _Password, VaiTroID = 2, TrangThai = 1 };
                 DataProvider.Ins.DB.NguoiDung.Add(tk);
                 DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
