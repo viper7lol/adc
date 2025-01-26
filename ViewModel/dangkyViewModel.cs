@@ -36,20 +36,20 @@ namespace adc.ViewModel
                 SignUp(p);
             });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { MatKhau = p.Password; });
-            LoginCommand = new RelayCommand<Button>((p) =>
+            LoginCommand = new RelayCommand<Window>((p) =>
             {
                 return true;
             }, (p) =>
             {
                 if (p == null) return;
-                p.Visibility = Visibility.Collapsed;
+                p.Close();
             });
         }
         void SignUp(Window p) {
             if (p == null) return;
-            if (string.IsNullOrEmpty(TenNguoiDung) && string.IsNullOrEmpty(MatKhau) && string.IsNullOrEmpty(Email))
+            if (TenNguoiDung != null && Email != null && MatKhau != null)
             {
-                var tk = new NguoiDung() { Email = _Email, TenNguoiDung = _UserName, MatKhau = _Password, VaiTroID = 2, TrangThaiID = 1 };
+                var tk = new NguoiDung() { Email = Email, TenNguoiDung = TenNguoiDung, MatKhau = MatKhau, VaiTroID = 2, TrangThai = 1};
                 DataProvider.Ins.DB.NguoiDung.Add(tk);
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);

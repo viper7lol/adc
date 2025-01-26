@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace adc.ViewModel
 {
-    public class CDHCViewModel:BaseViewModel
+    public class CDHCViewModel:LoginViewModel
     {
         private ObservableCollection<CapDoHanhChinh> _CapDoList;
         public ObservableCollection<CapDoHanhChinh> CapDoList { get => _CapDoList; set {  _CapDoList = value; OnPropertyChanged(); } }
@@ -41,7 +41,13 @@ namespace adc.ViewModel
             CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinh);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                return true;
+                if (IsAdmin) {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }, (p) =>
             {
                 var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
