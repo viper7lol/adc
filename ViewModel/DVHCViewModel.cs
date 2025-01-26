@@ -45,6 +45,7 @@ namespace adc.ViewModel
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand SearchCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public DVHCViewModel()
         {
             DonViList = new ObservableCollection<DonViHanhChinh>(DataProvider.Ins.DB.DonViHanhChinh);
@@ -93,6 +94,31 @@ namespace adc.ViewModel
                 } else
                 {
                     MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            });
+            DeleteCommand = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(TenDonVi))
+                {
+                    return false;
+                }
+                var donvilist = DataProvider.Ins.DB.DonViHanhChinh.Where(x => x.TenDonVi == TenDonVi);
+                if (donvilist != null || donvilist.Count() != 0)
+                {
+                    return true;
+                }
+                return true;
+            }, (p) =>
+            {
+                var tendonvi = SelectedDonVi;
+                if (SelectedDonVi != null)
+                {
+                    DonViList.Remove(SelectedDonVi);
+                    DataProvider.Ins.DB.DonViHanhChinh.Remove(tendonvi);
+                    DataProvider.Ins.DB.SaveChanges();
+                } else
+                {
+                    MessageBox.Show("Không có dữ liệu để xóa", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             });
         }

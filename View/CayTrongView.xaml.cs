@@ -1,4 +1,5 @@
-﻿using System;
+﻿using adc.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,24 @@ namespace adc.View
     /// </summary>
     public partial class CayTrongView : Window
     {
+        private CayTrongViewModel CTVM;
         public CayTrongView()
         {
             InitializeComponent();
+            CTVM = new CayTrongViewModel();
+            DataContext = CTVM;
+            CTVM.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == nameof(CTVM.SelectedGiongCayTrong))
+                {
+                    if (CTVM.SelectedGiongCayTrong != null)
+                    {
+                        {
+                            ListViewControll.ScrollIntoView(CTVM.SelectedGiongCayTrong);
+                        }
+                    }
+                }
+            };
         }
     }
 }

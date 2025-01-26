@@ -9,17 +9,22 @@
 
 namespace adc.Model
 {
+    using adc.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class GiongCayTrong
+    public partial class GiongCayTrong:BaseViewModel
     {
-        public int MaCayTrong { get; set; }
-        public string TenGiongCay { get; set; }
-        public Nullable<int> LoaiCayTrongID { get; set; }
-        public string MoTa { get; set; }
-        public Nullable<int> VungTrongID { get; set; }
-    
+        public int MaCayTrong {  get; set; }
+        private string _TenGiongCay;
+        public string TenGiongCay { get => _TenGiongCay; set { _TenGiongCay = value; OnPropertyChanged(); } }
+        private int? _LoaiCayTrongID;
+        public int? LoaiCayTrongID { get => _LoaiCayTrongID; set { _LoaiCayTrongID = value; OnPropertyChanged(); } }
+        private string _MoTa;
+        public string MoTa { get => _MoTa; set { _MoTa = value; OnPropertyChanged(); } }
+        private int? _VungTrongID;
+        public int? VungTrongID { get => _VungTrongID; set { _VungTrongID = value; OnPropertyChanged(); } }
+
         public virtual LoaiCayTrong LoaiCayTrong { get; set; }
         public virtual VungTrong VungTrong { get; set; }
     }

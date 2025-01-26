@@ -67,7 +67,7 @@ WindowStartupLocation="CenterScreen"
 
                         <!-- Loại cây trồng -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding LoaiCayTrong}" 
+                            <TextBox Text="{Binding LoaiCayTrongID}" 
               Width="100" 
               materialDesign:HintAssist.Hint="Loại cây trồng" 
               Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -93,7 +93,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- Vùng trồng -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding VungTrong}" 
+                            <TextBox Text="{Binding VungTrongID}" 
                                    Width="80" 
                                    materialDesign:HintAssist.Hint="Vùng trồng" 
                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"/> 
@@ -140,8 +140,8 @@ WindowStartupLocation="CenterScreen"
             <!-- List View to display Data -->
             <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView ItemsSource="{Binding GiongCayTrongList}" 
-                          SelectedItem="{Binding SelectedGiongCayTrong, Mode=OneWayToSource}" 
+                    <ListView ItemsSource="{Binding GiongCayTrongList}" x:Name="ListViewControll"
+                          SelectedItem="{Binding SelectedGiongCayTrong, Mode=TwoWay}" 
                           HorizontalAlignment="Stretch" 
                           VerticalAlignment="Stretch">
                         <ListView.View>
@@ -230,7 +230,7 @@ WindowStartupLocation="CenterScreen"
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding VungTrong.TenVung}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                                <TextBlock Text="{Binding VungTrong.TenVungTrong}" TextAlignment="Center" Foreground="Black" Width="180"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

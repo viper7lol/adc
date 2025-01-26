@@ -24,7 +24,6 @@ namespace adc.ViewModel
                 OnPropertyChanged();
                 if (SelectedGiongCayTrong != null)
                 {
-                    MaCayTrong = SelectedGiongCayTrong.MaCayTrong;
                     TenGiongCay = SelectedGiongCayTrong.TenGiongCay;
                     LoaiCayTrongID = SelectedGiongCayTrong.LoaiCayTrongID;
                     MoTa = SelectedGiongCayTrong.MoTa;
@@ -32,8 +31,6 @@ namespace adc.ViewModel
                 }
             }
         }
-        private int _MaCayTrong;
-        public int MaCayTrong { get => _MaCayTrong; set { _MaCayTrong= value; OnPropertyChanged(); } }
         private string _TenGiongCay;
         public string TenGiongCay { get => _TenGiongCay; set { _TenGiongCay = value; OnPropertyChanged(); } }
         private int? _LoaiCayTrongID;
@@ -54,7 +51,7 @@ namespace adc.ViewModel
                 return true;
             }, (p) =>
             {
-                var giongcaytrong = new GiongCayTrong() { MaCayTrong = MaCayTrong, TenGiongCay = TenGiongCay, LoaiCayTrongID = LoaiCayTrongID, MoTa = MoTa, VungTrongID = VungTrongID };
+                var giongcaytrong = new GiongCayTrong() {TenGiongCay = TenGiongCay, LoaiCayTrongID = LoaiCayTrongID, MoTa = MoTa, VungTrongID = VungTrongID };
                 DataProvider.Ins.DB.GiongCayTrong.Add(giongcaytrong);
                 DataProvider.Ins.DB.SaveChanges();
                 GiongCayTrongList.Add(giongcaytrong);
@@ -74,31 +71,33 @@ namespace adc.ViewModel
                 return true;
             }, (p) =>
             {
-                var giongcaytrong = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.MaCayTrong == SelectedGiongCayTrong.MaCayTrong).SingleOrDefault();
-                SelectedGiongCayTrong.MaCayTrong = MaCayTrong;
+                var giongcaytrong = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.TenGiongCay == SelectedGiongCayTrong.TenGiongCay).SingleOrDefault();
                 SelectedGiongCayTrong.TenGiongCay = TenGiongCay;
+                SelectedGiongCayTrong.LoaiCayTrongID = LoaiCayTrongID;
+                SelectedGiongCayTrong.VungTrongID = VungTrongID;
                 SelectedGiongCayTrong.MoTa = MoTa;
                 DataProvider.Ins.DB.SaveChanges();
             });
-            //SearchCommand = new RelayCommand<object>((p) =>
-            //{
-            //    return true;
-            //}, (p) => {
-            //    string searchMa = MaDonVi;
-            //    string searchTen = TenDonVi;
-            //    int searchCapDo = CapDoID;
-            //    if (searchMa != null && searchTen != null && searchCapDo > 0)
-            //    {
-            //        foreach (var item in DonViList)
-            //        {
-            //            if (item.MaDonVi.Contains(searchMa) && item.TenDonVi.Contains(searchTen) && item.CapDoID.Equals(searchCapDo)) SelectedDonVi = item;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    }
-            //});
+            SearchCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                string searchTen = TenGiongCay;
+                int? searchLoaiCay = LoaiCayTrongID;
+                int? searchVungTrong = VungTrongID;
+                if (searchTen != null && searchLoaiCay > 0 && searchVungTrong > 0)
+                {
+                    foreach (var item in GiongCayTrongList)
+                    {
+                        if (item.TenGiongCay.Contains(searchTen) && item.LoaiCayTrongID.Equals(searchLoaiCay) && item.VungTrongID.Equals(searchVungTrong)) SelectedGiongCayTrong = item;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            });
         }
     }
 }
