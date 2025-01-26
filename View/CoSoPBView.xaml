@@ -76,7 +76,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- Ngày cấp -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding NgayCap}" 
+                            <TextBox Text="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}" 
                   Width="70" 
                   materialDesign:HintAssist.Hint="Ngày cấp" 
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>

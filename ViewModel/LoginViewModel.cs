@@ -23,27 +23,25 @@ namespace adc.ViewModel
         public ICommand CloseCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
-        public ICommand SignUpCommand { get; set; }
+        public ICommand SignupCommand { get; set; }
         // mọi thứ xử lý sẽ nằm trong này
         public LoginViewModel()
         {
             IsLogin = false;
             MatKhau = "";
             Email = "";
-            LoginCommand = new RelayCommand<Window>((p)=> { return true; }, (p) => { Login(p); });
+            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
             CloseCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { MatKhau = p.Password; });
-            SignUpCommand = new RelayCommand<Window>((p) => {
+            SignupCommand = new RelayCommand<Button>((p) =>
+            {
                 return true;
-            }, (p) => {
+            }, (p) =>
+            {
+                if (p == null) return;
+                p.Visibility = Visibility.Collapsed;
                 signup su = new signup();
                 su.ShowDialog();
-                IsLogin = true;
-                if (IsLogin)
-                {
-                    p.Close();
-                }
-                 
             });
         }
 

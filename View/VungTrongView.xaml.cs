@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using adc.ViewModel;
 
 namespace adc.View
 {
@@ -19,9 +20,24 @@ namespace adc.View
     /// </summary>
     public partial class VungTrongView : Window
     {
+        private VungTrongViewModel VTVM;
         public VungTrongView()
         {
             InitializeComponent();
+            VTVM = new VungTrongViewModel();
+            DataContext = VTVM;
+            VTVM.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == nameof(VTVM.SelectedVungTrong))
+                {
+                    if (VTVM.SelectedVungTrong != null)
+                    {
+                        {
+                            ListViewControll.ScrollIntoView(VTVM.SelectedVungTrong);
+                        }
+                    }
+                }
+            };
         }
     }
 }

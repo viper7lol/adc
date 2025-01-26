@@ -85,17 +85,22 @@ FontFamily="Segoe UI Black" Foreground="#DDFFFFFF" Height="32" VerticalAlignment
                 <TextBlock HorizontalAlignment="Right" Height="17" Margin="0,305,103,0" 
            TextWrapping="Wrap" VerticalAlignment="Top" Width="104">
     <Run Language="vi-vn" Text="Đã"/><Run Text=" có tài khoản?"/></TextBlock>
-                
+
                 <Button
 Style="{StaticResource MaterialDesignRaisedAccentButton}"
 ToolTip="Resource name: MaterialDesignRaisedAccentButton"
 materialDesign:RippleAssist.Feedback="#DD000000" Margin="0,304,54,0" 
 Content="Đăng Nhập" FontSize="12" Foreground="DarkOliveGreen"
 Background="Transparent"
-                    Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding ElementName=loginWindow}"
 BorderBrush="Transparent"
-Padding="0" Height="17" VerticalAlignment="Top" HorizontalAlignment="Right" Width="63"/>
+Padding="0" Height="17" VerticalAlignment="Top" HorizontalAlignment="Right" Width="63">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding LoginCommand}" 
+                             CommandParameter="{Binding ElementName=Signup}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
             </Grid>
         </Border>
 

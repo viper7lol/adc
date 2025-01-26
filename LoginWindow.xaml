@@ -70,7 +70,14 @@
                     BorderBrush="Transparent"
                     Command="{Binding SignUpCommand}" 
                     CommandParameter="{Binding ElementName=Signup}"
-                    Padding="0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="59"/>
+                    Padding="0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="59">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding SignupCommand}" 
+                             CommandParameter="{Binding ElementName=loginWindow}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
             </Grid>
         </Border>
     </Grid>

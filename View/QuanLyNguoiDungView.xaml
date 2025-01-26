@@ -73,7 +73,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- Vai trò -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding VaiTro}" 
+                            <TextBox Text="{Binding VaiTroID}" 
                             Width="60" 
                             materialDesign:HintAssist.Hint="Vai trò" 
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -132,9 +132,9 @@ WindowStartupLocation="CenterScreen"
                             <!-- Cột Email -->
                             <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
                             <!-- Cột Vai trò -->
-                            <DataGridTextColumn Header="Vai trò" Binding="{Binding VaiTroID}" Width="150"/>
+                            <DataGridTextColumn Header="Vai trò" Binding="{Binding VaiTroID.TenVaiTro}" Width="150"/>
                             <!-- Cột Trạng thái -->
-                            <DataGridTextColumn Header="Trạng thái" Binding="{Binding TrangThai }" Width="120"/>
+                            <DataGridTextColumn Header="Trạng thái" Binding="{Binding TrangThaiID}" Width="120"/>
                             <!-- Cột Đơn vị hành chính -->
                             <DataGridTextColumn Header="Đơn vị hành chính" Binding="{Binding DonViHanhChinhID}" Width="200"/>
                         </DataGrid.Columns>

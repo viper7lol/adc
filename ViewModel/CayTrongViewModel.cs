@@ -43,6 +43,7 @@ namespace adc.ViewModel
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand SearchCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public CayTrongViewModel()
         {
             GiongCayTrongList = new ObservableCollection<GiongCayTrong>(DataProvider.Ins.DB.GiongCayTrong);
@@ -96,6 +97,32 @@ namespace adc.ViewModel
                 else
                 {
                     MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            });
+            DeleteCommand = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(TenGiongCay))
+                {
+                    return false;
+                }
+                var giongcaytronglist = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.TenGiongCay == TenGiongCay);
+                if (giongcaytronglist != null || giongcaytronglist.Count() != 0)
+                {
+                    return true;
+                }
+                return true;
+            }, (p) =>
+            {
+                var giongcay = SelectedGiongCayTrong;
+                if (SelectedGiongCayTrong != null)
+                {
+                    GiongCayTrongList.Remove(SelectedGiongCayTrong);
+                    DataProvider.Ins.DB.GiongCayTrong.Remove(giongcay);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu để xóa", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             });
         }
