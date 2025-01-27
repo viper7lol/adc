@@ -41,19 +41,13 @@ namespace adc.ViewModel
             CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinh);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (IsAdmin) {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }, (p) =>
             {
-                var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
-                DataProvider.Ins.DB.CapDoHanhChinh.Add(capdo);
-                DataProvider.Ins.DB.SaveChanges();
-                CapDoList.Add(capdo);
+                    var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
+                    DataProvider.Ins.DB.CapDoHanhChinh.Add(capdo);
+                    DataProvider.Ins.DB.SaveChanges();
+                    CapDoList.Add(capdo);        
             });
             EditCommand = new RelayCommand<object>((p) =>
             {

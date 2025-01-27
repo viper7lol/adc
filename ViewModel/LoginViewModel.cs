@@ -30,44 +30,10 @@ namespace adc.ViewModel
         {
             IsLogin = false;
             IsAdmin = false;
-            var accCount1 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID == 1);
-            var accCount2 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID == 2);
             MatKhau = "";
             Email = "";
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
-                if (p == null)
-                    return;
-
-                /*
-                 admin
-                 admin
-
-                staff
-                staff
-                 */
-
-                if (accCount1 != null)
-                {
-                    IsLogin = true;
-                    IsAdmin = true;
-                    p.Close();
-                }
-                else
-                {
-                    IsLogin = false;
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
-                }
-                if (accCount2 != null)
-                {
-                    IsLogin = true;
-                    IsAdmin = false;
-                    p.Close();
-                }
-                else
-                {
-                    IsLogin = false;
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
-                }
+                Login(p);
             });
             CloseCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { MatKhau = p.Password; });
@@ -95,15 +61,21 @@ namespace adc.ViewModel
             staff
              */
 
-            var accCount = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau);
-            var admin = DataProvider.Ins.DB.NguoiDung.Where(x => x.VaiTroID == 1);
-            if (accCount != null)
+            var account1 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID == 1);
+            var account2 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID != 1);
+            if(account1 != null)
             {
                 IsLogin = true;
-                if(accCount == admin) { IsAdmin = true; }
+                IsAdmin = true;
                 p.Close();
             }
-            else
+            if (account2 != null)
+            {
+                IsLogin = true;
+                IsAdmin = false;
+                p.Close();
+            }
+            if(account1 == null && account2 == null)
             {
                 IsLogin = false;
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");

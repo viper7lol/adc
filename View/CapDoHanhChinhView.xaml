@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:adc.UserControllADC"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource CDHCVM}"
@@ -66,7 +67,7 @@
                             Background="DarkBlue"  
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
-                        <Button Command="{Binding AddCommand}" 
+                        <Button Command="{Binding AddCommand}"
                             Content="Thêm" 
                             Margin="5" 
                             Width="100" 
