@@ -71,20 +71,20 @@
                             Content="Thêm" 
                             Margin="5" 
                             Width="100" 
-                            Background="DarkBlue"  
+                            Background="GreenYellow"  
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                         <Button Command="{Binding EditCommand}" 
                             Content="Sửa" 
                             Margin="5" 
                             Width="100" 
-                            Background="DarkBlue" 
+                            Background="DarkOrange" 
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
                             Content="Xóa" 
                             Margin="5"
                             Width="100" 
-                            Background="DarkBlue" 
+                            Background="DarkRed" 
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
@@ -111,7 +111,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="200"/>
+                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="10"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -122,14 +122,14 @@
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border Background="DarkBlue" Padding="5">
-                                                <TextBlock Text="Tên cấp độ" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                                <TextBlock Text="Tên cấp độ" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="150"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding TenCapDo}" TextAlignment="Center" Foreground="Black" Width="300"/>
+                                                <TextBlock Text="{Binding TenCapDo}" TextAlignment="Center" Foreground="Black" Width="170"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

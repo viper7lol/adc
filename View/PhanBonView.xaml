@@ -62,7 +62,7 @@ WindowStartupLocation="CenterScreen"
                     <!-- Input Fields -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
                         <!--  Tên -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0">
                             <TextBox Text="{Binding Ten}" 
                               Width="40" 
                               materialDesign:HintAssist.Hint="Tên" 
@@ -76,7 +76,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
 
                         <!-- Loại -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0">
                             <TextBox Text="{Binding Loai }" 
                               Width="50" 
                               materialDesign:HintAssist.Hint="Loại" 
@@ -90,7 +90,7 @@ WindowStartupLocation="CenterScreen"
 
                         </StackPanel>
                         <!-- Ngày sx -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5" Width="90">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0" Width="90">
                             <TextBox Text="{Binding NgaySX}" 
                               Width="70" 
                               materialDesign:HintAssist.Hint="Ngày SX" 
@@ -103,7 +103,7 @@ WindowStartupLocation="CenterScreen"
 
                         </StackPanel>
                         <!-- Ngày hh -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5" Width="90">
                             <TextBox Text="{Binding NgayHH}" 
                           Width="70" 
                           materialDesign:HintAssist.Hint="Ngày HH" 
@@ -113,7 +113,19 @@ WindowStartupLocation="CenterScreen"
                               Margin="-20,10,0,0" 
                               Foreground="IndianRed" 
                               HorizontalAlignment="Right"/>
-
+                        </StackPanel>
+                        <!-- Mã -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding Ma }" 
+                                 Width="30" 
+                                 materialDesign:HintAssist.Hint="Mã" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Location" 
+                                 VerticalAlignment="Center" 
+                                 Margin="-40,10,0,0" 
+                                 Foreground="Orange" 
+                                 HorizontalAlignment="Right"
+                                 Width="70"/>   
                         </StackPanel>
                     </StackPanel>
                     <!-- Buttons -->

@@ -47,7 +47,7 @@ WindowStartupLocation="CenterScreen"
                     <!-- Input Fields -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
                         <!--  Tên -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBox Text="{Binding Ten}" 
                       Width="40" 
                       materialDesign:HintAssist.Hint="Tên" 
@@ -61,31 +61,57 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
 
                         <!-- Địa chỉ -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <TextBox Text="{Binding DiaChi }" 
-                      Width="50" 
-                      materialDesign:HintAssist.Hint="Địa chỉ" 
-                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                              Width="50" 
+                              materialDesign:HintAssist.Hint="Địa chỉ" 
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>  
                             <materialDesign:PackIcon Kind="Location" 
                           VerticalAlignment="Center" 
                           Margin="-40,10,0,0" 
                           Foreground="Orange" 
                           HorizontalAlignment="Right"
-                          Width="80"                           />
+                          Width="70"                           />
 
                         </StackPanel>
+                       
                         <!-- Ngày cấp -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBox Text="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}" 
-                  Width="70" 
-                  materialDesign:HintAssist.Hint="Ngày cấp" 
-                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                              Width="70" 
+                              materialDesign:HintAssist.Hint="Ngày cấp" 
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             <materialDesign:PackIcon Kind="Calendar" 
-                  VerticalAlignment="Center" 
-                  Margin="-20,10,0,0" 
-                  Foreground="IndianRed" 
-                  HorizontalAlignment="Right"/>
+                      VerticalAlignment="Center" 
+                      Margin="-30,10,0,0" 
+                      Foreground="IndianRed" 
+                      HorizontalAlignment="Right" Width="50"/> 
 
+                        </StackPanel>
+                        <!-- Loại cơ sở -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBox Text="{Binding LoaiCoSo }" 
+                                 Width="70" 
+                                 materialDesign:HintAssist.Hint="Loại cơ sở" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Category" 
+                                     VerticalAlignment="Center" 
+                                     Margin="-40,10,0,0" 
+                                     Foreground="DeepSkyBlue" 
+                                     HorizontalAlignment="Right" Width="70"/>
+                        </StackPanel>
+                        <!-- Mã HC -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBox Text="{Binding MaHC }" 
+                             Width="50" 
+                             materialDesign:HintAssist.Hint="Mã HC" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Location" 
+                                 VerticalAlignment="Center" 
+                                 Margin="-40,10,0,0" 
+                                 Foreground="Orange" 
+                                 HorizontalAlignment="Right"
+                                 Width="70"/>
                         </StackPanel>
                     </StackPanel>
                     <!-- Buttons -->

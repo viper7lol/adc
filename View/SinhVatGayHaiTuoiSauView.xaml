@@ -54,8 +54,8 @@ WindowStartupLocation="CenterScreen"
                         <!-- Tên SV -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
                             <TextBox Text="{Binding TenSinhVat}" 
-                                Width="60" 
-                                materialDesign:HintAssist.Hint="Tên SV" 
+                                Width="40" 
+                                materialDesign:HintAssist.Hint="Tên" 
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             <materialDesign:PackIcon Kind="Bug" 
                             VerticalAlignment="Center" 
@@ -68,12 +68,12 @@ WindowStartupLocation="CenterScreen"
                         <!-- Loại SV -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
                             <TextBox Text="{Binding LoaiSV}" 
-                              Width="60" 
-                              materialDesign:HintAssist.Hint="Loại SV" 
+                              Width="40" 
+                              materialDesign:HintAssist.Hint="Loại" 
                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             <materialDesign:PackIcon Kind="Bug" 
                                 VerticalAlignment="Center" 
-                                Margin="-20,10,0,0" 
+                                Margin="-50,10,0,0" 
                                 Foreground="DarkOrange" 
                                 HorizontalAlignment="Right"/>
 
@@ -115,6 +115,19 @@ WindowStartupLocation="CenterScreen"
                               Margin="-30,10,0,0" 
                               Foreground="DeepSkyBlue" 
                               HorizontalAlignment="Right"/>
+
+                        </StackPanel>
+                        <!-- Vùng trồng -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding VungTrong}" 
+                                  Width="80" 
+                                  materialDesign:HintAssist.Hint="Vùng trồng" 
+                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Location" 
+                                       VerticalAlignment="Center" 
+                                       Margin="-30,10,0,0" 
+                                       Foreground="PaleVioletRed" 
+                                       HorizontalAlignment="Right"/>    
 
                         </StackPanel>
                     </StackPanel>

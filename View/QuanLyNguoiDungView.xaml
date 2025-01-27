@@ -96,6 +96,18 @@ WindowStartupLocation="CenterScreen"
                              Foreground="Green" 
                              HorizontalAlignment="Right"/>
                         </StackPanel>
+                        <!-- ĐVHC -->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
+                            <TextBox Text="{Binding DVHC}" 
+                                 Width="60" 
+                                materialDesign:HintAssist.Hint="ĐVHC" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <materialDesign:PackIcon Kind="Location" 
+                                  VerticalAlignment="Center" 
+                                  Margin="-50,10,0,0" 
+                                  Foreground="Orange" 
+                                  HorizontalAlignment="Right"/> 
+                        </StackPanel>
                     </StackPanel>
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
