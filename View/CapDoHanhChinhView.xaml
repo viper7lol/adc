@@ -68,6 +68,7 @@
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                         <Button Command="{Binding AddCommand}"
+                                
                             Content="Thêm" 
                             Margin="5" 
                             Width="100" 

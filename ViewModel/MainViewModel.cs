@@ -26,9 +26,12 @@ namespace adc.ViewModel
         public ICommand SVGHVTSCommand { get; set; }
         public ICommand QLNDCommand { get; set; }
         public ICommand LSTCCommand { get; set; }
+        private LoginViewModel _loginVM;
+        public LoginViewModel LoginVM { get => _loginVM; set => SetProperty(ref _loginVM, value); }
 
 
-        public MainViewModel() {
+        public MainViewModel()
+        {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Isloaded = true;
@@ -37,9 +40,8 @@ namespace adc.ViewModel
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
                 if (loginWindow.DataContext == null) return;
-                var loginVM = loginWindow.DataContext as LoginViewModel;
-
-                if (loginVM.IsLogin)
+                _loginVM = loginWindow.DataContext as LoginViewModel;
+                if (LoginVM.IsLogin)
                 {
                     p.Show();
                 }
@@ -48,6 +50,7 @@ namespace adc.ViewModel
                     p.Close();
                 }
             });
+            LoginVM = _loginVM;
             CapDoHanhChinhCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 CapDoHanhChinhView cdhc = new CapDoHanhChinhView();

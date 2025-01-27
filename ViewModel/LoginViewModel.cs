@@ -63,14 +63,13 @@ namespace adc.ViewModel
 
             var account1 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID == 1);
             var account2 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID != 1);
-            if(account1 != null)
+            if (account1 != null)
             {
                 IsLogin = true;
                 IsAdmin = true;
                 p.Close();
             }
-            if (account2 != null)
-            {
+            if (account2 != null) { 
                 IsLogin = true;
                 IsAdmin = false;
                 p.Close();
