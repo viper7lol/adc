@@ -1,0 +1,32 @@
+﻿<Window x:Class="adc.View.ThongKeVungTrong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        Title="Pie Chart Example" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Hàng cho tiêu đề -->
+            <RowDefinition Height="*" />
+            <!-- Hàng cho biểu đồ -->
+        </Grid.RowDefinitions>
+
+        <!-- Tiêu đề -->
+        <TextBlock Text="Tỷ lệ sinh vật gây hại theo vùng" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="DarkBlue" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,20" />
+
+        <!-- Biểu đồ tròn -->
+        <lvc:PieChart Grid.Row="1" 
+                      Series="{Binding SeriesCollection}" 
+                      InnerRadius="50" 
+                      LegendLocation="Bottom">
+            <lvc:PieChart.DataTooltip>
+                <lvc:DefaultTooltip />
+            </lvc:PieChart.DataTooltip>
+        </lvc:PieChart>
+    </Grid>
+</Window>

@@ -1,0 +1,475 @@
+﻿<Window x:Class="adc.View.BanDoPhanBo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:adc.View"
+        mc:Ignorable="d"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" Height="600" Width="1080" WindowStyle="None" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Margin="10">
+            <Grid>
+                <TextBox Background="White" Padding="10 0 25 0"/>
+                <materialDesign:PackIcon Kind="MapMarker" Foreground="DarkBlue" VerticalAlignment="Center" Margin="2"/>
+                <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}">
+                    <materialDesign:PackIcon Kind="Search"/>
+                </Button>
+            </Grid>
+
+            <!-- Thêm ScrollViewer cho ListView -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="300" Height="500">
+                <ListView>
+
+                    <!-- Cơ sở phân bón Hà Gianh -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Nhà máy phân bón Hà Gianh"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <!-- Cơ sở phân bón SenAgri -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Phân Bò Bắc Ninh - SenAgri"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+
+                    <!-- Cơ sở phân bón Phú Bình -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Nhà máy sản xuất phân bón Phú Bình"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+
+                    <!-- Cơ sở phân bón Cường Thịnh -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Phân bón Cường Thịnh"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+
+                    <!-- Cơ sở phân bón Đại Thành -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Phân bón Đại Thành"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+
+                    <!-- Cơ sở phân bón Hoàng Minh -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Phân bón Hoàng Minh"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <!-- Các cơ sở thuốc bảo vệ thực vật -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Công ty TNHH Thuốc BVTV Bắc Ninh"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Cửa hàng Thuốc BVTV Hiệp Phát"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Cửa hàng BVTV Minh Phát"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Chi nhánh Công ty CP BVTV Trung ương 2"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Công ty TNHH BVTV Hoàng Gia"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Cửa hàng Thuốc BVTV Hòa Phát"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Công ty TNHH Thuốc BVTV Phú An"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="CCửa hàng BVTV Bắc Nam"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <!-- Các vùng có sinh vật gây hại -->
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Vùng trồng cây ăn quả"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Vùng trồng rau củ quả"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Vùng trồng hoa và cây cảnh"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarHalf" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="StarOutline" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Vùng trồng dược liệu"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <Border BorderBrush="LightGray" BorderThickness="0 0 0 1" Width="260">
+                            <Grid Height="50">
+                                <StackPanel Height="50">
+                                    <TextBlock Text="Vùng trồng cây công nghiệp ngắn ngày"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3.5" Foreground="#DDFF6F0B" Margin="1" FontSize="10"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                        <materialDesign:PackIcon Kind="Star" Foreground="#DDFF6F0B" Margin="1" VerticalAlignment="Center" Width="12" Height="12"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ListViewItem>
+
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
+
+        <Button Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}">
+            <materialDesign:PackIcon Kind="Close"/>
+        </Button>
+
+        <m:Map CredentialsProvider="AttsGkqIHCOIEA11KtQZDphl5bi8lppin64jeg-ZOOhiS4cdHA_EXJwHSbyZi4Xo" Mode="Road" Grid.Column="1" Grid.Row="1" ZoomLevel="12" Center="21.0975,106.0775">
+            <!-- Cơ sở phân bón Hà Gianh -->
+            <Canvas m:MapLayer.Position="21.1450,106.1567" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Seedling" Width="40" Height="40" Foreground="Green"/>
+            </Canvas>
+
+            <!-- Cơ sở phân bón SenAgri -->
+            <Canvas m:MapLayer.Position="21.0367,106.0717" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Seedling" Width="40" Height="40" Foreground="Green"/>
+            </Canvas>
+
+            <!-- Cơ sở phân bón Phú Bình -->
+            <Canvas m:MapLayer.Position="21.1550,106.0928" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Seedling" Width="40" Height="40" Foreground="Green"/>
+            </Canvas>
+
+            <!-- Cơ sở phân bón Cường Thịnh -->
+            <Canvas m:MapLayer.Position="21.1400,106.1022" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Seedling" Width="40" Height="40" Foreground="Green"/>
+            </Canvas>
+
+            <!-- Cơ sở phân bón Đại Thành -->
+            <Canvas m:MapLayer.Position="21.1410,106.1100" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Seedling" Width="40" Height="40" Foreground="Green"/>
+            </Canvas>
+
+            <!-- Cơ sở phân bón Hoàng Minh -->
+            <Canvas m:MapLayer.Position="21.1500,106.1222" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Seedling" Width="40" Height="40" Foreground="Green"/>
+            </Canvas>
+            <!-- Các cơ sở thuốc bảo vệ thực vật trên bản đồ -->
+            <Canvas m:MapLayer.Position="21.1056,106.2067" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+
+            <Canvas m:MapLayer.Position="21.1670,106.0651" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+
+            <Canvas m:MapLayer.Position="21.1680,106.0320" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+
+            <Canvas m:MapLayer.Position="21.1650,106.1178" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+
+            <Canvas m:MapLayer.Position="21.1222,106.0942" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+
+            <Canvas m:MapLayer.Position="21.1136,106.1130" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+
+            <Canvas m:MapLayer.Position="21.2321,106.1773" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+
+            <Canvas m:MapLayer.Position="21.0272,106.0851" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Flask" Width="40" Height="40" Foreground="DarkOrange"/>
+            </Canvas>
+            <!-- Vùng trồng cây ăn quả -->
+            <Canvas m:MapLayer.Position="21.0700,106.0600" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Bug" Width="40" Height="40" Foreground="Brown"/>
+            </Canvas>
+
+            <!-- Vùng trồng rau củ quả -->
+            <Canvas m:MapLayer.Position="21.1300,106.1100" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Bug" Width="40" Height="40" Foreground="Brown"/>
+            </Canvas>
+
+            <!-- Vùng trồng hoa và cây cảnh -->
+            <Canvas m:MapLayer.Position="21.1500,106.1400" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Bug" Width="40" Height="40" Foreground="Brown"/>
+            </Canvas>
+
+            <!-- Vùng trồng dược liệu -->
+            <Canvas m:MapLayer.Position="21.1700,106.1600" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Bug" Width="40" Height="40" Foreground="Brown"/>
+            </Canvas>
+
+            <!-- Vùng trồng cây công nghiệp ngắn ngày -->
+            <Canvas m:MapLayer.Position="21.2000,106.1800" m:MapLayer.PositionOrigin="BottomCenter" Width="40" Height="40">
+                <materialDesign:PackIcon Kind="Bug" Width="40" Height="40" Foreground="Brown"/>
+            </Canvas>
+        </m:Map>
+    </Grid>
+</Window>

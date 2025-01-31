@@ -183,7 +183,7 @@ WindowStartupLocation="CenterScreen"
                                 </GridViewColumn>
 
                                 <!-- Cột Loại cây trồng -->
-                                <GridViewColumn Width="180">
+                                <GridViewColumn Width="190">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border Background="DarkGreen" Padding="5">

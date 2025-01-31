@@ -46,6 +46,20 @@ namespace adc.ViewModel
                 signup su = new signup();
                 su.ShowDialog();
             });
+
+        }
+        public bool DangNhap(string email, string matKhau)
+        {
+            var user = DataProvider.Ins.DB.NguoiDung.FirstOrDefault(u => u.Email == email && u.MatKhau == matKhau);
+            if (user != null)
+            {
+                // Ghi lại lịch sử truy cập
+                LSTCViewModel lstcVM = new LSTCViewModel();
+                lstcVM.GhiLichSu(user.ID, "Người dùng đã đăng nhập.");
+
+                return true;
+            }
+            return false;
         }
 
         void Login(Window p)

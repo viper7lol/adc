@@ -52,6 +52,11 @@ WindowStartupLocation="CenterScreen"
 
                     <!-- Trường nhập liệu -->
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Search" 
+                             VerticalAlignment="Center" 
+                             Margin="0,10,0,0" 
+                             Foreground="Green" 
+                             HorizontalAlignment="Right" Width="50"/>
                         <TextBox Text="{Binding TenLoaiCoSo}"
                              Margin="5"
                              VerticalAlignment="Center"
