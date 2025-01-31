@@ -9,11 +9,10 @@
 
 namespace adc.Model
 {
-    using adc.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class DonViHanhChinh: BaseViewModel
+    public partial class DonViHanhChinh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DonViHanhChinh()
@@ -25,16 +24,12 @@ namespace adc.Model
             this.NguoiDung = new HashSet<NguoiDung>();
             this.VungTrong = new HashSet<VungTrong>();
         }
-
-        private string _MaDonVi;
-        public string MaDonVi { get => _MaDonVi; set { _MaDonVi = value; OnPropertyChanged(); } }
-        private string _TenDonVi;
-        public string TenDonVi { get => _TenDonVi; set { _TenDonVi = value; OnPropertyChanged(); } }
-        private int _CapDoID;
-        public int CapDoID { get => _CapDoID; set { _CapDoID = value; OnPropertyChanged(); } }
-        private string _CapTrenID;
-        public string CapTrenID { get => _CapTrenID; set { _CapTrenID = value; OnPropertyChanged(); } }
-
+    
+        public string MaDonVi { get; set; }
+        public string TenDonVi { get; set; }
+        public int CapDoID { get; set; }
+        public string CapTrenID { get; set; }
+    
         public virtual CapDoHanhChinh CapDoHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoSoATTP> CoSoATTP { get; set; }

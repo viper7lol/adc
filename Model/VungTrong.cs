@@ -9,11 +9,10 @@
 
 namespace adc.Model
 {
-    using adc.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class VungTrong:BaseViewModel
+    public partial class VungTrong
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VungTrong()
@@ -21,16 +20,12 @@ namespace adc.Model
             this.GiongCayTrong = new HashSet<GiongCayTrong>();
             this.SinhVatGayHaiVaTuoiSau = new HashSet<SinhVatGayHaiVaTuoiSau>();
         }
-
-        private int _ID;
-        public int ID { get => _ID; set { _ID = value; OnPropertyChanged(); } }
-        private string _TenVungTrong;
-        public string TenVungTrong { get => _TenVungTrong; set { _TenVungTrong = value; OnPropertyChanged(); } }
-        private string _MoTa;
-        public string MoTa { get => _MoTa; set { _MoTa = value; OnPropertyChanged(); } }
-        private string _MaVungTrongID;
-        public string MaVungTrongID { get => _MaVungTrongID; set { _MaVungTrongID = value; OnPropertyChanged(); } }
-
+    
+        public int ID { get; set; }
+        public string TenVungTrong { get; set; }
+        public string MoTa { get; set; }
+        public string MaVungTrongID { get; set; }
+    
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiongCayTrong> GiongCayTrong { get; set; }

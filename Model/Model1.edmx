@@ -719,7 +719,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyTrongTrotEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyTrongTrotEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CapDoHanhChinh" EntityType="Self.CapDoHanhChinh" />
           <EntitySet Name="CoSoATTP" EntityType="Self.CoSoATTP" />
           <EntitySet Name="CoSoPB" EntityType="Self.CoSoPB" />
@@ -799,7 +799,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyTrongTrotModelStoreContainer" CdmEntityContainer="QuanLyTrongTrotEntities1">
+        <EntityContainerMapping StorageEntityContainer="QuanLyTrongTrotModelStoreContainer" CdmEntityContainer="QuanLyTrongTrotEntities">
           <EntitySetMapping Name="CapDoHanhChinh">
             <EntityTypeMapping TypeName="QuanLyTrongTrotModel.CapDoHanhChinh">
               <MappingFragment StoreEntitySet="CapDoHanhChinh">

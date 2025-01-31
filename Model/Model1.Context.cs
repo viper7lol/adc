@@ -13,10 +13,10 @@ namespace adc.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyTrongTrotEntities1 : DbContext
+    public partial class QuanLyTrongTrotEntities : DbContext
     {
-        public QuanLyTrongTrotEntities1()
-            : base("name=QuanLyTrongTrotEntities1")
+        public QuanLyTrongTrotEntities()
+            : base("name=QuanLyTrongTrotEntities")
         {
         }
     

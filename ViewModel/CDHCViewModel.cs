@@ -13,7 +13,7 @@ using Microsoft.Identity.Client;
 
 namespace adc.ViewModel
 {
-    public class CDHCViewModel:MainViewModel
+    public class CDHCViewModel:LoginViewModel
     {
         private ObservableCollection<CapDoHanhChinh> _CapDoList;
         public ObservableCollection<CapDoHanhChinh> CapDoList { get => _CapDoList; set {  _CapDoList = value; OnPropertyChanged(); } }
@@ -42,12 +42,7 @@ namespace adc.ViewModel
             CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinh);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (LoginVM == null)
-                {
-                    // Đặt thông báo lỗi để dễ dàng phát hiện
-                    throw new NullReferenceException("LoginVM chưa được khởi tạo trong MainViewModel.");
-                }
-                if (LoginVM.IsAdmin) return true;
+                if () return true;
                 return false;
             }, (p) =>
             {

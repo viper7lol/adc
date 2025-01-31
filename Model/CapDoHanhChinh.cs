@@ -9,11 +9,10 @@
 
 namespace adc.Model
 {
-    using adc.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class CapDoHanhChinh:BaseViewModel
+    public partial class CapDoHanhChinh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CapDoHanhChinh()
@@ -22,9 +21,8 @@ namespace adc.Model
         }
     
         public int ID { get; set; }
-        private string _TenCapDo;
-        public string TenCapDo { get => _TenCapDo; set { _TenCapDo = value; OnPropertyChanged(); } }
-
+        public string TenCapDo { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonViHanhChinh> DonViHanhChinh { get; set; }
     }
