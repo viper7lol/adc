@@ -13,7 +13,7 @@ using Microsoft.Identity.Client;
 
 namespace adc.ViewModel
 {
-    public class CDHCViewModel:LoginViewModel
+    public class CDHCViewModel:MainViewModel
     {
         private ObservableCollection<CapDoHanhChinh> _CapDoList;
         public ObservableCollection<CapDoHanhChinh> CapDoList { get => _CapDoList; set {  _CapDoList = value; OnPropertyChanged(); } }
@@ -42,14 +42,20 @@ namespace adc.ViewModel
             CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinh);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if () return true;
-                return false;
+                return true;
             }, (p) =>
             {
+                if (Isadmin)
+                {
                     var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
                     DataProvider.Ins.DB.CapDoHanhChinh.Add(capdo);
                     DataProvider.Ins.DB.SaveChanges();
-                    CapDoList.Add(capdo);        
+                    CapDoList.Add(capdo);
+                }
+                else
+                {
+                    MessageBox.Show("Chỉ có admin mới được thêm", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             });
             EditCommand = new RelayCommand<object>((p) =>
             {

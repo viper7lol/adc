@@ -14,6 +14,7 @@ namespace adc.ViewModel
     public class MainViewModel:BaseViewModel
     {
         public bool Isloaded = false;
+        public bool Isadmin {  get; set; }
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand DonViHanhChinhCommand { get; set; }
         public ICommand CapDoHanhChinhCommand { get; set; }
@@ -43,10 +44,12 @@ namespace adc.ViewModel
                 if (loginVM.IsLogin)
                 {
                     p.Show();
+                    Isadmin = loginVM.IsAdmin;
                 }
                 else
                 {
                     p.Close();
+                    Isadmin = !loginVM.IsAdmin;
                 }
             });
             CapDoHanhChinhCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
