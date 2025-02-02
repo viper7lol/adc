@@ -16,10 +16,10 @@ namespace adc.ViewModel
     {
         public bool IsLogin { get; set; }
         public bool IsAdmin { get; set; }
-        private string _UserName;
-        public string Email { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
-        private string _Password;
-        public string MatKhau { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+        private string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+        private string _MatKhau;
+        public string MatKhau { get => _MatKhau; set { _MatKhau = value; OnPropertyChanged(); } }
 
         public ICommand CloseCommand { get; set; }
         public ICommand LoginCommand { get; set; }
@@ -48,19 +48,19 @@ namespace adc.ViewModel
             });
 
         }
-        public bool DangNhap(string email, string matKhau)
-        {
-            var user = DataProvider.Ins.DB.NguoiDung.FirstOrDefault(u => u.Email == email && u.MatKhau == matKhau);
-            if (user != null)
-            {
-                // Ghi lại lịch sử truy cập
-                LSTCViewModel lstcVM = new LSTCViewModel();
-                lstcVM.GhiLichSu(user.ID, "Người dùng đã đăng nhập.");
+        //public bool DangNhap(string email, string matKhau)
+        //{
+        //    var user = DataProvider.Ins.DB.NguoiDung.FirstOrDefault(u => u.Email == email && u.MatKhau == matKhau);
+        //    if (user != null)
+        //    {
+        //        // Ghi lại lịch sử truy cập
+        //        LSTCViewModel lstcVM = new LSTCViewModel();
+        //        lstcVM.GhiLichSu(user.ID, "Người dùng đã đăng nhập.");
 
-                return true;
-            }
-            return false;
-        }
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         void Login(Window p)
         {
@@ -75,20 +75,13 @@ namespace adc.ViewModel
             staff
              */
 
-            var account1 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID == 1);
-            var account2 = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID != 1);
-            if (account1 != null)
+            var account = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau).Count();
+            if (account > 0)
             {
                 IsLogin = true;
-                IsAdmin = true;
                 p.Close();
             }
-            if (account2 != null) { 
-                IsLogin = true;
-                IsAdmin = false;
-                p.Close();
-            }
-            if(account1 == null && account2 == null)
+            else
             {
                 IsLogin = false;
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");

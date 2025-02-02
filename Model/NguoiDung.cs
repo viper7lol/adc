@@ -9,10 +9,11 @@
 
 namespace adc.Model
 {
+    using adc.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class NguoiDung
+    public partial class NguoiDung:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NguoiDung()
@@ -22,8 +23,10 @@ namespace adc.Model
     
         public int ID { get; set; }
         public string TenNguoiDung { get; set; }
-        public string Email { get; set; }
-        public string MatKhau { get; set; }
+        private string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+        private string _MatKhau;
+        public string MatKhau { get => _MatKhau; set { _MatKhau = value; OnPropertyChanged(); } }
         public int VaiTroID { get; set; }
         public byte TrangThai { get; set; }
         public string DonViHanhChinhID { get; set; }

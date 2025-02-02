@@ -32,6 +32,7 @@ namespace adc.ViewModel
                 }
             }
         }
+
         private string _TenCapDo;
         public string TenCapDo { get => _TenCapDo; set { _TenCapDo = value; OnPropertyChanged(); } }
         public ICommand AddCommand { get; set; }
@@ -40,22 +41,15 @@ namespace adc.ViewModel
         public ICommand SearchCommand { get; set; }
         public CDHCViewModel() {
             CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinh);
-            AddCommand = new RelayCommand<object>((p) =>
+            AddCommand = new RelayCommand<Window>((p) =>
             {
                 return true;
             }, (p) =>
             {
-                if (Isadmin)
-                {
                     var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
                     DataProvider.Ins.DB.CapDoHanhChinh.Add(capdo);
                     DataProvider.Ins.DB.SaveChanges();
                     CapDoList.Add(capdo);
-                }
-                else
-                {
-                    MessageBox.Show("Chỉ có admin mới được thêm", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
             });
             EditCommand = new RelayCommand<object>((p) =>
             {
