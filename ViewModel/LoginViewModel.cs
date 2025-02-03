@@ -75,13 +75,21 @@ namespace adc.ViewModel
             staff
              */
 
-            var account = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau).Count();
-            if (account > 0)
+            var account = DataProvider.Ins.DB.NguoiDung.Where(x => x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID == 1).Count();
+            var account2 = DataProvider.Ins.DB.NguoiDung.Where(x=>x.Email == Email && x.MatKhau == MatKhau && x.VaiTroID == 2).Count();
+            if (account > 0 && account2 == 0)
             {
                 IsLogin = true;
+                IsAdmin = true;
                 p.Close();
             }
-            else
+            if(account2 > 0 && account == 0)
+            {
+                IsLogin = true;
+                IsAdmin = false;
+                p.Close();
+            }
+            if(account == 0 &&  account2 == 0)
             {
                 IsLogin = false;
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");

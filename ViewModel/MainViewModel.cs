@@ -27,19 +27,11 @@ namespace adc.ViewModel
         public ICommand QLNDCommand { get; set; }
         public ICommand LSTCCommand { get; set; }
 
-        private bool _isadmin;
-        public bool isadmin
-        {
-            get => _isadmin;
-            set
-            {
-                _isadmin = value;
-                OnPropertyChanged();
-            }
-        }
+        public bool isadmin {  get; set; }  
 
         public MainViewModel()
-        { 
+        {
+            isadmin = false;
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Isloaded = true;
@@ -49,11 +41,17 @@ namespace adc.ViewModel
                 _loginWindow.ShowDialog();
                 if (_loginWindow.DataContext == null) return;
                 var loginVM = _loginWindow.DataContext as LoginViewModel;
-                if(loginVM.IsLogin)
+                if(loginVM.IsLogin == true && loginVM.IsAdmin == true)
                 {
                     p.Show();
+                    isadmin = true;
                 }
-                else
+                if (loginVM.IsLogin == true && loginVM.IsAdmin == false)
+                {
+                    p.Show();
+                    isadmin = false;
+                }
+                if (loginVM.IsLogin == false)
                 {
                     p.Close();
                 }

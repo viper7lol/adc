@@ -31,8 +31,7 @@ namespace adc.ViewModel
                     TenCapDo = SelectedCapDo.TenCapDo; 
                 }
             }
-        }
-
+        }      
         private string _TenCapDo;
         public string TenCapDo { get => _TenCapDo; set { _TenCapDo = value; OnPropertyChanged(); } }
         public ICommand AddCommand { get; set; }
@@ -43,7 +42,14 @@ namespace adc.ViewModel
             CapDoList = new ObservableCollection<CapDoHanhChinh>(DataProvider.Ins.DB.CapDoHanhChinh);
             AddCommand = new RelayCommand<Window>((p) =>
             {
-                return true;
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin) { 
+                    return true;
+                }
+                else { 
+                    return false;
+                }
             }, (p) =>
             {
                     var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
