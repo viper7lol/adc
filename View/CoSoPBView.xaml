@@ -93,7 +93,7 @@ WindowStartupLocation="CenterScreen"
                             <TextBox Text="{Binding LoaiCoSoID}" 
                                  Width="70" 
                                  materialDesign:HintAssist.Hint="Loại cơ sở" 
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox_TextChanged"/>
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                             <materialDesign:PackIcon Kind="Category" 
                                      VerticalAlignment="Center" 
                                      Margin="-40,10,0,0" 
