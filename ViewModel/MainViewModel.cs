@@ -26,6 +26,7 @@ namespace adc.ViewModel
         public ICommand SVGHVTSCommand { get; set; }
         public ICommand QLNDCommand { get; set; }
         public ICommand LSTCCommand { get; set; }
+        public ICommand BanDoCommand { get; set; }
 
         public bool isadmin {  get; set; }  
 
@@ -120,6 +121,10 @@ namespace adc.ViewModel
             {
                 LichSuTruyCapView ls = new LichSuTruyCapView();
                 ls.ShowDialog();
+            });
+            BanDoCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+                BanDoPhanBo bd = new BanDoPhanBo();
+                bd.ShowDialog();
             });
         }
     }

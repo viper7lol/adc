@@ -61,7 +61,7 @@ namespace adc.ViewModel
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             });
             EditCommand = new RelayCommand<object>((p) =>

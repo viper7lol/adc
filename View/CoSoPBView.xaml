@@ -48,7 +48,7 @@ WindowStartupLocation="CenterScreen"
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
                         <!--  Tên -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBox Text="{Binding Ten}" 
+                            <TextBox Text="{Binding TenCoSo}" 
                       Width="40" 
                       materialDesign:HintAssist.Hint="Tên" 
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -90,10 +90,10 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- Loại cơ sở -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBox Text="{Binding LoaiCoSo }" 
+                            <TextBox Text="{Binding LoaiCoSoID}" 
                                  Width="70" 
                                  materialDesign:HintAssist.Hint="Loại cơ sở" 
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox_TextChanged"/>
                             <materialDesign:PackIcon Kind="Category" 
                                      VerticalAlignment="Center" 
                                      Margin="-40,10,0,0" 
@@ -116,7 +116,7 @@ WindowStartupLocation="CenterScreen"
                     </StackPanel>
                     <!-- Buttons -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Command="{Binding AddCommand}" 
+                        <Button Command="{Binding SearchCommand}" 
                   Content="Tìm kiếm" 
                   Margin="5" 
                   Width="100" 
@@ -165,7 +165,7 @@ WindowStartupLocation="CenterScreen"
                                 <!-- Cột Ngày cấp giấy phép -->
                                 <GridViewColumn Width="150" Header="Ngày cấp" DisplayMemberBinding="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}"/>
                                 <!-- Cột Tên loại cơ sở -->
-                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding TenLoaiCoSo}"/>
+                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding LoaiCoSoID.TenLoaiCoSo}"/>
 
                                 <!-- Cột Mã hành chính -->
                                 <GridViewColumn Width="150" Header="Mã HC" DisplayMemberBinding="{Binding MaHanhChinh}"/>

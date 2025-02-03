@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using adc.Model;
 using System.Windows.Input;
+using System.Windows;
 
 namespace adc.ViewModel
 {
@@ -38,30 +39,61 @@ namespace adc.ViewModel
         public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
         private string _MaHanhChinh;
         public string MaHanhChinh { get => _MaHanhChinh; set { _MaHanhChinh = value; OnPropertyChanged(); } }
+        private DateTime _NgayCapGiayPhep;
+        public DateTime NgayCapGiayPhep { get => _NgayCapGiayPhep; set { _NgayCapGiayPhep = value; OnPropertyChanged(); } }
+        private int? _LoaiCoSoID;
+        public int? LoaiCoSoID { get => _LoaiCoSoID; set { _LoaiCoSoID = value; OnPropertyChanged(); } }
 
         public ICommand AddCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
+        public ICommand EditCommand { get; set; }  
+        public ICommand DeleteCommand { get; set; } 
         public CoSoPBViewModel()
         {
             CoSoList = new ObservableCollection<CoSoPB>(DataProvider.Ins.DB.CoSoPB);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || string.IsNullOrEmpty(MaHanhChinh))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    return true;
                 }
-                var cosolist = DataProvider.Ins.DB.CoSoPB.Where(x => x.MaCoSo == MaCoSo);
-                if (cosolist == null || cosolist.Count() != 0)
-                {
-                    return false;
-                }
-                return true;
+                return false;
 
             }, (P) =>
             {
-                var coso = new CoSoPB() { MaCoSo = MaCoSo, TenCoSo = TenCoSo, DiaChi = DiaChi, MaHanhChinh = MaHanhChinh };
-                DataProvider.Ins.DB.CoSoPB.Add(coso);
-                DataProvider.Ins.DB.SaveChanges();
-                CoSoList.Add(coso);
+                var coso = new CoSoPB() { MaCoSo = MaCoSo, TenCoSo = TenCoSo, DiaChi = DiaChi, MaHanhChinh = MaHanhChinh, LoaiCoSoID = LoaiCoSoID, NgayCapGiayPhep = NgayCapGiayPhep };
+                if (TenCoSo != null && DiaChi != null && MaHanhChinh != null && LoaiCoSoID != 0 && NgayCapGiayPhep != null)
+                {
+                    DataProvider.Ins.DB.CoSoPB.Add(coso);
+                    DataProvider.Ins.DB.SaveChanges();
+                    CoSoList.Add(coso);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đẩy đủ thông tin !", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            });
+            EditCommand = new RelayCommand<object>((p) =>
+            {
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
+                {
+                    if (string.IsNullOrEmpty(MaHanhChinh) || string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || MaCoSo == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }, (p) =>
+            {
+
             });
         }
     }

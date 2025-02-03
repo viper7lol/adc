@@ -11,7 +11,7 @@ using adc.View;
 
 namespace adc.ViewModel
 {
-    public class DVHCViewModel : BaseViewModel
+    public class DVHCViewModel : MainViewModel
     {
         private ObservableCollection<DonViHanhChinh> _DonViList;
         public ObservableCollection<DonViHanhChinh> DonViList { get => _DonViList; set { _DonViList = value; OnPropertyChanged(); } }
@@ -51,27 +51,44 @@ namespace adc.ViewModel
             DonViList = new ObservableCollection<DonViHanhChinh>(DataProvider.Ins.DB.DonViHanhChinh);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                return true;
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
+                {
+                    return true;
+                }
+                return false;
             }, (p) =>
             {
                 var donvi = new DonViHanhChinh() { MaDonVi = MaDonVi, TenDonVi = TenDonVi, CapDoID = CapDoID, CapTrenID = CapTrenID };
-                DataProvider.Ins.DB.DonViHanhChinh.Add(donvi);
-                DataProvider.Ins.DB.SaveChanges();
-                DonViList.Add(donvi);
+                if (MaDonVi != null && TenDonVi != null && CapDoID != 0 && CapTrenID != null)
+                {
+                    DataProvider.Ins.DB.DonViHanhChinh.Add(donvi);
+                    DataProvider.Ins.DB.SaveChanges();
+                    DonViList.Add(donvi);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đẩy đủ thông tin !", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             );
             EditCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(MaDonVi) || string.IsNullOrEmpty(TenDonVi) || string.IsNullOrEmpty(CapTrenID))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(MaDonVi) || string.IsNullOrEmpty(TenDonVi) || string.IsNullOrEmpty(CapTrenID) || CapDoID == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var donvilist = DataProvider.Ins.DB.DonViHanhChinh.Where(x => x.MaDonVi == MaDonVi);
-                if (donvilist != null || donvilist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
                 var donvihanhchinh = DataProvider.Ins.DB.DonViHanhChinh.Where(x => x.MaDonVi == SelectedDonVi.MaDonVi).SingleOrDefault();
@@ -98,16 +115,20 @@ namespace adc.ViewModel
             });
             DeleteCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(TenDonVi))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(MaDonVi) || string.IsNullOrEmpty(TenDonVi) || string.IsNullOrEmpty(CapTrenID) || CapDoID == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var donvilist = DataProvider.Ins.DB.DonViHanhChinh.Where(x => x.TenDonVi == TenDonVi);
-                if (donvilist != null || donvilist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
                 var tendonvi = SelectedDonVi;
