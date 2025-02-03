@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Controls;
 using System.Windows;
 using Microsoft.Identity.Client;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 
 namespace adc.ViewModel
@@ -44,32 +45,41 @@ namespace adc.ViewModel
             {
                 MainWindow mainWindow = new MainWindow();
                 var MainVM = mainWindow.DataContext as MainViewModel;
-                if (MainVM.isadmin) { 
+                if (MainVM.isadmin)
+                {
                     return true;
                 }
-                else { 
-                    return false;
-                }
+                return false;
             }, (p) =>
             {
                     var capdo = new CapDoHanhChinh() { TenCapDo = TenCapDo };
+                if (TenCapDo != null)
+                {
                     DataProvider.Ins.DB.CapDoHanhChinh.Add(capdo);
                     DataProvider.Ins.DB.SaveChanges();
                     CapDoList.Add(capdo);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             });
             EditCommand = new RelayCommand<object>((p) =>
             {
-
-                if (string.IsNullOrEmpty(TenCapDo))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(TenCapDo))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var capdolist = DataProvider.Ins.DB.CapDoHanhChinh.Where(x => x.TenCapDo == TenCapDo);
-                if (capdolist != null || capdolist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
                 var capdohanhchinh = DataProvider.Ins.DB.CapDoHanhChinh.Where(x => x.ID == SelectedCapDo.ID).SingleOrDefault();
@@ -78,16 +88,20 @@ namespace adc.ViewModel
             });
             DeleteCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(TenCapDo))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(TenCapDo))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var capdolist = DataProvider.Ins.DB.CapDoHanhChinh.Where(x => x.TenCapDo == TenCapDo);
-                if (capdolist != null || capdolist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
                 var tencapdo = SelectedCapDo;
