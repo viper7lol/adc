@@ -315,6 +315,9 @@
     <Compile Include="View\QuanLyNguoiDungView.xaml.cs">
       <DependentUpon>QuanLyNguoiDungView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Quen_Mat_Khau.xaml.cs">
+      <DependentUpon>Quen_Mat_Khau.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\signup.xaml.cs">
       <DependentUpon>signup.xaml</DependentUpon>
     </Compile>
@@ -404,6 +407,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\QuanLyNguoiDungView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quen_Mat_Khau.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
