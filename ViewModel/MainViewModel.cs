@@ -160,7 +160,7 @@ namespace adc.ViewModel
 
 			BanDoCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
 			{
-				BanDoPhanBo bd = new BanDoPhanBo();
+				BanDoPhanBo1 bd = new BanDoPhanBo1();
 				bd.Left = 300;
 				bd.Top = 35;
 				bd.ShowDialog();

@@ -294,8 +294,8 @@
     <Compile Include="ViewModel\SVGHVTSViewModel.cs" />
     <Compile Include="ViewModel\ThuocBVTVViewModel.cs" />
     <Compile Include="ViewModel\VungTrongViewModel.cs" />
-    <Compile Include="View\BanDoPhanBo.xaml.cs">
-      <DependentUpon>BanDoPhanBo.xaml</DependentUpon>
+    <Compile Include="View\BanDoPhanBo1.xaml.cs">
+      <DependentUpon>BanDoPhanBo1.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CapDoHanhChinhView.xaml.cs">
       <DependentUpon>CapDoHanhChinhView.xaml</DependentUpon>
@@ -381,7 +381,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\BanDoPhanBo.xaml">
+    <Page Include="View\BanDoPhanBo1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
