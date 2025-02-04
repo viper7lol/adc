@@ -33,7 +33,7 @@ namespace adc
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://apllication:,,,/Resources/33.png")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://apllication:,,,/Resources/33.JPG")));
 		}
 
 		private void HanhChinhButton_Click(object sender, RoutedEventArgs e)
@@ -47,31 +47,31 @@ namespace adc
         {
             GiongCayTrongMoRong = !GiongCayTrongMoRong;
             GiongCayTrongConButton.Visibility = GiongCayTrongMoRong ? Visibility.Visible : Visibility.Collapsed;
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/1.jpg")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/88.jpg")));
 		}
         private void PhanBonButton_Click(object sender, RoutedEventArgs e)
         {
             PhanBonMoRong = !PhanBonMoRong;
             PhanBonConButton.Visibility = PhanBonMoRong ? Visibility.Visible : Visibility.Collapsed;
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/1.jpg")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/111.jpg")));
 		}
         private void ThuocbvtvButton_Click(object sender, RoutedEventArgs e)
         {
             ThuocbvtvMoRong = !ThuocbvtvMoRong;
             ThuocbvtvButton.Visibility = ThuocbvtvMoRong ? Visibility.Visible : Visibility.Collapsed;
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/1.jpg")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/55.jpg")));
 		}
         private void HeThongButton_Click(object sender, RoutedEventArgs e)
         {
             HeThongMoRong = !HeThongMoRong;
             HeThongButton.Visibility = HeThongMoRong ? Visibility.Visible : Visibility.Collapsed;
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/1.jpg")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/44.jpg")));
 		}
         private void TaiKhoanButton_Click(object sender, RoutedEventArgs e)
         {
             TaiKhoanMoRong = !TaiKhoanMoRong;
             TaiKhoanButton.Visibility = TaiKhoanMoRong ? Visibility.Visible : Visibility.Collapsed;
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/1.jpg")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/12.jpg")));
 		}
 
 		

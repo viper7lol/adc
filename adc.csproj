@@ -514,6 +514,14 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\111.jpg" />
+    <Resource Include="Resources\88.jpg" />
+    <Resource Include="Resources\44.jpg" />
+    <Resource Include="Resources\55.jpg" />
+    <Resource Include="Resources\66.jpg" />
+    <Resource Include="Resources\77.jpg" />
+    <Resource Include="Resources\canh-tac-huu-co.jpg" />
+    <Resource Include="Resources\12.jpg" />
     <Resource Include="Resources\33.JPG" />
     <Resource Include="Resources\22.png" />
     <Resource Include="Resources\1.jpg" />
