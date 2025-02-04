@@ -99,9 +99,9 @@ WindowStyle="None"
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton"
                     materialDesign:ButtonAssist.CornerRadius="10"
-                    materialDesign:RippleAssist.Feedback="#DD000000" Margin="219,0,0,17" 
+                    materialDesign:RippleAssist.Feedback="Gray" Margin="219,0,0,17" 
                     Content="Xác Nhận" FontSize="17" 
-                    FontFamily="Segoe UI Black" Foreground="#DDFFFFFF" Height="53" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="119" Background="#FF0C8329" BorderBrush="{x:Null}"/>
+                    FontFamily="Segoe UI Black" Foreground="#DDFFFFFF" Height="53" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="119" Background="gray" BorderBrush="{x:Null}"/>
 
 
             </Grid>
