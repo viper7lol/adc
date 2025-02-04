@@ -16,4 +16,6 @@
     <viewmodel:QLNDViewModel x:Key="QLNDVM"></viewmodel:QLNDViewModel>
     <viewmodel:LSTCViewModel x:Key="LSTCVM"></viewmodel:LSTCViewModel>
     <viewmodel:dangkyViewModel x:Key="dkVM"></viewmodel:dangkyViewModel>
+    <viewmodel:DoiViewModel x:Key="DVM"></viewmodel:DoiViewModel>
+    <viewmodel:QuenViewModel x:Key="QVM"></viewmodel:QuenViewModel>
 </ResourceDictionary>
