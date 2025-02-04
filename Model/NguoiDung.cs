@@ -29,8 +29,8 @@ namespace adc.Model
         public string MatKhau { get => _MatKhau; set { _MatKhau = value; OnPropertyChanged(); } }
         private Nullable<int> _VaiTroID;
         public Nullable<int> VaiTroID { get => _VaiTroID; set { _VaiTroID = value; OnPropertyChanged(); } }
-        private byte _TrangThaiID;
-        public byte TrangThaiID { get => _TrangThaiID; set { _TrangThaiID = value; OnPropertyChanged(); } }
+        private byte _TrangThai;
+        public byte TrangThai { get => _TrangThai; set { _TrangThai = value; OnPropertyChanged(); } }
         private string _DonViHanhChinhID;
         public string DonViHanhChinhID { get => _DonViHanhChinhID; set { _DonViHanhChinhID = value; OnPropertyChanged(); } }
 

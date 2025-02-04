@@ -30,7 +30,7 @@ namespace adc.ViewModel
                     Email = SelectedNguoiDung.Email;
                     MatKhau = SelectedNguoiDung.MatKhau;
                     VaiTroID = SelectedNguoiDung.VaiTroID;
-                    TrangThaiID = SelectedNguoiDung.TrangThaiID;
+                    TrangThai = SelectedNguoiDung.TrangThai;
                     DonViHanhChinhID = SelectedNguoiDung.DonViHanhChinhID;
                 }
             }
@@ -45,8 +45,8 @@ namespace adc.ViewModel
         public string MatKhau { get => _MatKhau; set { _MatKhau = value; OnPropertyChanged(); } }
         private int? _VaiTroID;
         public int? VaiTroID { get => _VaiTroID; set { _VaiTroID = value; OnPropertyChanged(); } }
-        private byte _TrangThaiID;
-        public byte TrangThaiID { get => _TrangThaiID; set { _TrangThaiID = value; OnPropertyChanged(); } }
+        private byte _TrangThai;
+        public byte TrangThai { get => _TrangThai; set { _TrangThai = value; OnPropertyChanged(); } }
         private string _DonViHanhChinhID;
         public string DonViHanhChinhID { get => _DonViHanhChinhID; set { _DonViHanhChinhID = value; OnPropertyChanged(); } }
 
@@ -62,7 +62,7 @@ namespace adc.ViewModel
                 var MainVM = mainWindow.DataContext as MainViewModel;
                 if (MainVM.isadmin)
                 {
-                    if (string.IsNullOrEmpty(TenNguoiDung) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(MatKhau) || VaiTroID == 0 || TrangThaiID == 0 || string.IsNullOrEmpty(DonViHanhChinhID))
+                    if (string.IsNullOrEmpty(TenNguoiDung) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(MatKhau) || VaiTroID == 0 || TrangThai == 0 || string.IsNullOrEmpty(DonViHanhChinhID))
                     {
                         return false;
                     }
@@ -80,7 +80,7 @@ namespace adc.ViewModel
                 nd.Email = Email;
                 nd.MatKhau = MatKhau;
                 nd.VaiTroID = VaiTroID;
-                nd.TrangThaiID = TrangThaiID;
+                nd.TrangThai = TrangThai;
                 nd.DonViHanhChinhID = DonViHanhChinhID;
                 DataProvider.Ins.DB.SaveChanges();
             });
@@ -90,7 +90,7 @@ namespace adc.ViewModel
                 var MainVM = mainWindow.DataContext as MainViewModel;
                 if (MainVM.isadmin)
                 {
-                    if (string.IsNullOrEmpty(TenNguoiDung) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(MatKhau) || VaiTroID == 0 || TrangThaiID == 0 || string.IsNullOrEmpty(DonViHanhChinhID))
+                    if (string.IsNullOrEmpty(TenNguoiDung) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(MatKhau) || VaiTroID == 0 || TrangThai == 0 || string.IsNullOrEmpty(DonViHanhChinhID))
                     {
                         return false;
                     }
