@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainWindow" Height="600" Width="1080" WindowStyle="None" ResizeMode="NoResize" 
-        WindowStartupLocation="CenterScreen" Background="White">
+        WindowStyle="None" ResizeMode="NoResize" 
+        Title="MainWindow" 
+        Height="600" Width="1080" 
+        WindowStartupLocation="Manual"
+        Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>

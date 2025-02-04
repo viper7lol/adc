@@ -15,9 +15,9 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Name="DVHCView"
-                        ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
         Title="Quản lý đơn vị hành chính" Height="600" Width="900">
 
     <Grid Margin="10">

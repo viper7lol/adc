@@ -10,8 +10,8 @@
         Title="Quản lý Cơ sở" Height="600" Width="900"
         Name="CSPBView"
                 ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
         Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid Margin="10">

@@ -7,9 +7,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource LSTCVM}"
-                ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
         Name="LSTCView"
         Title="Quản lý Lịch Sử Truy Cập" Height="600" Width="1000"
         Background="#F0F4F8">

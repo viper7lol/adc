@@ -39,8 +39,8 @@
             <!-- Title -->
             <TextBlock Grid.Row="0" Text="Quản lý cấp hành chính" 
                    FontSize="28" FontWeight="Bold" 
-                   HorizontalAlignment="Center" 
-                   Foreground="DarkBlue" Margin="10"/>
+                   HorizontalAlignment="Center"
+                   Foreground="ForestGreen" Margin="10" />
 
             <!-- Toolbar -->
             <materialDesign:Card Grid.Row="1" Padding="10">
@@ -54,9 +54,8 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <materialDesign:PackIcon Kind="Search" 
                              VerticalAlignment="Center" 
-                             Margin="0,10,0,0" 
-                             Foreground="DarkBlue" 
-                             HorizontalAlignment="Right" Width="50"/>
+                             Margin="20,10,0,0" 
+                             Foreground="DarkBlue" Width="27" Height="21"/>
                         <TextBox Text="{Binding TenCapDo}" 
                              Margin="5" 
                              VerticalAlignment="Center" 
@@ -71,28 +70,29 @@
                             Content="Tìm kiếm" 
                             Margin="5" 
                             Width="100" 
-                            Background="DarkBlue"  
-                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                            Background="DarkBlue"
+                            BorderBrush="Black"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}"
-                                
                             Content="Thêm" 
                             Margin="5" 
                             Width="100" 
-                            Background="GreenYellow"  
-                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                            BorderBrush="Black"
+                            Background="DarkGreen"  
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
                             Content="Sửa" 
                             Margin="5" 
                             Width="100" 
                             Background="DarkOrange" 
+                            BorderBrush="Black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
                             Content="Xóa" 
                             Margin="5"
                             Width="100" 
                             Background="DarkRed" 
+                            BorderBrush="Black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
@@ -111,14 +111,14 @@
                                 <GridViewColumn Width="200">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkBlue" Padding="5">
-                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="ID" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Border Background="White" Padding="5">
+                                            <Border Background="Transparent" Padding="5">
                                                 <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="10"/>
                                             </Border>
                                         </DataTemplate>
@@ -129,8 +129,8 @@
                                 <GridViewColumn Width="300">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkBlue" Padding="5">
-                                                <TextBlock Text="Tên cấp độ" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="150"/>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="Tên cấp độ" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="150"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>

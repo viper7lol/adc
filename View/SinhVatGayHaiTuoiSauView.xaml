@@ -15,9 +15,9 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-                ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
         Title="Quản lý sinh vật gây hại và tuổi sâu" Height="600" Width="900">
 
     <Grid Margin="10">

@@ -15,8 +15,8 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
                 ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
         Name="CTView"
         Title="Quản lý giống cây trồng" Height="600" Width="900">
 
@@ -111,27 +111,29 @@ WindowStartupLocation="CenterScreen"
                              Content="Tìm kiếm" 
                              Margin="5" 
                              Width="100" 
-                             Background="DarkSlateBlue" 
-                             materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>    
+                             Background="DarkBlue"
+                             BorderBrush="Black"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>    
                         <Button Command="{Binding AddCommand}" 
                             Content="Thêm" 
                             Margin="5" 
                             Width="100" 
-                            Background="GreenYellow"  
-                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                            Background="DarkGreen"
+                            BorderBrush="Black"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
                             Content="Sửa" 
                             Margin="5" 
                             Width="100" 
-                            Background="Orange" 
+                            Background="DarkOrange" 
+                                BorderBrush="Black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
                             Content="Xóa" 
                             Margin="5"
                             Width="100" 
                             Background="DarkRed" 
+                                BorderBrush="Black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
@@ -150,8 +152,8 @@ WindowStartupLocation="CenterScreen"
                                 <GridViewColumn Width="120">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkGreen" Padding="5">
-                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="50"/>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="ID" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="50"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -168,8 +170,8 @@ WindowStartupLocation="CenterScreen"
                                 <GridViewColumn Width="200">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkGreen" Padding="5">
-                                                <TextBlock Text="Tên giống cây" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Tên giống cây" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -186,8 +188,8 @@ WindowStartupLocation="CenterScreen"
                                 <GridViewColumn Width="190">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkGreen" Padding="5">
-                                                <TextBlock Text="Loại cây trồng" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="120"/>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Loại cây trồng" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="120"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -204,8 +206,8 @@ WindowStartupLocation="CenterScreen"
                                 <GridViewColumn Width="200">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkGreen" Padding="5">
-                                                <TextBlock Text="Mô tả" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Mô tả" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -222,8 +224,8 @@ WindowStartupLocation="CenterScreen"
                                 <GridViewColumn Width="180">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkGreen" Padding="5">
-                                                <TextBlock Text="Vùng trồng" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Vùng trồng" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>

@@ -15,9 +15,9 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Name="PBView"
-                ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
         Title="Quản lý phân bón" Height="600" Width="900">
 
     <!-- Định nghĩa tài nguyên LinearGradientBrush màu cam -->

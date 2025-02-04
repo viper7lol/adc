@@ -9,9 +9,9 @@
         DataContext="{StaticResource CSPBVM}"
         Title="Quản lý Cơ sở" Height="600" Width="900"
         Name="CSPBView"
-                ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="Manual"
         Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid Margin="10">
@@ -120,27 +120,29 @@ WindowStartupLocation="CenterScreen"
                   Content="Tìm kiếm" 
                   Margin="5" 
                   Width="100" 
-                  Background="#2196F3"  
-                  materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                  Background="DarkBlue"
+                                BorderBrush="Black"
+                  Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}" 
                   Content="Thêm" 
                   Margin="5" 
                   Width="100" 
-                  Background="#4CAF50"  
-                  materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                  Background="DarkGreen"
+                                BorderBrush="Black"
+                  Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
                   Content="Sửa" 
                   Margin="5" 
                   Width="100" 
-                  Background="#FF9800" 
+                  Background="DarkOrange"
+                                BorderBrush="Black"
                   Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
                   Content="Xóa" 
                   Margin="5"
                   Width="100" 
-                  Background="#F44336" 
+                  Background="DarkRed"
+                                BorderBrush="Black"
                   Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
@@ -154,7 +156,7 @@ WindowStartupLocation="CenterScreen"
                         <ListView.View>
                             <GridView>
                                 <!-- Cột Mã cơ sở -->
-                                <GridViewColumn Width="100" Header="Mã" DisplayMemberBinding="{Binding MaCoSo}"/>
+                                <GridViewColumn Width="100" Header="Mã"  DisplayMemberBinding="{Binding MaCoSo}"/>
 
                                 <!-- Cột Tên cơ sở -->
                                 <GridViewColumn Width="180" Header="Tên" DisplayMemberBinding="{Binding TenCoSo}"/>
