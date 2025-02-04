@@ -273,6 +273,7 @@
     <Compile Include="ViewModel\CoSoPBViewModel.cs" />
     <Compile Include="ViewModel\dangkyViewModel.cs" />
     <Compile Include="ViewModel\DataContext.cs" />
+    <Compile Include="ViewModel\DoiViewModel.cs" />
     <Compile Include="ViewModel\DVHCViewModel.cs" />
     <Compile Include="ViewModel\LoaiCoSoViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -280,6 +281,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PhanBonViewModel.cs" />
     <Compile Include="ViewModel\QLNDViewModel.cs" />
+    <Compile Include="ViewModel\QuenViewModel.cs" />
     <Compile Include="ViewModel\SVGHVTSViewModel.cs" />
     <Compile Include="ViewModel\ThuocBVTVViewModel.cs" />
     <Compile Include="ViewModel\VungTrongViewModel.cs" />

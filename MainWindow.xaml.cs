@@ -33,7 +33,7 @@ namespace adc
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("/Resources/22.png")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://apllication:,,,/Resources/22.png")));
 		}
 
 		private void HanhChinhButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace adc
             //doi trang thai
             HanhChinhMoRong = !HanhChinhMoRong;
             HanhChinhConButton.Visibility = HanhChinhMoRong ? Visibility.Visible : Visibility.Collapsed;
-			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("/Resources/1.jpg")));
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/1.jpg")));
 		}
         private void GiongCayTrongButton_Click(object sender, RoutedEventArgs e)
         {
