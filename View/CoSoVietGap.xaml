@@ -160,7 +160,7 @@
                                 <!-- Cột Ngày cấp giấy phép -->
                                 <GridViewColumn Width="150" Header="Ngày cấp" DisplayMemberBinding="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}"/>
                                 <!-- Cột Tên loại cơ sở -->
-                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding TenLoaiCoSo}"/>
+                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding LoaiCoSo.TenLoaiCoSo}"/>
 
                                 <!-- Cột Mã hành chính -->
                                 <GridViewColumn Width="150" Header="Mã HC" DisplayMemberBinding="{Binding MaHanhChinh}"/>

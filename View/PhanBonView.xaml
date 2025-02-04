@@ -18,7 +18,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Title="Quản lý phân bón" Height="600" Width="900">
+        Title="Quản lý phân bón" Height="775" Width="1165">
 
     <!-- Định nghĩa tài nguyên LinearGradientBrush màu cam -->
     <Window.Resources>
