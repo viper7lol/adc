@@ -20,7 +20,7 @@ WindowStyle="None"
       WindowStartupLocation="Manual"
         Title="Chinh_sua_thong_tin" Height="750" Width="1100">
     <Grid Background="pink">
-        <Border Height="430" CornerRadius="15" Margin="361,0,360,0" VerticalAlignment="Center" >
+        <Border Height="443" CornerRadius="15" Margin="361,0,360,0" VerticalAlignment="Center" >
             <Border.Background>
                 <SolidColorBrush Color="White" Opacity="0.5"/>
             </Border.Background>
@@ -32,7 +32,7 @@ WindowStyle="None"
                 </TextBlock>
                 <Border Height="50" Background="ForestGreen" CornerRadius="10" Margin="39,0,40,285" VerticalAlignment="Bottom" >
                     <Grid Margin="0 0 0 0">
-                        <materialDesign:PackIcon Kind="Home"  VerticalAlignment="Center" Height="40" Width="40" Margin="5,0,0,0" Foreground="White" />
+                        <materialDesign:PackIcon Kind="AccountCircle"  VerticalAlignment="Center" Height="40" Width="40" Margin="5,0,0,0" Foreground="White" />
                         <Border Padding="0" CornerRadius="0 10 10 0" Background="White" Height="50" Width="250" HorizontalAlignment="Right" >
                             <TextBox 
                                   materialDesign:HintAssist.Hint="Họ và tên" 
@@ -46,7 +46,7 @@ WindowStyle="None"
 
                 <Border Height="50" Width="300" Background="ForestGreen" CornerRadius="10" Margin="0,0,0,220" VerticalAlignment="Bottom" HorizontalAlignment="Center" >
                     <Grid Margin="0 0 0 0">
-                        <materialDesign:PackIcon Kind="Home"  VerticalAlignment="Center" Height="40" Width="40" Margin="5,0,0,0" Foreground="White" />
+                        <materialDesign:PackIcon Kind="Email"  VerticalAlignment="Center" Height="40" Width="40" Margin="5,0,0,0" Foreground="White" />
                         <Border Padding="0" CornerRadius="0 10 10 0" Background="White" Height="50" Width="250" HorizontalAlignment="Right" >
                             <TextBox 
                               materialDesign:HintAssist.Hint="Email"
@@ -60,7 +60,7 @@ WindowStyle="None"
 
                 <Border Height="50" Width="300" Background="ForestGreen" CornerRadius="10" Margin="0,0,0,153" VerticalAlignment="Bottom" HorizontalAlignment="Center" >
                     <Grid Margin="0 0 0 0">
-                        <materialDesign:PackIcon Kind="Home"  VerticalAlignment="Center" Height="40" Width="40" Margin="5,0,0,0" Foreground="White" />
+                        <materialDesign:PackIcon Kind="Key"  VerticalAlignment="Center" Height="40" Width="40" Margin="5,0,0,0" Foreground="White" />
                         <Border Padding="0" CornerRadius="0 10 10 0" Background="White" Height="50" Width="250" HorizontalAlignment="Right" >
                             <TextBox 
                                   materialDesign:HintAssist.Hint="Mật khẩu"
@@ -86,6 +86,14 @@ WindowStyle="None"
                     </Grid>
                 </Border>
 
+                <Border Margin="40,376,180,21" Background="White" CornerRadius="10">
+                    <Grid>
+                        <TextBlock Text="Vai Trò:" Margin="10,14,79,6" FontSize="20" Foreground="Gray" />
+                        <TextBlock Text="{Binding loaitaikhoan}" Margin="80,14,9,6" FontSize="20" TextAlignment="Center" />
+                    </Grid>
+                    
+                </Border>
+
                 <Button
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton"
@@ -93,7 +101,8 @@ WindowStyle="None"
                     materialDesign:RippleAssist.Feedback="#DD000000" Margin="219,0,0,17" 
                     Content="Xác Nhận" FontSize="17" 
                     FontFamily="Segoe UI Black" Foreground="#DDFFFFFF" Height="53" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="119" Background="#FF0C8329" BorderBrush="{x:Null}"/>
-
+                
+                
             </Grid>
         </Border>
     </Grid>
