@@ -60,6 +60,10 @@ namespace adc.ViewModel
             CapDoHanhChinhCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 CapDoHanhChinhView cdhc = new CapDoHanhChinhView();
+                cdhc.Left = Application.Current.MainWindow.Left +
+              (Application.Current.MainWindow.Width - cdhc.Width) / 2;
+                cdhc.Top = Application.Current.MainWindow.Top +
+                         (Application.Current.MainWindow.Height - cdhc.Height) / 2;
                 cdhc.ShowDialog();
             }
             );

@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace adc.ViewModel
 {
-    public class CayTrongViewModel:BaseViewModel
+    public class CayTrongViewModel:MainViewModel
     {
         private ObservableCollection<GiongCayTrong> _GiongCayTrongList;
         public ObservableCollection<GiongCayTrong> GiongCayTrongList { get => _GiongCayTrongList; set { _GiongCayTrongList = value; OnPropertyChanged(); } }
@@ -49,34 +49,51 @@ namespace adc.ViewModel
             GiongCayTrongList = new ObservableCollection<GiongCayTrong>(DataProvider.Ins.DB.GiongCayTrong);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                return true;
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
+                {
+                    return true;
+                }
+                return false;
             }, (p) =>
             {
                 var giongcaytrong = new GiongCayTrong() {TenGiongCay = TenGiongCay, LoaiCayTrongID = LoaiCayTrongID, MoTa = MoTa, VungTrongID = VungTrongID };
-                DataProvider.Ins.DB.GiongCayTrong.Add(giongcaytrong);
-                DataProvider.Ins.DB.SaveChanges();
-                GiongCayTrongList.Add(giongcaytrong);
+                if (TenGiongCay != null && LoaiCayTrongID != 0 && MoTa != null && VungTrongID != 0)
+                {
+                    DataProvider.Ins.DB.GiongCayTrong.Add(giongcaytrong);
+                    DataProvider.Ins.DB.SaveChanges();
+                    GiongCayTrongList.Add(giongcaytrong);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đẩy đủ thông tin !", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             );
             EditCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(TenGiongCay) || string.IsNullOrEmpty(MoTa))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(TenGiongCay) || string.IsNullOrEmpty(MoTa) || LoaiCayTrongID == 0 || VungTrongID == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var giongcaylist = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.TenGiongCay == TenGiongCay);
-                if (giongcaylist != null || giongcaylist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
                 var giongcaytrong = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.TenGiongCay == SelectedGiongCayTrong.TenGiongCay).SingleOrDefault();
-                SelectedGiongCayTrong.TenGiongCay = TenGiongCay;
-                SelectedGiongCayTrong.LoaiCayTrongID = LoaiCayTrongID;
-                SelectedGiongCayTrong.VungTrongID = VungTrongID;
-                SelectedGiongCayTrong.MoTa = MoTa;
+                giongcaytrong.TenGiongCay = TenGiongCay;
+                giongcaytrong.LoaiCayTrongID = LoaiCayTrongID;
+                giongcaytrong.VungTrongID = VungTrongID;
+                giongcaytrong.MoTa = MoTa;
                 DataProvider.Ins.DB.SaveChanges();
             });
             SearchCommand = new RelayCommand<object>((p) =>
@@ -101,16 +118,20 @@ namespace adc.ViewModel
             });
             DeleteCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(TenGiongCay))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(TenGiongCay) || string.IsNullOrEmpty(MoTa) || LoaiCayTrongID == 0 || VungTrongID == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var giongcaytronglist = DataProvider.Ins.DB.GiongCayTrong.Where(x => x.TenGiongCay == TenGiongCay);
-                if (giongcaytronglist != null || giongcaytronglist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
                 var giongcay = SelectedGiongCayTrong;

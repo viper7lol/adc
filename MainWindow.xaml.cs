@@ -29,6 +29,7 @@ namespace adc
         private bool PhanBonMoRong = false;
         private bool ThuocbvtvMoRong = false;
         private bool HeThongMoRong = false;
+        private bool TaiKhoanMoRong = false;
 
         private void HanhChinhButton_Click(object sender, RoutedEventArgs e)
         {
@@ -51,10 +52,15 @@ namespace adc
             ThuocbvtvMoRong = !ThuocbvtvMoRong;
             ThuocbvtvButton.Visibility = ThuocbvtvMoRong ? Visibility.Visible : Visibility.Collapsed;
         }
-        private void HeThongButton_Click(Object sender, RoutedEventArgs e)
+        private void HeThongButton_Click(object sender, RoutedEventArgs e)
         {
             HeThongMoRong = !HeThongMoRong;
             HeThongButton.Visibility = HeThongMoRong ? Visibility.Visible : Visibility.Collapsed;
+        }
+        private void TaiKhoanButton_Click(object sender, RoutedEventArgs e)
+        {
+            TaiKhoanMoRong = !TaiKhoanMoRong;
+            TaiKhoanButton.Visibility = TaiKhoanMoRong ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }

@@ -17,9 +17,8 @@
         TextOptions.TextRenderingMode="Auto"
           ResizeMode="NoResize"
   WindowStyle="None"
-  WindowStartupLocation="CenterScreen"
         Name="CDHCView"
-        Title="Quản lý cấp hành chính" Height="600" Width="900">
+        Title="Quản lý cấp hành chính" Height="750" Width="1150">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

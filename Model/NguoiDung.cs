@@ -20,17 +20,20 @@ namespace adc.Model
         {
             this.LichSuTruyCap = new HashSet<LichSuTruyCap>();
         }
-    
         public int ID { get; set; }
-        public string TenNguoiDung { get; set; }
+        private string _TenNguoiDung;
+        public string TenNguoiDung { get => _TenNguoiDung; set { _TenNguoiDung = value; OnPropertyChanged(); } }
         private string _Email;
         public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
         private string _MatKhau;
         public string MatKhau { get => _MatKhau; set { _MatKhau = value; OnPropertyChanged(); } }
-        public int VaiTroID { get; set; }
-        public byte TrangThai { get; set; }
-        public string DonViHanhChinhID { get; set; }
-    
+        private Nullable<int> _VaiTroID;
+        public Nullable<int> VaiTroID { get => _VaiTroID; set { _VaiTroID = value; OnPropertyChanged(); } }
+        private byte _TrangThaiID;
+        public byte TrangThaiID { get => _TrangThaiID; set { _TrangThaiID = value; OnPropertyChanged(); } }
+        private string _DonViHanhChinhID;
+        public string DonViHanhChinhID { get => _DonViHanhChinhID; set { _DonViHanhChinhID = value; OnPropertyChanged(); } }
+
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LichSuTruyCap> LichSuTruyCap { get; set; }

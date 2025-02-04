@@ -67,7 +67,7 @@ WindowStartupLocation="CenterScreen"
 
                         <!-- Loại SV -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding LoaiSV}" 
+                            <TextBox Text="{Binding LoaiSinhVat}" 
                               Width="40" 
                               materialDesign:HintAssist.Hint="Loại" 
                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -93,7 +93,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- Cấp độ -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding CapDo}" 
+                            <TextBox Text="{Binding CapDoPhoBien}" 
                             Width="60" 
                            materialDesign:HintAssist.Hint="Cấp độ" 
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -119,7 +119,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- Vùng trồng -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding VungTrong}" 
+                            <TextBox Text="{Binding VungTrongID}" 
                                   Width="80" 
                                   materialDesign:HintAssist.Hint="Vùng trồng" 
                                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -133,7 +133,7 @@ WindowStartupLocation="CenterScreen"
                     </StackPanel>
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Command="{Binding TimKiemCommand}" Content="Tìm kiếm"
+                        <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"
                             Margin="5" Width="100" Background="#66BB6A"
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
@@ -151,7 +151,7 @@ WindowStartupLocation="CenterScreen"
             <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding SVGHVTSList}"
-                          SelectedItem="{Binding SelectedSinhVatGayHaiVaTuoiSau, Mode=OneWayToSource}"
+                          SelectedItem="{Binding SelectedSVGHVTS, Mode=TwoWay}"
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <ListView.View>
                             <GridView>

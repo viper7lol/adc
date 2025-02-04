@@ -39,8 +39,8 @@ namespace adc.ViewModel
         public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
         private string _MaHanhChinh;
         public string MaHanhChinh { get => _MaHanhChinh; set { _MaHanhChinh = value; OnPropertyChanged(); } }
-        private DateTime _NgayCapGiayPhep;
-        public DateTime NgayCapGiayPhep { get => _NgayCapGiayPhep; set { _NgayCapGiayPhep = value; OnPropertyChanged(); } }
+        private DateTime? _NgayCapGiayPhep;
+        public DateTime? NgayCapGiayPhep { get => _NgayCapGiayPhep; set { _NgayCapGiayPhep = value; OnPropertyChanged(); } }
         private int? _LoaiCoSoID;
         public int? LoaiCoSoID { get => _LoaiCoSoID; set { _LoaiCoSoID = value; OnPropertyChanged(); } }
 
@@ -81,7 +81,7 @@ namespace adc.ViewModel
                 var MainVM = mainWindow.DataContext as MainViewModel;
                 if (MainVM.isadmin)
                 {
-                    if (string.IsNullOrEmpty(MaHanhChinh) || string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || MaCoSo == 0)
+                    if (string.IsNullOrEmpty(MaHanhChinh) || string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || MaCoSo == 0 || LoaiCoSoID == 0 || NgayCapGiayPhep == null)
                     {
                         return false;
                     }
@@ -93,7 +93,65 @@ namespace adc.ViewModel
                 return false;
             }, (p) =>
             {
+                var cosopb = DataProvider.Ins.DB.CoSoPB.Where(x=>x.MaCoSo == SelectedCoSo.MaCoSo).SingleOrDefault();
+                cosopb.MaCoSo = MaCoSo;
+                cosopb.TenCoSo = TenCoSo;
+                cosopb.LoaiCoSoID = LoaiCoSoID;
+                cosopb.DiaChi = DiaChi;
+                cosopb.MaHanhChinh = MaHanhChinh;
+                cosopb.NgayCapGiayPhep = NgayCapGiayPhep;
+                DataProvider.Ins.DB.SaveChanges();
+            });
+            DeleteCommand = new RelayCommand<object>((p) =>
+            {
 
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
+                {
+                    if (string.IsNullOrEmpty(MaHanhChinh) || string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || MaCoSo == 0 || LoaiCoSoID == 0 || NgayCapGiayPhep == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }, (p) =>
+            {
+                var tencosopb = SelectedCoSo;
+                if (SelectedCoSo != null)
+                {
+                    CoSoList.Remove(SelectedCoSo);
+                    DataProvider.Ins.DB.CoSoPB.Remove(tencosopb);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+                else {
+                    MessageBox.Show("Không có dữ liệu để xóa", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            });
+            SearchCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) => { 
+                string searchTen = TenCoSo;
+                string searchDC = DiaChi;
+                string searchMa = MaHanhChinh;
+                DateTime? searchNgay = NgayCapGiayPhep;
+                int? searchID = LoaiCoSoID;
+                if (searchMa != null || searchTen != null || searchID > 0 || searchNgay != null || searchDC != null)
+                {
+                    foreach (var item in CoSoList)
+                    {
+                        if (item.MaHanhChinh.Contains(searchMa) || item.TenCoSo.Contains(searchTen) || item.LoaiCoSoID.Equals(searchID) || item.NgayCapGiayPhep.Equals(searchNgay) || item.DiaChi.Contains(searchDC)) SelectedCoSo = item;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy kết quả nào.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             });
         }
     }

@@ -55,7 +55,6 @@ WindowStartupLocation="CenterScreen"
                                 Margin="-15,10,0,0" 
                                 Foreground="Blue" 
                                 HorizontalAlignment="Right"/>
-
                         </StackPanel>
 
                         <!-- Email -->
@@ -86,7 +85,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- Trạng thái -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding TrangThai}" 
+                            <TextBox Text="{Binding TrangThaiID}" 
                             Width="80" 
                            materialDesign:HintAssist.Hint="Trạng thái" 
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -98,7 +97,7 @@ WindowStartupLocation="CenterScreen"
                         </StackPanel>
                         <!-- ĐVHC -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding DVHC}" 
+                            <TextBox Text="{Binding DonViHanhChinhID}" 
                                  Width="60" 
                                 materialDesign:HintAssist.Hint="ĐVHC" 
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -114,8 +113,6 @@ WindowStartupLocation="CenterScreen"
                         <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"
                      Margin="5" Width="100" Background="#66BB6A" Foreground="White" materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
-                        <Button Command="{Binding AddCommand}" Content="Thêm"
-                            Margin="5" Width="100" Background="#66BB6A" Foreground="White"/>
                         <Button Command="{Binding EditCommand}" Content="Sửa"
                             Margin="5" Width="100" Background="#FF8A65" Foreground="White"/>
                         <Button Command="{Binding DeleteCommand}" Content="Xóa"
@@ -128,7 +125,7 @@ WindowStartupLocation="CenterScreen"
             <materialDesign:Card Grid.Row="2" Margin="0,10,0,0">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <DataGrid ItemsSource="{Binding NguoiDungList}"
-                          SelectedItem="{Binding SelectedNguoiDung}"
+                          SelectedItem="{Binding SelectedNguoiDung, Mode=TwoWay}"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
                           CanUserResizeColumns="True"

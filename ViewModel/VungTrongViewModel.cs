@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace adc.ViewModel
 {
-    public class VungTrongViewModel:BaseViewModel
+    public class VungTrongViewModel:MainViewModel
     {
             private ObservableCollection<VungTrong> _VungTrongList;
             public ObservableCollection<VungTrong> VungTrongList { get => _VungTrongList; set { _VungTrongList = value; OnPropertyChanged(); } }
@@ -50,32 +50,51 @@ namespace adc.ViewModel
             VungTrongList = new ObservableCollection<VungTrong>(DataProvider.Ins.DB.VungTrong);
             AddCommand = new RelayCommand<object>((p) =>
             {
-                return true;
+
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
+                {
+                    return true;
+                }
+                return false;
             }, (p) =>
             {
                 var vungtrong = new VungTrong() { ID = ID, TenVungTrong = TenVungTrong, MoTa = MoTa, MaVungTrongID = MaVungTrongID};
-                DataProvider.Ins.DB.VungTrong.Add(vungtrong);
-                DataProvider.Ins.DB.SaveChanges();
-                VungTrongList.Add(vungtrong);
+                if (TenVungTrong != null && MoTa != null && MaVungTrongID != null)
+                {
+                    DataProvider.Ins.DB.VungTrong.Add(vungtrong);
+                    DataProvider.Ins.DB.SaveChanges();
+                    VungTrongList.Add(vungtrong);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng điền đẩy đủ thông tin !", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
            );
             EditCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(TenVungTrong) || string.IsNullOrEmpty(MoTa))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(TenVungTrong) || string.IsNullOrEmpty(MoTa) || string.IsNullOrEmpty(MaVungTrongID))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var vunglist = DataProvider.Ins.DB.VungTrong.Where(x => x.TenVungTrong == TenVungTrong);
-                if (vunglist != null || vunglist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
-                SelectedVungTrong.TenVungTrong = TenVungTrong;
-                SelectedVungTrong.MaVungTrongID = MaVungTrongID;
-                SelectedVungTrong.MoTa = MoTa;
+                var vungtrong = DataProvider.Ins.DB.VungTrong.Where(x=>x.ID == SelectedVungTrong.ID).SingleOrDefault();
+                vungtrong.TenVungTrong = TenVungTrong;
+                vungtrong.MaVungTrongID = MaVungTrongID;
+                vungtrong.MoTa = MoTa;
                 DataProvider.Ins.DB.SaveChanges();
             });
             SearchCommand = new RelayCommand<object>((p) =>
@@ -85,11 +104,11 @@ namespace adc.ViewModel
             {
                 string searchTen = TenVungTrong;
                 string searchMa = MaVungTrongID;
-                if (searchTen != null && searchMa != null)
+                if (searchTen != null || searchMa != null)
                 {
                     foreach (var item in VungTrongList)
                     {
-                        if (item.TenVungTrong.Contains(searchTen) && item.MaVungTrongID.Contains(searchMa)) SelectedVungTrong = item;
+                        if (item.TenVungTrong.Contains(searchTen) || item.MaVungTrongID.Contains(searchMa)) SelectedVungTrong = item;
                     }
                 }
                 else
@@ -99,16 +118,20 @@ namespace adc.ViewModel
             });
             DeleteCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(TenVungTrong))
+                MainWindow mainWindow = new MainWindow();
+                var MainVM = mainWindow.DataContext as MainViewModel;
+                if (MainVM.isadmin)
                 {
-                    return false;
+                    if (string.IsNullOrEmpty(TenVungTrong) || string.IsNullOrEmpty(MoTa) || string.IsNullOrEmpty(MaVungTrongID))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                var vungtronglist = DataProvider.Ins.DB.VungTrong.Where(x => x.TenVungTrong == TenVungTrong);
-                if (vungtronglist != null || vungtronglist.Count() != 0)
-                {
-                    return true;
-                }
-                return true;
+                return false;
             }, (p) =>
             {
                 

@@ -81,13 +81,15 @@
                                 Foreground="White"  Command="{Binding CapDoHanhChinhCommand}"
                                 Width="190" Height="40" Margin="0 5 0 0" 
                                    >
-                                <WrapPanel Width="190">
+                     
+                                        <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="Apps" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Bottom" FontSize="15">
                                           Cấp Độ Hành Chính
                                     </TextBlock>
-                                </WrapPanel>
-                            </Button>
+                                    </WrapPanel>
+
+                             </Button>
                             <Button Style="{StaticResource MaterialDesignFlatButton}"
                                 Foreground="White" Command="{Binding DonViHanhChinhCommand}"
                                 Width="190" Height="40" Margin="0 5 0 0"
@@ -262,7 +264,7 @@ Width="190" Height="40" Margin="0 5 0 0" >
                             Foreground="White" 
                             materialDesign:ButtonAssist.CornerRadius="6" 
                             Width="auto" Height="60" materialDesign:RippleAssist.Feedback="White" 
-                            Margin="0 0 0 0" >
+                            Margin="0 0 0 0" Click="TaiKhoanButton_Click" >
                             <WrapPanel Width="190" >
                                 <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                 <TextBlock Width="125" VerticalAlignment="Bottom"  FontSize="20" >
