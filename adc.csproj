@@ -292,6 +292,9 @@
     <Compile Include="View\CayTrongView.xaml.cs">
       <DependentUpon>CayTrongView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Chinh_sua_thong_tin.xaml.cs">
+      <DependentUpon>Chinh_sua_thong_tin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CoSoPBView.xaml.cs">
       <DependentUpon>CoSoPBView.xaml</DependentUpon>
     </Compile>
@@ -376,6 +379,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CayTrongView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Chinh_sua_thong_tin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

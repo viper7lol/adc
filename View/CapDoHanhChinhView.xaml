@@ -23,13 +23,14 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="79*"></RowDefinition>
+            <RowDefinition Height="272*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
             <uc:ControllBarUC Tag="{Binding Title, ElementName=CDHCView}"></uc:ControllBarUC>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -61,7 +62,7 @@
                              VerticalAlignment="Center" 
                              materialDesign:HintAssist.Hint="Tên cấp hành chính" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                       
+
                     </StackPanel>
 
                     <!-- Buttons -->

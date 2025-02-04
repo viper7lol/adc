@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         DataContext="{StaticResource QLNDVM}"
                 ResizeMode="NoResize"
-WindowStyle="None"
-WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         Title="Quản lý Người Dùng" Height="600" Width="1000"
         Name="QLNDView"
         Background="#F0F4F8">
@@ -141,7 +141,7 @@ WindowStartupLocation="CenterScreen"
                             <!-- Cột Email -->
                             <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
                             <!-- Cột Vai trò -->
-                            <DataGridTextColumn Header="Vai trò" Binding="{Binding VaiTroID.TenVaiTro}" Width="150"/>
+                            <DataGridTextColumn Header="Vai trò" Binding="{Binding VaiTroID}" Width="150"/>
                             <!-- Cột Trạng thái -->
                             <DataGridTextColumn Header="Trạng thái" Binding="{Binding TrangThaiID}" Width="120"/>
                             <!-- Cột Đơn vị hành chính -->
