@@ -22,7 +22,7 @@
         Title="Phần mềm quản lý trong trot" Height="800" Width="1400">
 
     <Window.Resources>
-        <ImageBrush x:Key="DefaultBackground" ImageSource="/Resources/22.png" />
+        <ImageBrush x:Key="DefaultBackground" ImageSource="/Resources/33.JPG" />
     </Window.Resources>
 
     <i:Interaction.Triggers>

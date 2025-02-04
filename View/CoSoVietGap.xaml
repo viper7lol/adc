@@ -12,7 +12,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Background="#FFB21414">
+        Background="{x:Null}">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -116,14 +116,14 @@
                   Content="Tìm kiếm" 
                   Margin="5" 
                   Width="92" 
-                  Background="DarkBlue"
+                  Background="#2196F3"
                                 BorderBrush="Black"
                   Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}" 
                   Content="Thêm" 
                   Margin="5" 
                   Width="100" 
-                  Background="DarkGreen"  BorderBrush="Black"
+                  Background="#4CAF50"  BorderBrush="Black"
                   Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
                   Content="Sửa" 

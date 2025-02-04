@@ -17,7 +17,7 @@
 WindowStyle="None"
       Name="CDHCView"
       WindowStartupLocation="Manual"
-        Title="Chinh_sua_thong_tin" Height="770" Width="1165" Background="#FFBE3C3C">
+        Title="Chinh_sua_thong_tin" Height="770" Width="1165" Background="{x:Null}">
     <Grid>
 
         <Border Height="443" CornerRadius="15" Margin="0,0,360,0" VerticalAlignment="Center" HorizontalAlignment="Right" Width="379" >

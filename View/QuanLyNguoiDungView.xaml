@@ -109,8 +109,8 @@
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"
-                     Margin="5" Width="100" Background="DarkBlue" Foreground="White" BorderBrush="Black" materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                     Margin="5" Width="100" Background="#2196F3" Foreground="White" BorderBrush="Black"
+                                />
                         <Button Command="{Binding EditCommand}" Content="Sửa"
                             Margin="5" Width="100" Background="DarkOrange" BorderBrush="Black" Foreground="White"/>
                         <Button Command="{Binding DeleteCommand}" Content="Xóa"
