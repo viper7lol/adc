@@ -33,9 +33,9 @@
                 <SolidColorBrush Color="White" Opacity="0.7"/>
             </Border.Background>
             <Grid>
-                <TextBlock Height="54" FontSize="40" FontWeight="Bold" 
+                <TextBlock Height="54" FontSize="25" FontWeight="Bold" TextAlignment="Center"
                     FontFamily="{StaticResource CustomFont}" Foreground="DarkOliveGreen"
-                    Margin="37,24,43,0" TextWrapping="Wrap" Text="Mật Khẩu" VerticalAlignment="Top"/>
+                    Margin="37,24,43,0" TextWrapping="Wrap" Text="Quên Mật Khẩu" VerticalAlignment="Top"/>
 
                 <TextBox materialDesign:HintAssist.Hint="Email" Text="{Binding Email}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,83,0,0" Padding="0"

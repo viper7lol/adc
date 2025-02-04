@@ -117,7 +117,7 @@
                         </StackPanel>
                         <!-- Mã -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding Ma }" 
+                            <TextBox Text="{Binding CoSoID }" 
                                  Width="30" 
                                  materialDesign:HintAssist.Hint="Mã" 
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -179,18 +179,18 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="100" />
+                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="60" />
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
                                 <!-- Tên phân bón -->
-                                <GridViewColumn Width="170">
+                                <GridViewColumn Width="280">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="Tên phân bón" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
+                                                <TextBlock Text="Tên phân bón" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="120"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -204,11 +204,11 @@
                                 </GridViewColumn>
 
                                 <!-- Loại phân bón -->
-                                <GridViewColumn Width="170">
+                                <GridViewColumn Width="220">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="Loại phân bón" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
+                                                <TextBlock Text="Loại phân bón" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="120"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -224,7 +224,7 @@
 
 
                                 <!-- Ngày sản xuất -->
-                                <GridViewColumn Width="170">
+                                <GridViewColumn Width="190">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="10" CornerRadius="15,15,0,0">
@@ -242,7 +242,7 @@
                                 </GridViewColumn>
 
                                 <!-- Ngày hết hạn -->
-                                <GridViewColumn Width="160">
+                                <GridViewColumn Width="180">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="10" CornerRadius="15,15,0,0">
@@ -270,7 +270,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding NgayHetHan}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                                <TextBlock Text="{Binding CoSoPB.MaCoSo}" TextAlignment="Center" Foreground="Black" Width="90"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

@@ -49,7 +49,7 @@
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
                         <!--  Tên -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBox Text="{Binding Ten}" 
+                            <TextBox Text="{Binding TenCoSo}" 
             Width="40" 
             materialDesign:HintAssist.Hint="Tên" 
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -89,7 +89,7 @@
                         </StackPanel>
                         <!-- Loại cơ sở -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBox Text="{Binding LoaiCoSo }" 
+                            <TextBox Text="{Binding LoaiCoSoID}" 
            Width="70" 
            materialDesign:HintAssist.Hint="Loại cơ sở" 
            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -101,7 +101,7 @@
                         </StackPanel>
                         <!-- Mã HC -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBox Text="{Binding MaHC }" 
+                            <TextBox Text="{Binding MaHanhChinh}" 
            Width="50" 
            materialDesign:HintAssist.Hint="Mã HC" 
            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -147,28 +147,116 @@
             <materialDesign:Card Grid.Row="3" Margin="20" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding CoSoList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                          SelectedItem="{Binding SelectedCoSo, Mode=TwoWay}" 
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+               SelectedItem="{Binding SelectedCoSo, Mode=TwoWay}" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <ListView.View>
                             <GridView>
-                                <!-- Cột Mã cơ sở -->
-                                <GridViewColumn Width="90"  Header="Mã" DisplayMemberBinding="{Binding MaCoSo}"/>
 
-                                <!-- Cột Tên cơ sở -->
-                                <GridViewColumn Width="280" Header="Tên" DisplayMemberBinding="{Binding TenCoSo}"/>
+                                <!-- Cột Mã  -->
+                                <GridViewColumn Width="100">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Mã" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="20"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding MaCoSo}" TextAlignment="Center" Foreground="Black" Width="50"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
 
-                                <!-- Cột Địa chỉ -->
-                                <GridViewColumn Width="280" Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"/>
+                                <!-- Cột Tên -->
+                                <GridViewColumn Width="300">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Tên" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding TenCoSo}" TextAlignment="Center" Foreground="Black" Width="200"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
 
-                                <!-- Cột Ngày cấp giấy phép -->
-                                <GridViewColumn Width="150" Header="Ngày cấp" DisplayMemberBinding="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}"/>
-                                <!-- Cột Tên loại cơ sở -->
-                                <GridViewColumn Width="130" Header="Loại cơ sở " DisplayMemberBinding="{Binding LoaiCoSo.TenLoaiCoSo}"/>
+                                <!-- Cột địa chỉ -->
+                                <GridViewColumn Width="290">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Địa chỉ" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="120"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding DiaChi}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!-- Cột Ngày cấp -->
+                                <GridViewColumn Width="140">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Ngày cấp" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="60"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding NgayCapGiayPhep}" TextAlignment="Center" Foreground="Black" Width="130"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
 
-                                <!-- Cột Mã hành chính -->
-                                <GridViewColumn Width="150" Header="Mã HC" DisplayMemberBinding="{Binding MaHanhChinh}"/>
-
-
+                                <!-- Cột Loại cơ sở -->
+                                <GridViewColumn Width="130">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Loại" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding LoaiCoSo.TenLoaiCoSo}" TextAlignment="Center" Foreground="Black" Width="130"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!-- Cột Mã HC -->
+                                <GridViewColumn Width="180">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Mã HC" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Background="White" Padding="5">
+                                                <TextBlock Text="{Binding MaHanhChinh}" TextAlignment="Center" Foreground="Black" Width="110"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

@@ -53,7 +53,7 @@
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
                         <!--  Tên -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding Ten}" 
+                            <TextBox Text="{Binding TenThuoc}" 
                         Width="40" 
                         materialDesign:HintAssist.Hint="Tên" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -67,7 +67,7 @@
 
                         <!-- Loại -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                            <TextBox Text="{Binding Loai }" 
+                            <TextBox Text="{Binding LoaiThuoc}" 
                         Width="50" 
                         materialDesign:HintAssist.Hint="Loại" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -159,54 +159,54 @@ Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <ListView.View>
                             <GridView>
                                 <!-- Cột Mã thuốc -->
-                                <GridViewColumn Width="120">
+                                <GridViewColumn Width="100">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="5" CornerRadius="5">
-                                                <TextBlock Text="ID" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="50"/>
+                                                <TextBlock Text="ID" Foreground="black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="120"/>
+                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="60"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
                                 <!-- Cột Tên thuốc -->
-                                <GridViewColumn Width="180">
+                                <GridViewColumn Width="280">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Tên thuốc" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                                <TextBlock Text="Tên thuốc" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="120"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="{Binding TenThuoc}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                                <TextBlock Text="{Binding TenThuoc}" TextAlignment="Center" Foreground="Black" Width="170"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
                                 <!-- Cột Loại thuốc -->
-                                <GridViewColumn Width="150">
+                                <GridViewColumn Width="220">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Loại thuốc" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                                <TextBlock Text="Loại thuốc" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="120"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="{Binding LoaiThuoc}" TextAlignment="Center" Foreground="Black" Width="180"/>
+                                                <TextBlock Text="{Binding LoaiThuoc}" TextAlignment="Center" Foreground="Black" Width="170"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -215,43 +215,43 @@ Style="{StaticResource MaterialDesignRaisedButton}"/>
                                
 
                                 <!-- Cột Ngày sản xuất -->
-                                <GridViewColumn Width="150">
+                                <GridViewColumn Width="190">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Ngày SX" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                                <TextBlock Text="Ngày SX" Foreground="Black" FontWeight="Bold" TextAlignment="Center" />
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="{Binding NgaySanXuat}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                                <TextBlock Text="{Binding NgaySanXuat}" TextAlignment="Center" Foreground="Black" Width="140"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
                                 <!-- Cột Ngày hết hạn -->
-                                <GridViewColumn Width="130">
+                                <GridViewColumn Width="160">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Ngày HH" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="60"/>
+                                                <TextBlock Text="Ngày HH" Foreground="Black" FontWeight="Bold" TextAlignment="Center" />
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="{Binding NgayHetHan}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                                <TextBlock Text="{Binding NgayHetHan}" TextAlignment="Center" Foreground="Black"  Width="140"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
                                 <!-- Cột Cơ sở -->
-                                <GridViewColumn Width="180">
+                                <GridViewColumn Width="150">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="5" CornerRadius="5">
@@ -262,7 +262,7 @@ Style="{StaticResource MaterialDesignRaisedButton}"/>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="{Binding CoSo.TenCoSo}" TextAlignment="Center" Foreground="Black"/>
+                                                <TextBlock Text="{Binding CoSoPB.MaCoSo}" TextAlignment="Center" Foreground="Black" Width="90"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
