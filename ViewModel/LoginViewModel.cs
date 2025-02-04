@@ -25,6 +25,7 @@ namespace adc.ViewModel
         public ICommand LoginCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public ICommand SignUpCommand { get; set; }
+        public ICommand QuenCommand { get; set; }
         // mọi thứ xử lý sẽ nằm trong này
         public LoginViewModel()
         {
@@ -46,7 +47,12 @@ namespace adc.ViewModel
                 signup su = new signup();
                 su.ShowDialog();
             });
-
+            QuenCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                if (p == null) return;
+                Quen_Mat_Khau q = new Quen_Mat_Khau();
+                q.ShowDialog();
+            });
         }
         //public bool DangNhap(string email, string matKhau)
         //{

@@ -27,6 +27,8 @@ namespace adc.ViewModel
         public ICommand QLNDCommand { get; set; }
         public ICommand LSTCCommand { get; set; }
         public ICommand BanDoCommand { get; set; }
+		public ICommand DoiCommand { get; set; }
+		public ICommand LogoutCommand	{ get; set; }
 
         public bool isadmin {  get; set; }  
 
@@ -164,7 +166,15 @@ namespace adc.ViewModel
 				bd.ShowDialog();
 			}
 			);
-
+			DoiCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				Chinh_sua_thong_tin ch = new Chinh_sua_thong_tin();
+				ch.ShowDialog();
+			});
+			LogoutCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+			{
+				p.Close();
+			});
 		}
 	}
 }
