@@ -18,6 +18,7 @@
           ResizeMode="NoResize"
   WindowStyle="None"
         Name="CDHCView"
+        WindowStartupLocation="Manual"
         Title="Quản lý cấp hành chính" Height="750" Width="1150">
     <Grid Margin="10">
         <Grid.RowDefinitions>
