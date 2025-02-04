@@ -20,7 +20,10 @@
         WindowStartupLocation="Manual"
         Title="Quản lý đơn vị hành chính" Height="770" Width="1165">
 
-    <Grid Margin="10">
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/88.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition></RowDefinition>

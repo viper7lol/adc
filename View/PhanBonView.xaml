@@ -30,7 +30,10 @@
         </LinearGradientBrush>
     </Window.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/111.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition></RowDefinition>

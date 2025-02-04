@@ -20,7 +20,10 @@
         Name="VTView"
         Title="Quản lý vùng trồng" Height="770" Width="1165">
 
-    <Grid Margin="10">
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/1.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition></RowDefinition>

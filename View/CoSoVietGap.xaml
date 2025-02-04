@@ -14,7 +14,10 @@
         WindowStartupLocation="Manual"
         Background="Transparent">
 
-    <Grid Margin="10">
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/1.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition></RowDefinition>

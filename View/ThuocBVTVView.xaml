@@ -19,7 +19,10 @@
         WindowStartupLocation="Manual"
         Name="TBVTVView"
         Title="Quản lý thuốc BVTV" Height="770" Width="1165">
-    <Grid Margin="10">
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/55.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition></RowDefinition>

@@ -20,15 +20,22 @@
         Name="CDHCView"
         WindowStartupLocation="Manual"
         Title="Quản lý cấp hành chính" Height="770" Width="1165">
-    <Grid Margin="10">
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/88.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="936*"/>
+            <ColumnDefinition Width="209*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="79*"></RowDefinition>
             <RowDefinition Height="272*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0"/>
-        <Grid Grid.Row="1" Grid.RowSpan="2">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,169" Grid.RowSpan="2"/>
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>

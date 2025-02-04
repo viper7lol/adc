@@ -20,6 +20,9 @@ WindowStyle="None"
       WindowStartupLocation="Manual"
         Title="Chinh_sua_thong_tin" Height="770" Width="1165" Background="Transparent">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/12.jpg"/>
+        </Grid.Background>
 
         <Border Height="443" CornerRadius="15" Margin="0,0,360,0" VerticalAlignment="Center" HorizontalAlignment="Right" Width="379" >
             <Border.Background>
