@@ -30,7 +30,6 @@ namespace adc
         private bool ThuocbvtvMoRong = false;
         private bool HeThongMoRong = false;
         private bool TaiKhoanMoRong = false;
-		private bool svgh = false;
 
 
 		private void Button_Click(object sender, RoutedEventArgs e)
