@@ -49,7 +49,7 @@ namespace adc.ViewModel
             if (p == null) return;
             if (TenNguoiDung != null && Email != null && MatKhau != null)
             {
-                var tk = new NguoiDung() { Email = Email, TenNguoiDung = TenNguoiDung, MatKhau = MatKhau, VaiTroID = 2, TrangThai = 1};
+                var tk = new NguoiDung() { Email = Email, TenNguoiDung = TenNguoiDung, MatKhau = MatKhau, VaiTroID = 2, TrangThaiID = 1};
                 DataProvider.Ins.DB.NguoiDung.Add(tk);
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
