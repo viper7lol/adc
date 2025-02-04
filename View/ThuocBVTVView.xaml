@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource TBVTVVM}"
-        Background="#FF619CD7"
+        Background="{x:Null}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -123,7 +123,7 @@
 Content="Tìm kiếm" 
 Margin="5" 
 Width="100" 
-Background="DarkBlue" BorderBrush="black"  
+Background="#2196F3" BorderBrush="black"  
 Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}" 
 Content="Thêm" 

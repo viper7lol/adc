@@ -514,6 +514,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\33.JPG" />
     <Resource Include="Resources\22.png" />
     <Resource Include="Resources\1.jpg" />
     <Resource Include="Resources\11.png" />

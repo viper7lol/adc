@@ -12,7 +12,7 @@
                 ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Background="#FFC92020">
+        Background="{x:Null}">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -117,15 +117,13 @@
                   Margin="5" 
                   Width="100" 
                   Background="#2196F3"  
-                  materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                  Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}" 
                   Content="Thêm" 
                   Margin="5" 
                   Width="100" 
                   Background="#4CAF50"  
-                  materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                  Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
                   Content="Sửa" 
                   Margin="5" 

@@ -12,7 +12,7 @@
         WindowStartupLocation="Manual"
         Name="LSTCView"
         Title="Quản lý Lịch Sử Truy Cập" Height="770" Width="1165"
-        Background="#FF5290CE">
+        Background="{x:Null}">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -54,7 +54,7 @@
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"
-                            Margin="5" Width="100" Background="DarkGreen" BorderBrush="black" Foreground="White"/>
+                            Margin="5" Width="100" Background="#2196F3" BorderBrush="black" Foreground="White"/>
 
                         <Button Command="{Binding ClearCommand}" Content="Xóa"
                             Margin="5" Width="100" Background="DarkOrange" BorderBrush="black" Foreground="White"/>

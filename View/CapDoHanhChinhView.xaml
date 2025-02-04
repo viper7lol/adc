@@ -68,7 +68,7 @@
                             Content="Tìm kiếm" 
                             Margin="5" 
                             Width="100" 
-                            Background="DarkBlue"
+                            Background="#2196F3"
                             BorderBrush="Black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}"
@@ -76,7 +76,7 @@
                             Margin="5" 
                             Width="100" 
                             BorderBrush="Black"
-                            Background="DarkGreen"  
+                            Background="#4CAF50"  
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
                             Content="Sửa" 

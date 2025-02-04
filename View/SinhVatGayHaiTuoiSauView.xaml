@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Name="SVGHVTSView"
         DataContext="{StaticResource SVGHVTSVM}"
-        Background="#FF438FDA"
+        Background="{x:Null}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -132,7 +132,7 @@
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"
-                            Margin="5" Width="100" Background="DarkBlue" BorderBrush="black"
+                            Margin="5" Width="100" Background="#2196F3" BorderBrush="black"
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                         <Button Command="{Binding AddCommand}" Content="Thêm"
