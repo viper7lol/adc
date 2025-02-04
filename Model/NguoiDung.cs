@@ -24,7 +24,7 @@ namespace adc.Model
         public string TenNguoiDung { get; set; }
         public string Email { get; set; }
         public string MatKhau { get; set; }
-        public int VaiTroID { get; set; }
+        public Nullable<int> VaiTroID { get; set; }
         public byte TrangThai { get; set; }
         public string DonViHanhChinhID { get; set; }
     
