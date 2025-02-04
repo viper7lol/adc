@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Name="SVGHVTSView"
         DataContext="{StaticResource SVGHVTSVM}"
-        Background="{x:Null}"
+        Background="Transparent"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
