@@ -24,7 +24,7 @@
     <Window.Resources>
         <ImageBrush x:Key="DefaultBackground" ImageSource="/Resources/22.png" />
     </Window.Resources>
-    
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
@@ -86,15 +86,15 @@
                                 Foreground="White"  Command="{Binding CapDoHanhChinhCommand}"
                                 Width="190" Height="40" Margin="0 5 0 0" 
                                    >
-                     
-                                        <WrapPanel Width="190">
+
+                                <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="Apps" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Bottom" FontSize="15">
                                           Cấp Độ Hành Chính
                                     </TextBlock>
-                                    </WrapPanel>
+                                </WrapPanel>
 
-                             </Button>
+                            </Button>
                             <Button Style="{StaticResource MaterialDesignFlatButton}"
                                 Foreground="White" Command="{Binding DonViHanhChinhCommand}"
                                 Width="190" Height="40" Margin="0 5 0 0"
@@ -149,14 +149,14 @@
                                 </WrapPanel>
                             </Button>
                         </StackPanel>
-                        
+
                         <!--nut phan bon-->
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
     Foreground="White" 
     materialDesign:ButtonAssist.CornerRadius="6" 
     Width="auto" Height="60" materialDesign:RippleAssist.Feedback="White" 
     Margin="0 0 0 0" Click="PhanBonButton_Click"  >
-                            
+
                             <WrapPanel Width="190" >
                                 <materialDesign:PackIcon Kind="SoySauce" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                 <TextBlock Width="125" VerticalAlignment="Bottom" FontSize="20" >
@@ -190,7 +190,7 @@ Width="190" Height="40" Margin="0 5 0 0" >
                                 </WrapPanel>
                             </Button>
                         </StackPanel>
-                
+
                         <!-- nut thuoc bao ve thuc vat-->
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
     Foreground="White" 
@@ -320,7 +320,7 @@ Margin="0 0 0 0"   Click="HeThongButton_Click">
                             <!--nut con 1-->
                             <Button Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding QLNDCommand}"
                                     Foreground="White"
-                                    Width="210" Height="40" Margin="0 5 0 0" >      
+                                    Width="210" Height="40" Margin="0 5 0 0" >
                                 <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="AccountDetails" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="140" VerticalAlignment="Center" FontSize="15">
@@ -336,7 +336,7 @@ Margin="0 0 0 0"   Click="HeThongButton_Click">
                                 <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="History" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="140" VerticalAlignment="Center" FontSize="15">
-             Lịch Sử Truy Cập 
+             Lịch Sử Truy Cập
                                     </TextBlock>
                                 </WrapPanel>
                             </Button>
@@ -348,20 +348,20 @@ Margin="0 0 0 0"   Click="HeThongButton_Click">
                 </ScrollViewer>
             </StackPanel>
         </materialDesign:ColorZone>
-        <materialDesign:ColorZone Grid.Column="1" Background="White">
+        <materialDesign:ColorZone Grid.Column="1" Background="Green">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="33"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <materialDesign:ColorZone Grid.Row="0" Background="White" Height="30">
+                <materialDesign:ColorZone Background="Green" Height="33" VerticalAlignment="Center">
                     <StackPanel Width="60" Height="30" HorizontalAlignment="Right" Orientation="Horizontal">
                         <Button Width="30" Height="30" HorizontalAlignment="Left" Margin="0"
                Foreground="{DynamicResource MaterialDesignBodyLight}"
                 Style="{DynamicResource MaterialDesignFlatButton}"
                 materialDesign:ButtonAssist.CornerRadius="0"
                 Padding="0 0 0 0"  >
-                            <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="30"/>
+                            <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="20" Width="30"/>
                         </Button>
 
                         <Button Width="30" Height="30" HorizontalAlignment="Right" Padding="0"
@@ -369,12 +369,12 @@ Margin="0 0 0 0"   Click="HeThongButton_Click">
             Foreground="{DynamicResource MaterialDesignBodyLight}"
             materialDesign:ButtonAssist.CornerRadius="0"
                 >
-                            <materialDesign:PackIcon Kind="WindowClose" HorizontalAlignment="Center" Height="27" Width="27" />
+                            <materialDesign:PackIcon Kind="WindowClose" Foreground="White" HorizontalAlignment="Center" Height="27" Width="27" />
                         </Button>
                     </StackPanel>
                 </materialDesign:ColorZone>
-                <materialDesign:ColorZone Grid.Row="1" Background="White">
-                    <Border x:Name="MyBorder" Height="762" Margin="5 0 5 0" Background="{StaticResource DefaultBackground}" />
+                <materialDesign:ColorZone Grid.Row="1" Background="Green"  VerticalAlignment="Center" Height="768">
+                    <Border x:Name="MyBorder" Height="762" Margin="2 0 5 0" Background="{StaticResource DefaultBackground}" />
                 </materialDesign:ColorZone>
             </Grid>
         </materialDesign:ColorZone>
