@@ -169,6 +169,8 @@ namespace adc.ViewModel
 			DoiCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
 			{
 				Chinh_sua_thong_tin ch = new Chinh_sua_thong_tin();
+				ch.Left = 300;
+				ch.Top = 35;
 				ch.ShowDialog();
 			});
 			LogoutCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
