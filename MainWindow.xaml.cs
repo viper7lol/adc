@@ -41,7 +41,8 @@ namespace adc
             //doi trang thai
             HanhChinhMoRong = !HanhChinhMoRong;
             HanhChinhConButton.Visibility = HanhChinhMoRong ? Visibility.Visible : Visibility.Collapsed;
-        }
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("/Resources/1.jpg")));
+		}
         private void GiongCayTrongButton_Click(object sender, RoutedEventArgs e)
         {
             GiongCayTrongMoRong = !GiongCayTrongMoRong;
