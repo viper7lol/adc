@@ -6,13 +6,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        DataContext="{StaticResource CSPBVM}"
+        DataContext="{StaticResource VGVM}"
         Title="Quản lý Cơ sở" Height="770" Width="1165"
         Name="CSPBView"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Background="Transparent">
+        Background="LightPink">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>

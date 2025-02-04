@@ -12,7 +12,7 @@
         WindowStartupLocation="Manual"
         Title="Quản lý Người Dùng" Height="770" Width="1165"
         Name="QLNDView"
-        Background="Transparent">
+        Background="LightPink">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />

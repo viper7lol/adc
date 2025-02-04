@@ -293,6 +293,7 @@
     <Compile Include="ViewModel\QuenViewModel.cs" />
     <Compile Include="ViewModel\SVGHVTSViewModel.cs" />
     <Compile Include="ViewModel\ThuocBVTVViewModel.cs" />
+    <Compile Include="ViewModel\VietGapViewModel.cs" />
     <Compile Include="ViewModel\VungTrongViewModel.cs" />
     <Compile Include="View\BanDoPhanBo1.xaml.cs">
       <DependentUpon>BanDoPhanBo1.xaml</DependentUpon>
