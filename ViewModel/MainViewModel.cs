@@ -29,6 +29,7 @@ namespace adc.ViewModel
         public ICommand BanDoCommand { get; set; }
 		public ICommand DoiCommand { get; set; }
 		public ICommand LogoutCommand	{ get; set; }
+		public ICommand VietGapCommand { get; set; }
 
         public bool isadmin {  get; set; }  
 
@@ -160,7 +161,7 @@ namespace adc.ViewModel
 
 			BanDoCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
 			{
-				BanDoPhanBo bd = new BanDoPhanBo();
+				BanDoPhanBo1 bd = new BanDoPhanBo1();
 				bd.Left = 300;
 				bd.Top = 35;
 				bd.ShowDialog();
@@ -177,6 +178,13 @@ namespace adc.ViewModel
 			{
 				p.Close();
 			});
+			VietGapCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				CoSoVietGap cs = new CoSoVietGap();
+				cs.Left = 300;
+				cs.Top = 35;
+                cs.ShowDialog();
+            });
 		}
 	}
 }

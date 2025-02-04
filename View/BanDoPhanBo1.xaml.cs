@@ -17,9 +17,9 @@ namespace adc.View
     /// <summary>
     /// Interaction logic for BanDoPhanBo.xaml
     /// </summary>
-    public partial class BanDoPhanBo : Window
+    public partial class BanDoPhanBo1 : Window
     {
-        public BanDoPhanBo()
+        public BanDoPhanBo1()
         {
             InitializeComponent();
         }

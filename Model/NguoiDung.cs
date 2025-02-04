@@ -9,31 +9,25 @@
 
 namespace adc.Model
 {
-    using adc.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class NguoiDung:BaseViewModel
+    public partial class NguoiDung
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NguoiDung()
         {
             this.LichSuTruyCap = new HashSet<LichSuTruyCap>();
         }
+    
         public int ID { get; set; }
-        private string _TenNguoiDung;
-        public string TenNguoiDung { get => _TenNguoiDung; set { _TenNguoiDung = value; OnPropertyChanged(); } }
-        private string _Email;
-        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
-        private string _MatKhau;
-        public string MatKhau { get => _MatKhau; set { _MatKhau = value; OnPropertyChanged(); } }
-        private Nullable<int> _VaiTroID;
-        public Nullable<int> VaiTroID { get => _VaiTroID; set { _VaiTroID = value; OnPropertyChanged(); } }
-        private byte _TrangThai;
-        public byte TrangThai { get => _TrangThai; set { _TrangThai = value; OnPropertyChanged(); } }
-        private string _DonViHanhChinhID;
-        public string DonViHanhChinhID { get => _DonViHanhChinhID; set { _DonViHanhChinhID = value; OnPropertyChanged(); } }
-
+        public string TenNguoiDung { get; set; }
+        public string Email { get; set; }
+        public string MatKhau { get; set; }
+        public Nullable<int> VaiTroID { get; set; }
+        public byte TrangThai { get; set; }
+        public string DonViHanhChinhID { get; set; }
+    
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LichSuTruyCap> LichSuTruyCap { get; set; }

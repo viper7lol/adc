@@ -12,7 +12,7 @@
                 ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Background="Transparent">
+        Background="LightPink">
 
     <Grid Margin="0">
         <Grid.Background>

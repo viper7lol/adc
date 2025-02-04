@@ -12,18 +12,15 @@ namespace adc.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class CapDoHanhChinh
+    public partial class PhanBon
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CapDoHanhChinh()
-        {
-            this.DonViHanhChinh = new HashSet<DonViHanhChinh>();
-        }
-    
         public int ID { get; set; }
-        public string TenCapDo { get; set; }
+        public string TenPhanBon { get; set; }
+        public string LoaiPhanBon { get; set; }
+        public Nullable<System.DateTime> NgaySanXuat { get; set; }
+        public Nullable<System.DateTime> NgayHetHan { get; set; }
+        public Nullable<int> CoSoID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonViHanhChinh> DonViHanhChinh { get; set; }
+        public virtual CoSoPB CoSoPB { get; set; }
     }
 }

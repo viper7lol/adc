@@ -9,26 +9,33 @@
 
 namespace adc.Model
 {
-    using adc.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class CoSoPB:BaseViewModel
+    public partial class CoSoPB
     {
-        private int _MaCoSo;
-        public int MaCoSo { get => _MaCoSo; set { _MaCoSo = value; OnPropertyChanged(); } }
-        private string _TenCoSo;
-        public string TenCoSo { get => _TenCoSo; set { _TenCoSo = value; OnPropertyChanged(); } }
-        private string _DiaChi;
-        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
-        private string _MaHanhChinh;
-        public string MaHanhChinh { get => _MaHanhChinh; set { _MaHanhChinh = value; OnPropertyChanged(); } }
-        private Nullable<System.DateTime> _NgayCapGiayPhep;
-        public Nullable<System.DateTime> NgayCapGiayPhep { get => _NgayCapGiayPhep; set { _NgayCapGiayPhep = value; OnPropertyChanged(); } }
-        private Nullable<int> _LoaiCoSoID;
-        public Nullable<int> LoaiCoSoID { get => _LoaiCoSoID; set { _LoaiCoSoID = value; OnPropertyChanged(); } }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CoSoPB()
+        {
+            this.BanDoPhanBo = new HashSet<BanDoPhanBo>();
+            this.PhanBon = new HashSet<PhanBon>();
+            this.ThuocBVTV = new HashSet<ThuocBVTV>();
+        }
     
+        public int MaCoSo { get; set; }
+        public string TenCoSo { get; set; }
+        public string DiaChi { get; set; }
+        public Nullable<System.DateTime> NgayCapGiayPhep { get; set; }
+        public Nullable<int> LoaiCoSoID { get; set; }
+        public string MaHanhChinh { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BanDoPhanBo> BanDoPhanBo { get; set; }
         public virtual LoaiCoSo LoaiCoSo { get; set; }
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhanBon> PhanBon { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ThuocBVTV> ThuocBVTV { get; set; }
     }
 }

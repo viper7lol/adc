@@ -17,6 +17,7 @@ namespace adc.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VungTrong()
         {
+            this.BanDoPhanBo = new HashSet<BanDoPhanBo>();
             this.GiongCayTrong = new HashSet<GiongCayTrong>();
             this.SinhVatGayHaiVaTuoiSau = new HashSet<SinhVatGayHaiVaTuoiSau>();
         }
@@ -26,6 +27,8 @@ namespace adc.Model
         public string MoTa { get; set; }
         public string MaVungTrongID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BanDoPhanBo> BanDoPhanBo { get; set; }
         public virtual DonViHanhChinh DonViHanhChinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiongCayTrong> GiongCayTrong { get; set; }

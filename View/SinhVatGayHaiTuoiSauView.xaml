@@ -19,8 +19,10 @@
         WindowStyle="None"
         WindowStartupLocation="Manual"
         Title="Quản lý sinh vật gây hại và tuổi sâu" Height="770" Width="1165" Foreground="#DD8C8C8C">
-
-    <Grid Margin="10">
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/4.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition></RowDefinition>

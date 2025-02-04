@@ -6,7 +6,7 @@
         xmlns:uc="clr-namespace:adc.UserControllADC"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Background="Transparent"
+        Background="LightPink"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource PBVM}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -18,7 +18,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Title="Quản lý phân bón" Height="600" Width="900">
+        Title="Quản lý phân bón" Height="775" Width="1165">
 
     <!-- Định nghĩa tài nguyên LinearGradientBrush màu cam -->
     <Window.Resources>

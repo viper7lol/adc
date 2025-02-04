@@ -18,4 +18,5 @@
     <viewmodel:dangkyViewModel x:Key="dkVM"></viewmodel:dangkyViewModel>
     <viewmodel:DoiViewModel x:Key="DVM"></viewmodel:DoiViewModel>
     <viewmodel:QuenViewModel x:Key="QVM"></viewmodel:QuenViewModel>
+    <viewmodel:VietGapViewModel x:Key="VGVM"></viewmodel:VietGapViewModel>
 </ResourceDictionary>

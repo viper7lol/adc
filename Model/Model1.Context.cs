@@ -25,6 +25,7 @@ namespace adc.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BanDoPhanBo> BanDoPhanBo { get; set; }
         public virtual DbSet<CapDoHanhChinh> CapDoHanhChinh { get; set; }
         public virtual DbSet<CoSoATTP> CoSoATTP { get; set; }
         public virtual DbSet<CoSoPB> CoSoPB { get; set; }
@@ -35,7 +36,9 @@ namespace adc.Model
         public virtual DbSet<LoaiCayTrong> LoaiCayTrong { get; set; }
         public virtual DbSet<LoaiCoSo> LoaiCoSo { get; set; }
         public virtual DbSet<NguoiDung> NguoiDung { get; set; }
+        public virtual DbSet<PhanBon> PhanBon { get; set; }
         public virtual DbSet<SinhVatGayHaiVaTuoiSau> SinhVatGayHaiVaTuoiSau { get; set; }
+        public virtual DbSet<ThuocBVTV> ThuocBVTV { get; set; }
         public virtual DbSet<VaiTro> VaiTro { get; set; }
         public virtual DbSet<VungTrong> VungTrong { get; set; }
     }

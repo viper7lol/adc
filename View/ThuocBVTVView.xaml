@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource TBVTVVM}"
-        Background="Transparent"
+        Background="LightPink"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -212,23 +212,7 @@ Style="{StaticResource MaterialDesignRaisedButton}"/>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <!-- Cột Mô tả -->
-                                <GridViewColumn Width="150">
-                                    <GridViewColumn.HeaderTemplate>
-                                        <DataTemplate>
-                                            <Border  Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Mô tả" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
-                                            </Border>
-                                        </DataTemplate>
-                                    </GridViewColumn.HeaderTemplate>
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Border Background="White" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="{Binding MoTa}" TextAlignment="Center" Foreground="Black"/>
-                                            </Border>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                               
 
                                 <!-- Cột Ngày sản xuất -->
                                 <GridViewColumn Width="150">
