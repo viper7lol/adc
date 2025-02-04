@@ -61,8 +61,7 @@ namespace adc.ViewModel
             {
                 CapDoHanhChinhView cdhc = new CapDoHanhChinhView();
                 cdhc.Left = 300; 
-                cdhc.Top = Application.Current.MainWindow.Top +
-                         (Application.Current.MainWindow.Height - cdhc.Height) / 2;
+                cdhc.Top = 35;
                 cdhc.ShowDialog();
             }
             );
