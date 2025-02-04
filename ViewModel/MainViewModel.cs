@@ -32,10 +32,12 @@ namespace adc.ViewModel
 		public ICommand VietGapCommand { get; set; }
 
         public bool isadmin {  get; set; }  
+		public bool islogout { get; set; }
 
         public MainViewModel()
         {
             isadmin = false;
+			islogout = false;
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Isloaded = true;
@@ -177,6 +179,7 @@ namespace adc.ViewModel
 			LogoutCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
 			{
 				p.Close();
+				islogout = true;
 			});
 			VietGapCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
 			{

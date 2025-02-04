@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using adc.Model;
+using System.Windows.Input;
+using System.Windows;
 
 namespace adc.ViewModel
 {
@@ -20,9 +22,23 @@ namespace adc.ViewModel
         public DateTime? ThoiGianTruyCap { get => _ThoiGianTruyCap; set { _ThoiGianTruyCap = value; OnPropertyChanged(); } }
         private ObservableCollection<LichSuTruyCap> _LSTCList;
         public ObservableCollection<LichSuTruyCap> LSTCList { get => _LSTCList; set { _LSTCList = value; OnPropertyChanged(); } }
+
+        private LichSuTruyCap _SelectedLichSuTruyCap;
+        public LichSuTruyCap SelectedLichSuTruyCap { get => _SelectedLichSuTruyCap; set { 
+                _SelectedLichSuTruyCap = value; OnPropertyChanged();
+                if(SelectedLichSuTruyCap != null)
+                {
+                    ID = SelectedLichSuTruyCap.ID;
+                    UserID = SelectedLichSuTruyCap.UserID;
+                    ThoiGianTruyCap = SelectedLichSuTruyCap.ThoiGianTruyCap;
+                    MoTaHanhDong = SelectedLichSuTruyCap.MoTaHanhDong;
+                }
+            } }
+        public ICommand ClearCommand { get; set; }
         public LSTCViewModel()
         {
             MoTaHanhDong = "";
+            LSTCList = new ObservableCollection<LichSuTruyCap>(DataProvider.Ins.DB.LichSuTruyCap);
             LoginWindow lg = new LoginWindow();
             var loginVM = lg.DataContext as LoginViewModel;
             if (loginVM.IsLogin)
@@ -31,45 +47,72 @@ namespace adc.ViewModel
                 {
                     var lichSu = new LichSuTruyCap
                     {
+                        ID = ID + 1,
                         UserID = 1,
                         ThoiGianTruyCap = DateTime.Now,
                         MoTaHanhDong = "đã đăng nhập vào hệ thống"
                     };
                     DataProvider.Ins.DB.LichSuTruyCap.Add(lichSu);
-                    DataProvider.Ins.DB.SaveChanges();
                     LSTCList.Add(lichSu);
                 }
                 else
                 {
                     var lichSu = new LichSuTruyCap
                     {
+                        ID = ID + 1,
                         UserID = 2,
                         ThoiGianTruyCap = DateTime.Now,
                         MoTaHanhDong = "đã đăng nhập vào hệ thống"
                     };
                     DataProvider.Ins.DB.LichSuTruyCap.Add(lichSu);
-                    DataProvider.Ins.DB.SaveChanges();
                     LSTCList.Add(lichSu);
                 }
             }
-            LSTCList = new ObservableCollection<LichSuTruyCap>(DataProvider.Ins.DB.LichSuTruyCap);
-        }
-        public void GhiLichSu(int userId, string moTaHanhDong)
-        {
-            var lichSu = new LichSuTruyCap
+            ClearCommand = new RelayCommand<object>((p) =>
             {
-                UserID = userId,
-                ThoiGianTruyCap = DateTime.Now,
-                MoTaHanhDong = moTaHanhDong
-            };
-
-            // Thêm vào DB
-            DataProvider.Ins.DB.LichSuTruyCap.Add(lichSu);
-            DataProvider.Ins.DB.SaveChanges();
-
-            // Cập nhật danh sách để hiển thị ngay lập tức
-            LSTCList.Add(lichSu);
+                return true;
+            }, (p) =>
+            {
+                var tennd = SelectedLichSuTruyCap;
+                if (SelectedLichSuTruyCap != null)
+                {
+                    LSTCList.Remove(SelectedLichSuTruyCap);
+                    DataProvider.Ins.DB.LichSuTruyCap.Remove(tennd);
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu để xóa", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            });
+            MainWindow mw = new MainWindow();
+            var MainVM = mw.DataContext as MainViewModel;
+            if (MainVM.islogout)
+            {
+                if (MainVM.isadmin)
+                {
+                    var lichSu = new LichSuTruyCap
+                    {
+                        ID = ID = 1,
+                        UserID = 1,
+                        ThoiGianTruyCap = DateTime.Now,
+                        MoTaHanhDong = "đã đăng xuát khỏi hệ thống"
+                    };
+                    DataProvider.Ins.DB.LichSuTruyCap.Add(lichSu);
+                    LSTCList.Add(lichSu);
+                }
+                else
+                {
+                    var lichSu = new LichSuTruyCap
+                    {
+                        ID = ID + 1,
+                        UserID = 2,
+                        ThoiGianTruyCap = DateTime.Now,
+                        MoTaHanhDong = "đã đăng xuât khỏi hệ thống"
+                    };
+                    DataProvider.Ins.DB.LichSuTruyCap.Add(lichSu);
+                    LSTCList.Add(lichSu);
+                }
+            }
         }
-
     }
 }

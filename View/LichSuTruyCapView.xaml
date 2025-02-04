@@ -80,9 +80,9 @@
                             <!-- Cột ID -->
                             <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="200"/>
                             <!-- Cột Tên người dùng -->
-                            <DataGridTextColumn Header="ID người dùng" Binding="{Binding TenNguoiDung}" Width="300"/>
+                            <DataGridTextColumn Header="ID người dùng" Binding="{Binding NguoiDung.TenNguoiDung}" Width="300"/>
                             <!-- Cột Thời gian truy cập -->
-                            <DataGridTextColumn Header="Thời gian truy cập" Binding="{Binding ThoiGianTruyCap}" Width="300"/>
+                            <DataGridTextColumn Header="Thời gian truy cập" Binding="{Binding ThoiGianTruyCap, StringFormat=dd/MM/yyyy - hh:mm:ss}" Width="300"/>
                             <!-- Cột Mô tả hành động -->
                             <DataGridTextColumn Header="Mô tả hành động" Binding="{Binding MoTaHanhDong}" Width="300"/>
                         </DataGrid.Columns>
