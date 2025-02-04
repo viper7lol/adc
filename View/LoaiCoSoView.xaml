@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource LCSVM}"
-        Background="#F0F4F8"
+        Background="#FF5791CB"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -18,7 +18,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Title="Quản lý loại cơ sở" Height="600" Width="900">
+        Title="Quản lý loại cơ sở" Height="770" Width="1165">
 
 
     <Grid Margin="10">
@@ -26,9 +26,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <uc:ControllBarUC Tag="{Binding Title, ElementName=LCSView}"></uc:ControllBarUC>
-        </Grid>
+        <Grid Grid.Row="0"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -38,12 +36,12 @@
 
             <!-- Tiêu đề -->
             <TextBlock Grid.Row="0" Text="Quản lý loại cơ sở"
-                   FontSize="28" FontWeight="Bold"
+                   FontSize="30" FontWeight="Bold"
                    HorizontalAlignment="Center"
-                   Foreground="DarkSlateGray" Margin="10"/>
+                   Foreground="White" Margin="20"/>
 
             <!-- Toolbar -->
-            <materialDesign:Card Grid.Row="1" Padding="10" Margin="0,10,0,0">
+            <materialDesign:Card Grid.Row="1" Padding="10" Margin="20 0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -61,26 +59,26 @@
                              Margin="5"
                              VerticalAlignment="Center"
                              materialDesign:HintAssist.Hint="Tên loại cơ sở"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="153" />
                     </StackPanel>
 
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding AddCommand}" Content="Thêm"
-                            Margin="5" Width="100" Background="#4CAF50" materialDesign:ButtonProgressAssist.IsIndeterminate="True"
-materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                            Margin="5" Width="100" Background="DarkBlue" BorderBrush="black"
+                                 Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" Content="Sửa"
-                            Margin="5" Width="100" Background="#4CAF50"
+                            Margin="5" Width="100" Background="DarkGreen" BorderBrush="black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" Content="Xóa"
-                            Margin="5" Width="100" Background="#E53935"
+                            Margin="5" Width="100" Background="DarkRed" BorderBrush="black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
 
             <!-- Bảng danh sách -->
-            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+            <materialDesign:Card Grid.Row="2" Margin="20" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding LoaiCoSoList}"
                           SelectedItem="{Binding SelectedLoaiCoSo, Mode=TwoWay}"
@@ -91,8 +89,8 @@ materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                                 <GridViewColumn Width="220">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="80"/>
+                                            <Border  Padding="5" CornerRadius="5">
+                                                <TextBlock Text="ID" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="80"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -109,8 +107,8 @@ materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                                 <GridViewColumn Width="300">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#4CAF50" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Tên loại cơ sở" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="200"/>
+                                            <Border Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Tên loại cơ sở" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="200"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>

@@ -6,7 +6,7 @@
         xmlns:uc="clr-namespace:adc.UserControllADC"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#FFBD3F3F"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource PBVM}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -35,9 +35,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <uc:ControllBarUC Tag="{Binding Title, ElementName=PBView}"></uc:ControllBarUC>
-        </Grid>
+        <Grid Grid.Row="0"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -49,10 +47,10 @@
             <TextBlock Grid.Row="0" Text="Quản lý danh mục phân bón" 
                    FontSize="28" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
-                   Foreground="DarkOrange" Margin="10"/>
+                   Foreground="White" Margin="20"/>
 
             <!-- Toolbar -->
-            <materialDesign:Card Grid.Row="1" Padding="10">
+            <materialDesign:Card Grid.Row="1" Padding="10" Margin="20 0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -134,33 +132,31 @@
       Content="Tìm kiếm" 
       Margin="5" 
       Width="100" 
-      Background="#2196F3"  
-      materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-      materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+      Background="DarkBlue" BorderBrush="black"  
+      Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}" 
       Content="Thêm" 
       Margin="5" 
       Width="100" 
-      Background="#4CAF50"  
-      materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-      materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+      Background="DarkGreen"  BorderBrush="black"  
+      Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
       Content="Sửa" 
       Margin="5" 
       Width="100" 
-      Background="#FF9800" 
+      Background="DarkOrange" BorderBrush="black"  
       Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
       Content="Xóa" 
       Margin="5"
       Width="100" 
-      Background="#F44336" 
+      Background="DarkRed" BorderBrush="black"  
       Style="{StaticResource MaterialDesignRaisedButton}"/>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
             <!-- Data Table -->
-            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+            <materialDesign:Card Grid.Row="2" Margin="20" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding PhanBonList}" 
                           SelectedItem="{Binding SelectedPhanBon, Mode=OneWayToSource}" 
@@ -172,8 +168,8 @@
                                 <GridViewColumn Width="100">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            <Border Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="ID" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -190,8 +186,8 @@
                                 <GridViewColumn Width="170">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="Tên phân bón" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            <Border  Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Tên phân bón" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -208,8 +204,8 @@
                                 <GridViewColumn Width="170">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="Loại phân bón" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            <Border  Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Loại phân bón" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -228,8 +224,8 @@
                                 <GridViewColumn Width="170">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="Ngày sản xuất" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            <Border  Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Ngày sản xuất" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -246,8 +242,8 @@
                                 <GridViewColumn Width="160">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="Ngày hết hạn" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            <Border  Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Ngày hết hạn" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -263,8 +259,8 @@
                                 <GridViewColumn Width="150">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="{StaticResource GradientBackground}" Padding="10" CornerRadius="15,15,0,0">
-                                                <TextBlock Text="Mã cơ sở" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            <Border Padding="10" CornerRadius="15,15,0,0">
+                                                <TextBlock Text="Mã cơ sở" Foreground="Black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>

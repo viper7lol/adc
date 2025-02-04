@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource DVHCVM}"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#FFAC2222"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -18,16 +18,14 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Title="Quản lý đơn vị hành chính" Height="600" Width="900">
+        Title="Quản lý đơn vị hành chính" Height="770" Width="1165">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <uc:ControllBarUC Tag="{Binding Title, ElementName=DVHCView}"></uc:ControllBarUC>
-        </Grid>
+        <Grid Grid.Row="0"/>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -39,10 +37,10 @@
             <TextBlock Grid.Row="0" Text="Quản lý đơn vị hành chính" 
                    FontSize="28" FontWeight="Bold" 
                    HorizontalAlignment="Center" 
-                   Foreground="DarkBlue"  Margin="10"/>
+                   Foreground="White"  Margin="20"/>
 
             <!-- Toolbar -->
-            <materialDesign:Card Grid.Row="1" Padding="10">
+            <materialDesign:Card Grid.Row="1" Padding="10" Margin="20 0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -111,34 +109,33 @@
                             Content="Tìm kiếm"
                             Margin="5" 
                             Width="100" 
-                            Background="DarkBlue"  
-                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                            Background="DarkBlue"
+                                BorderBrush="Black"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding AddCommand}" 
                             Content="Thêm" 
                             Margin="5" 
                             Width="100" 
-                            Background="Green"  
-                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
-                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
+                            Background="Green"  BorderBrush="Black"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding EditCommand}" 
                             Content="Sửa" 
                             Margin="5" 
                             Width="100" 
-                            Background="Orange" 
+                            Background="Orange" BorderBrush="Black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
                         <Button Command="{Binding DeleteCommand}" 
                             Content="Xóa" 
                             Margin="5"
                             Width="100" 
-                            Background="Red" 
+                            Background="Red" BorderBrush="Black"
                             Style="{StaticResource MaterialDesignRaisedButton}"/>
 
 
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
-            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+            <materialDesign:Card Grid.Row="2" Margin="20" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Visible">
                     <ListView ItemsSource="{Binding DonViList}" x:Name="ListViewControll"
                   SelectedItem="{Binding SelectedDonVi, Mode=TwoWay}" 
@@ -150,8 +147,8 @@
                                 <GridViewColumn Width="220">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkBlue" Padding="5">
-                                                <TextBlock Text="Mã đơn vị" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="225"/>
+                                            <Border Background="Transparent" Padding="5">
+                                                <TextBlock Text="Mã đơn vị" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="225"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -167,8 +164,8 @@
                                 <GridViewColumn Width="300">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkBlue" Padding="5">
-                                                <TextBlock Text="Tên đơn vị"  Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="250"/>
+                                            <Border Padding="5">
+                                                <TextBlock Text="Tên đơn vị"  Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="250"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -185,8 +182,8 @@
                                 <GridViewColumn Width="180">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkBlue" Padding="5">
-                                                <TextBlock Text="Cấp độ" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="105"/>
+                                            <Border Padding="5">
+                                                <TextBlock Text="Cấp độ" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="105"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -203,8 +200,8 @@
                                 <GridViewColumn Width="180">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="DarkBlue" BorderBrush="DarkBlue" BorderThickness="2,0,2,0"  Padding="5" >
-                                                <TextBlock Text="Cấp trên"  Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="105"/>
+                                            <Border  BorderThickness="2,0,2,0"  Padding="5" >
+                                                <TextBlock Text="Cấp trên"  Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="105"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -224,7 +221,7 @@
                                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                                 <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="Background" Value="DarkBlue"/>
+                                <Setter Property="Background" Value="Transparent"/>
                                 <Setter Property="BorderBrush" Value="Gray"/>
                                 <Setter Property="BorderThickness" Value="1"/>
                             </Style>

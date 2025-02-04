@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Name="SVGHVTSView"
         DataContext="{StaticResource SVGHVTSVM}"
-        Background="#F0F4F8"
+        Background="#FF438FDA"
         FontFamily="{DynamicResource MaterialDesignFont}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -18,16 +18,14 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Title="Quản lý sinh vật gây hại và tuổi sâu" Height="600" Width="900">
+        Title="Quản lý sinh vật gây hại và tuổi sâu" Height="770" Width="1165" Foreground="#DD8C8C8C">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <uc:ControllBarUC Tag="{Binding Title, ElementName=SVGHVTSView}"></uc:ControllBarUC>
-        </Grid>
+        <Grid Grid.Row="0"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -39,10 +37,10 @@
             <TextBlock Grid.Row="0" Text="Quản lý sinh vật gây hại và tuổi sâu"
                    FontSize="28" FontWeight="Bold"
                    HorizontalAlignment="Center"
-                   Foreground="#FF8A65" Margin="10"/>
+                   Foreground="White" Margin="20"/>
 
             <!-- Toolbar -->
-            <materialDesign:Card Grid.Row="1" Padding="10" Margin="0,10,0,0">
+            <materialDesign:Card Grid.Row="1" Padding="10" Margin="20 0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -134,21 +132,21 @@
                     <!-- Nút chức năng -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Command="{Binding SearchCommand}" Content="Tìm kiếm"
-                            Margin="5" Width="100" Background="#66BB6A"
+                            Margin="5" Width="100" Background="DarkBlue" BorderBrush="black"
                             materialDesign:ButtonProgressAssist.IsIndeterminate="True"
                             materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"/>
                         <Button Command="{Binding AddCommand}" Content="Thêm"
-                            Margin="5" Width="100" Background="#66BB6A"/>
+                            Margin="5" Width="100" Background="DarkGreen" BorderBrush="black"/>
                         <Button Command="{Binding EditCommand}" Content="Sửa"
-                            Margin="5" Width="100" Background="#FF8A65"/>
+                            Margin="5" Width="100" Background="DarkOrange" BorderBrush="black"/>
                         <Button Command="{Binding DeleteCommand}" Content="Xóa"
-                            Margin="5" Width="100" Background="#E53935"/>
+                            Margin="5" Width="100" Background="DarkRed" BorderBrush="black"/>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
 
             <!-- Bảng danh sách -->
-            <materialDesign:Card Grid.Row="2" Margin="0,10,0,0" VerticalAlignment="Stretch">
+            <materialDesign:Card Grid.Row="2" Margin="20" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding SVGHVTSList}"
                           SelectedItem="{Binding SelectedSVGHVTS, Mode=TwoWay}"
@@ -159,8 +157,8 @@
                                 <GridViewColumn Width="100">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#8D6E63" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="ID" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="30"/>
+                                            <Border  Padding="5" CornerRadius="5">
+                                                <TextBlock Text="ID" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="30"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -177,8 +175,8 @@
                                 <GridViewColumn Width="160">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#8D6E63" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Tên SV" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                            <Border  Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Tên SV" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -195,8 +193,8 @@
                                 <GridViewColumn Width="130">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#8D6E63" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Loại SV" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="60"/>
+                                            <Border  Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Loại SV" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="60"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -213,8 +211,8 @@
                                 <GridViewColumn Width="130">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#8D6E63" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Tuổi sâu" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="60"/>
+                                            <Border  Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Tuổi sâu" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="60"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -231,8 +229,8 @@
                                 <GridViewColumn Width="120">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#8D6E63" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Cấp độ" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="50"/>
+                                            <Border Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Cấp độ" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="50"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -249,8 +247,8 @@
                                 <GridViewColumn Width="120">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#8D6E63" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Mô tả" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="50"/>
+                                            <Border Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Mô tả" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="50"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -267,8 +265,8 @@
                                 <GridViewColumn Width="160">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
-                                            <Border Background="#8D6E63" Padding="5" CornerRadius="5">
-                                                <TextBlock Text="Vùng trồng" Foreground="White" FontWeight="Bold" TextAlignment="Center"/>
+                                            <Border Background="White" Padding="5" CornerRadius="5">
+                                                <TextBlock Text="Vùng trồng" Foreground="black" FontWeight="Bold" TextAlignment="Center"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>

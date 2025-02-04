@@ -57,77 +57,114 @@ namespace adc.ViewModel
                     p.Close();
                 }
             });
-            CapDoHanhChinhCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                CapDoHanhChinhView cdhc = new CapDoHanhChinhView();
-                cdhc.Left = 300; 
-                cdhc.Top = 35;
-                cdhc.ShowDialog();
-            }
-            );
-            DonViHanhChinhCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                DonViHanhChinhView dvhc = new DonViHanhChinhView();
-                dvhc.ShowDialog();
-            }
-            );
-            CayTrongCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                CayTrongView ct = new CayTrongView();
-                ct.ShowDialog();
-            }
-            );
-            VungTrongCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                VungTrongView vt = new VungTrongView();
-                vt.ShowDialog();
-            }
-            );
-            PhanloaiPBCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                PhanBonView ph = new PhanBonView();
-                ph.ShowDialog();
-            }
-            );
-            CosoPBCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                CoSoPBView co = new CoSoPBView();
-                co.ShowDialog();
-            }
-            );
-            PhanLoaiThuocBVTVCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                ThuocBVTVView thuoc = new ThuocBVTVView();
-                thuoc.ShowDialog();
-            }
-            );
-            CosoThuocBVTVCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                LoaiCoSoView loaiCoSoView = new LoaiCoSoView();
-                loaiCoSoView.ShowDialog();
-            }
-            );
-            SVGHVTSCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                SinhVatGayHaiTuoiSauView sv = new SinhVatGayHaiTuoiSauView();
-                sv.ShowDialog();
-            }
-            );
-            QLNDCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                QuanLyNguoiDungView ql = new QuanLyNguoiDungView();
-                ql.ShowDialog();
-            }
-            );
-            LSTCCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                LichSuTruyCapView ls = new LichSuTruyCapView();
-                ls.ShowDialog();
-            });
-            BanDoCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
-                BanDoPhanBo bd = new BanDoPhanBo();
-                bd.ShowDialog();
-            });
-        }
-    }
+			CapDoHanhChinhCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				CapDoHanhChinhView cdhc = new CapDoHanhChinhView();
+				cdhc.Left = 300;
+				cdhc.Top = 35;
+				cdhc.ShowDialog();
+			}
+);
+
+			DonViHanhChinhCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				DonViHanhChinhView dvhc = new DonViHanhChinhView();
+				dvhc.Left = 300;
+				dvhc.Top = 35; 
+				dvhc.ShowDialog();
+			}
+			);
+
+			CayTrongCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				CayTrongView ct = new CayTrongView();
+				ct.Left = 300;
+				ct.Top = 35;
+				ct.ShowDialog();
+			}
+			);
+
+			VungTrongCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				VungTrongView vt = new VungTrongView();
+				vt.Left = 300;
+				vt.Top = 35;
+				vt.ShowDialog();
+			}
+			);
+
+			PhanloaiPBCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				PhanBonView ph = new PhanBonView();
+				ph.Left = 300;
+				ph.Top = 35; 
+				ph.ShowDialog();
+			}
+			);
+
+			CosoPBCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				CoSoPBView co = new CoSoPBView();
+				co.Left = 300;
+				co.Top = 35; // Đổi vị trí
+				co.ShowDialog();
+			}
+			);
+
+			PhanLoaiThuocBVTVCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				ThuocBVTVView thuoc = new ThuocBVTVView();
+				thuoc.Left = 300;
+				thuoc.Top = 35;
+				thuoc.ShowDialog();
+			}
+			);
+
+			CosoThuocBVTVCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				LoaiCoSoView loaiCoSoView = new LoaiCoSoView();
+				loaiCoSoView.Left = 300;
+				loaiCoSoView.Top = 35;
+				loaiCoSoView.ShowDialog();
+			}
+			);
+
+			SVGHVTSCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				SinhVatGayHaiTuoiSauView sv = new SinhVatGayHaiTuoiSauView();
+				sv.Left = 300;
+				sv.Top = 35;
+				sv.ShowDialog();
+			}
+			);
+
+			QLNDCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				QuanLyNguoiDungView ql = new QuanLyNguoiDungView();
+				ql.Left = 300;
+				ql.Top = 35; 
+				ql.ShowDialog();
+			}
+			);
+
+			LSTCCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				LichSuTruyCapView ls = new LichSuTruyCapView();
+				ls.Left = 300;
+				ls.Top = 35;
+				ls.ShowDialog();
+			}
+			);
+
+			BanDoCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+			{
+				BanDoPhanBo bd = new BanDoPhanBo();
+				bd.Left = 300;
+				bd.Top = 35;
+				bd.ShowDialog();
+			}
+			);
+
+		}
+	}
 }

@@ -7,21 +7,19 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource CSPBVM}"
-        Title="Quản lý Cơ sở" Height="600" Width="900"
+        Title="Quản lý Cơ sở" Height="770" Width="1165"
         Name="CSPBView"
                 ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Background="{DynamicResource MaterialDesignPaper}">
+        Background="#FFC92020">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <uc:ControllBarUC Tag="{Binding Title, ElementName=CSPBView}"></uc:ControllBarUC>
-        </Grid>
+        <Grid Grid.Row="0"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -33,10 +31,10 @@
             <!-- Tiêu đề -->
             <TextBlock Text="Quản lý cơ sở thuốc BVTV"
                    FontSize="28" FontWeight="Bold"
-                   HorizontalAlignment="Center" Foreground="DarkBlue"
-                   Grid.Row="0" Margin="10"/>
+                   HorizontalAlignment="Center" Foreground="White"
+                   Grid.Row="0" Margin="20"/>
             <!-- Toolbar -->
-            <materialDesign:Card Grid.Row="1" Padding="10">
+            <materialDesign:Card Grid.Row="1" Padding="10" Margin="20 0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -144,7 +142,7 @@
                 </Grid>
             </materialDesign:Card>
             <!-- Bảng dữ liệu -->
-            <materialDesign:Card Grid.Row="3" Margin="0,10,0,0" VerticalAlignment="Stretch">
+            <materialDesign:Card Grid.Row="3" Margin="20" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding CoSoList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                           SelectedItem="{Binding SelectedCoSo, Mode=TwoWay}" 
