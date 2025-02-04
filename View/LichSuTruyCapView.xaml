@@ -12,7 +12,7 @@
         WindowStartupLocation="Manual"
         Name="LSTCView"
         Title="Quản lý Lịch Sử Truy Cập" Height="770" Width="1165"
-        Background="{x:Null}">
+        Background="Transparent">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />

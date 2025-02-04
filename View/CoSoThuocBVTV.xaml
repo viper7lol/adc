@@ -12,7 +12,7 @@
                 ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="Manual"
-        Background="{x:Null}">
+        Background="Transparent">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
