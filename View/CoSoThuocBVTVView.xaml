@@ -1,4 +1,4 @@
-﻿<Window x:Class="adc.View.CoSoThuocBVTV"
+﻿<Window x:Class="adc.View.CoSoThuocBVTVVuew"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:uc="clr-namespace:adc.UserControllADC"
@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        DataContext="{StaticResource CSPBVM}"
+        DataContext="{StaticResource LCSVM}"
         Title="Quản lý Cơ sở" Height="770" Width="1165"
         Name="CSPBView"
                 ResizeMode="NoResize"
@@ -89,7 +89,7 @@
                         </StackPanel>
                         <!-- Loại cơ sở -->
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBox Text="{Binding LoaiCoSo }" 
+                            <TextBox Text="{Binding LoaiCoSoID}" 
                               Width="70" 
                               materialDesign:HintAssist.Hint="Loại cơ sở" 
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
@@ -146,7 +146,7 @@
             <materialDesign:Card Grid.Row="3" Margin="20" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding CoSoList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                          SelectedItem="{Binding SelectedCoSo, Mode=TwoWay}" 
+                          SelectedItem="{Binding SelectedCoSoT, Mode=TwoWay}" 
                           HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <ListView.View>
                             <GridView>
@@ -162,7 +162,7 @@
                                 <!-- Cột Ngày cấp giấy phép -->
                                 <GridViewColumn Width="150" Header="Ngày cấp" DisplayMemberBinding="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}"/>
                                 <!-- Cột Tên loại cơ sở -->
-                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding TenLoaiCoSo}"/>
+                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding LoaiCoSo.TenLoaiCoSo}"/>
 
                                 <!-- Cột Mã hành chính -->
                                 <GridViewColumn Width="150" Header="Mã HC" DisplayMemberBinding="{Binding MaHanhChinh}"/>

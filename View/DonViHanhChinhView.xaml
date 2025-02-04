@@ -147,11 +147,11 @@
                         <ListView.View>
                             <GridView>
                                 <!-- Cột Mã đơn vị -->
-                                <GridViewColumn Width="220">
+                                <GridViewColumn Width="250">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border Background="Transparent" Padding="5">
-                                                <TextBlock Text="Mã đơn vị" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="225"/>
+                                                <TextBlock Text="Mã đơn vị" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -182,36 +182,36 @@
                                 </GridViewColumn>
 
                                 <!-- Cột Cấp độ -->
-                                <GridViewColumn Width="180">
+                                <GridViewColumn Width="250">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border Padding="5">
-                                                <TextBlock Text="Cấp độ" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="105"/>
+                                                <TextBlock Text="Cấp độ" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="205"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding CapDoID}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                                <TextBlock Text="{Binding CapDoID}" TextAlignment="Center" Foreground="Black" Width="210"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
                                 <!-- Cột Cấp trên -->
-                                <GridViewColumn Width="180">
+                                <GridViewColumn Width="300">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  BorderThickness="2,0,2,0"  Padding="5" >
-                                                <TextBlock Text="Cấp trên"  Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="105"/>
+                                                <TextBlock Text="Cấp trên"  Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="305"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding CapTrenID}" TextAlignment="Center" Foreground="Black" Width="150"/>
+                                                <TextBlock Text="{Binding CapTrenID}" TextAlignment="Center" Foreground="Black" Width="290"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

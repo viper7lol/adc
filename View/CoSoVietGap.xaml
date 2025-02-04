@@ -152,18 +152,18 @@
                         <ListView.View>
                             <GridView>
                                 <!-- Cột Mã cơ sở -->
-                                <GridViewColumn Width="100" Header="Mã" DisplayMemberBinding="{Binding MaCoSo}"/>
+                                <GridViewColumn Width="90"  Header="Mã" DisplayMemberBinding="{Binding MaCoSo}"/>
 
                                 <!-- Cột Tên cơ sở -->
-                                <GridViewColumn Width="180" Header="Tên" DisplayMemberBinding="{Binding TenCoSo}"/>
+                                <GridViewColumn Width="280" Header="Tên" DisplayMemberBinding="{Binding TenCoSo}"/>
 
                                 <!-- Cột Địa chỉ -->
-                                <GridViewColumn Width="200" Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"/>
+                                <GridViewColumn Width="280" Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"/>
 
                                 <!-- Cột Ngày cấp giấy phép -->
                                 <GridViewColumn Width="150" Header="Ngày cấp" DisplayMemberBinding="{Binding NgayCapGiayPhep, StringFormat=dd/MM/yyyy}"/>
                                 <!-- Cột Tên loại cơ sở -->
-                                <GridViewColumn Width="150" Header="Loại cơ sở " DisplayMemberBinding="{Binding LoaiCoSo.TenLoaiCoSo}"/>
+                                <GridViewColumn Width="130" Header="Loại cơ sở " DisplayMemberBinding="{Binding LoaiCoSo.TenLoaiCoSo}"/>
 
                                 <!-- Cột Mã hành chính -->
                                 <GridViewColumn Width="150" Header="Mã HC" DisplayMemberBinding="{Binding MaHanhChinh}"/>

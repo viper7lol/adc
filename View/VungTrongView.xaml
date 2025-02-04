@@ -139,14 +139,14 @@
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="5" CornerRadius="10,10,0,0">
-                                                <TextBlock Text="ID" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                                <TextBlock Text="ID" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="150"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="170"/>
+                                                <TextBlock Text="{Binding ID}" TextAlignment="Center" Foreground="Black" Width="190"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -157,7 +157,7 @@
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="5" CornerRadius="10,10,0,0">
-                                                <TextBlock Text="Tên vùng trồng" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                                <TextBlock Text="Tên vùng trồng" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="200"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
@@ -171,18 +171,18 @@
                                 </GridViewColumn>
 
                                 <!-- Mô tả -->
-                                <GridViewColumn Width="250">
+                                <GridViewColumn Width="400">
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border  Padding="5" CornerRadius="10,10,0,0">
-                                                <TextBlock Text="Mô tả" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                                <TextBlock Text="Mô tả" Foreground="Black" FontWeight="Bold" TextAlignment="Center" Width="300"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border Background="White" Padding="5">
-                                                <TextBlock Text="{Binding MoTa}" TextAlignment="Center" Foreground="Black" Width="250"/>
+                                                <TextBlock Text="{Binding MoTa}" TextAlignment="Center" Foreground="Black" Width="350"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
@@ -193,7 +193,7 @@
                                     <GridViewColumn.HeaderTemplate>
                                         <DataTemplate>
                                             <Border Padding="5" CornerRadius="10,10,0,0">
-                                                <TextBlock Text="Mã vùng trồng" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="100"/>
+                                                <TextBlock Text="Mã vùng trồng" Foreground="black" FontWeight="Bold" TextAlignment="Center" Width="200"/>
                                             </Border>
                                         </DataTemplate>
                                     </GridViewColumn.HeaderTemplate>

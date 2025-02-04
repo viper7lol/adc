@@ -310,8 +310,8 @@
     <Compile Include="View\CoSoPBView.xaml.cs">
       <DependentUpon>CoSoPBView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CoSoThuocBVTV.xaml.cs">
-      <DependentUpon>CoSoThuocBVTV.xaml</DependentUpon>
+    <Compile Include="View\CoSoThuocBVTVView.xaml.cs">
+      <DependentUpon>CoSoThuocBVTVView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CoSoVietGap.xaml.cs">
       <DependentUpon>CoSoVietGap.xaml</DependentUpon>
@@ -402,7 +402,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CoSoThuocBVTV.xaml">
+    <Page Include="View\CoSoThuocBVTVView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

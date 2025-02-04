@@ -17,9 +17,9 @@ namespace adc.View
     /// <summary>
     /// Interaction logic for CoSoThuocBVTV.xaml
     /// </summary>
-    public partial class CoSoThuocBVTV : Window
+    public partial class CoSoThuocBVTVView : Window
     {
-        public CoSoThuocBVTV()
+        public CoSoThuocBVTVView()
         {
             InitializeComponent();
         }

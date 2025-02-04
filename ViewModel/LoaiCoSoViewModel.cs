@@ -12,29 +12,41 @@ namespace adc.ViewModel
 {
     public class LoaiCoSoViewModel:BaseViewModel
     {
-        private ObservableCollection<LoaiCoSo> _LoaiCoSoList;
-        public ObservableCollection<LoaiCoSo> LoaiCoSoList { get => _LoaiCoSoList; set { _LoaiCoSoList = value; OnPropertyChanged(); } }
+        private ObservableCollection<CoSoThuocBVTV> _CoSoList;
+        public ObservableCollection<CoSoThuocBVTV> CoSoList { get => _CoSoList; set { _CoSoList = value; OnPropertyChanged(); } }
 
-        private LoaiCoSo _SelectedLoaiCoSo;
-        public LoaiCoSo SelectedLoaiCoSo
+        private CoSoThuocBVTV _SelectedCoSoT;
+        public CoSoThuocBVTV SelectedCoSoT
         {
-            get => _SelectedLoaiCoSo;
+            get => _SelectedCoSoT;
             set
             {
-                _SelectedLoaiCoSo = value;
+                _SelectedCoSoT = value;
                 OnPropertyChanged();
-                if(SelectedLoaiCoSo != null)
+                if(SelectedCoSoT != null)
                 {
-                    ID = SelectedLoaiCoSo.ID;
-                    TenLoaiCoSo = SelectedLoaiCoSo.TenLoaiCoSo;
+                    MaCoSo = SelectedCoSoT.MaCoSo;
+                    TenCoSo = SelectedCoSoT.TenCoSo;
+                    DiaChi = SelectedCoSoT.DiaChi;
+                    NgayCapGiayPhep = SelectedCoSoT?.NgayCapGiayPhep;
+                    LoaiCoSoID = SelectedCoSoT.LoaiCoSoID;
+                    MaHanhChinh = SelectedCoSoT.MaHanhChinh;
                 }
             }
         }
 
-        private int _ID;
-        public int ID { get => _ID; set {  _ID = value; OnPropertyChanged(); } }
-        private string _TenLoaiCoSo;
-        public string TenLoaiCoSo { get => _TenLoaiCoSo; set { _TenLoaiCoSo = value; OnPropertyChanged(); } }
+        private int _MaCoSo;
+        public int MaCoSo { get => _MaCoSo; set { _MaCoSo = value; OnPropertyChanged(); } }
+        private string _TenCoSo;
+        public string TenCoSo { get => _TenCoSo; set { _TenCoSo = value; OnPropertyChanged(); } }
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+        private DateTime? _NgayCapGiayPhep;
+        public DateTime? NgayCapGiayPhep { get => _NgayCapGiayPhep; set { _NgayCapGiayPhep = value; OnPropertyChanged(); } }
+        private int? _LoaiCoSoID;
+        public int? LoaiCoSoID { get => _LoaiCoSoID; set { _LoaiCoSoID = value; OnPropertyChanged(); } }
+        private string _MaHanhChinh;
+        public string MaHanhChinh { get => _MaHanhChinh; set { _MaHanhChinh = value; OnPropertyChanged(); } }
 
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -42,7 +54,7 @@ namespace adc.ViewModel
 
         public LoaiCoSoViewModel()
         {
-            LoaiCoSoList = new ObservableCollection<LoaiCoSo>(DataProvider.Ins.DB.LoaiCoSo);
+            CoSoList = new ObservableCollection<CoSoThuocBVTV>(DataProvider.Ins.DB.CoSoThuocBVTV);
             AddCommand = new RelayCommand<object>((p) =>
             {
                 MainWindow mainWindow = new MainWindow();
@@ -54,12 +66,12 @@ namespace adc.ViewModel
                 return false;
             }, (p) =>
             {
-                var lcs = new LoaiCoSo() { ID = ID, TenLoaiCoSo = TenLoaiCoSo};
-                if (TenLoaiCoSo != null)
+                var lcs = new CoSoThuocBVTV() { MaCoSo = MaCoSo, TenCoSo = TenCoSo, DiaChi = DiaChi, NgayCapGiayPhep = NgayCapGiayPhep, LoaiCoSoID = LoaiCoSoID, MaHanhChinh = MaHanhChinh };
+                if (TenCoSo != null && DiaChi != null && NgayCapGiayPhep != null && MaHanhChinh != null && LoaiCoSoID != 0)
                 {
-                    DataProvider.Ins.DB.LoaiCoSo.Add(lcs);
+                    DataProvider.Ins.DB.CoSoThuocBVTV.Add(lcs);
                     DataProvider.Ins.DB.SaveChanges();
-                    LoaiCoSoList.Add(lcs);
+                    CoSoList.Add(lcs);
                 }
                 else
                 {
@@ -70,9 +82,9 @@ namespace adc.ViewModel
             {
                 MainWindow mainWindow = new MainWindow();
                 var MainVM = mainWindow.DataContext as MainViewModel;
-                if (MainVM.isadmin)
-                {
-                    if (string.IsNullOrEmpty(TenLoaiCoSo))
+            if (MainVM.isadmin)
+            {
+                if (string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || NgayCapGiayPhep == null || string.IsNullOrEmpty(MaHanhChinh) || LoaiCoSoID == 0)
                     {
                         return false;
                     }
@@ -84,9 +96,13 @@ namespace adc.ViewModel
                 return false;
             }, (p) =>
             {
-                var loaics = DataProvider.Ins.DB.LoaiCoSo.Where(x => x.ID == SelectedLoaiCoSo.ID).SingleOrDefault();
-                loaics.ID = ID;
-                loaics.TenLoaiCoSo = TenLoaiCoSo;
+                var loaics = DataProvider.Ins.DB.CoSoThuocBVTV.Where(x => x.TenCoSo == SelectedCoSoT.TenCoSo).SingleOrDefault();
+                loaics.MaCoSo = MaCoSo;
+                loaics.TenCoSo = TenCoSo;
+                loaics.DiaChi = DiaChi;
+                loaics.NgayCapGiayPhep = NgayCapGiayPhep;
+                loaics.MaHanhChinh = MaHanhChinh;
+                loaics.LoaiCoSoID = LoaiCoSoID;
                 DataProvider.Ins.DB.SaveChanges();
             });
             DeleteCommand = new RelayCommand<object>((p) =>
@@ -95,7 +111,7 @@ namespace adc.ViewModel
                 var MainVM = mainWindow.DataContext as MainViewModel;
                 if (MainVM.isadmin)
                 {
-                    if (string.IsNullOrEmpty(TenLoaiCoSo))
+                    if (string.IsNullOrEmpty(TenCoSo) || string.IsNullOrEmpty(DiaChi) || NgayCapGiayPhep == null || string.IsNullOrEmpty(MaHanhChinh) || LoaiCoSoID == 0)
                     {
                         return false;
                     }
@@ -107,11 +123,11 @@ namespace adc.ViewModel
                 return false;
             }, (p) =>
             {
-                var ten = SelectedLoaiCoSo;
-                if(SelectedLoaiCoSo != null)
+                var ten = SelectedCoSoT;
+                if(SelectedCoSoT != null)
                 {
-                    LoaiCoSoList.Remove(SelectedLoaiCoSo);
-                    DataProvider.Ins.DB.LoaiCoSo.Remove(ten);
+                    CoSoList.Remove(SelectedCoSoT);
+                    DataProvider.Ins.DB.CoSoThuocBVTV.Remove(ten);
                     DataProvider.Ins.DB.SaveChanges();
                 }
                 else

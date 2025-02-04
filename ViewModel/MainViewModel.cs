@@ -125,7 +125,7 @@ namespace adc.ViewModel
 
 			CosoThuocBVTVCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
 			{
-				LoaiCoSoView loaiCoSoView = new LoaiCoSoView();
+				CoSoThuocBVTVView loaiCoSoView = new CoSoThuocBVTVView();
 				loaiCoSoView.Left = 300;
 				loaiCoSoView.Top = 35;
 				loaiCoSoView.ShowDialog();
