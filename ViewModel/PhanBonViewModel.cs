@@ -10,11 +10,11 @@ namespace adc.ViewModel
 {
     public class PhanBonViewModel : BaseViewModel
     {
-        //private ObservableCollection<PhanBon> _PhanBonList;
-        //public ObservableCollection<PhanBon> PhanBonList { get => _PhanBonList; set { _PhanBonList = value; OnPropertyChanged(); } }
-        //public PhanBonViewModel()
-        //{
-        //    PhanBonList = new ObservableCollection<PhanBon>(DataProvider.Ins.DB.PhanBons);
-        //}
+        private ObservableCollection<PhanBon> _PhanBonList;
+        public ObservableCollection<PhanBon> PhanBonList { get => _PhanBonList; set { _PhanBonList = value; OnPropertyChanged(); } }
+        public PhanBonViewModel()
+        {
+            PhanBonList = new ObservableCollection<PhanBon>(DataProvider.Ins.DB.PhanBon);
+        }
     }
 }
