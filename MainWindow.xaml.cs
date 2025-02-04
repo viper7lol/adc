@@ -31,7 +31,12 @@ namespace adc
         private bool HeThongMoRong = false;
         private bool TaiKhoanMoRong = false;
 
-        private void HanhChinhButton_Click(object sender, RoutedEventArgs e)
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			MyBorder.Background = new ImageBrush(new BitmapImage(new Uri("/Resources/22.png")));
+		}
+
+		private void HanhChinhButton_Click(object sender, RoutedEventArgs e)
         {
             //doi trang thai
             HanhChinhMoRong = !HanhChinhMoRong;
@@ -62,5 +67,7 @@ namespace adc
             TaiKhoanMoRong = !TaiKhoanMoRong;
             TaiKhoanButton.Visibility = TaiKhoanMoRong ? Visibility.Visible : Visibility.Collapsed;
         }
-    }
+
+		
+	}
 }

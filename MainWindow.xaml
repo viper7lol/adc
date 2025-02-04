@@ -20,6 +20,11 @@
          Name="mainWindow"
        DataContext="{StaticResource MainVM}"
         Title="Phần mềm quản lý trong trot" Height="800" Width="1400">
+
+    <Window.Resources>
+        <ImageBrush x:Key="DefaultBackground" ImageSource="/Resources/22.png" />
+    </Window.Resources>
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
@@ -51,7 +56,7 @@
                             Foreground="White" 
                             materialDesign:ButtonAssist.CornerRadius="6" 
                             Width="auto" Height="60" materialDesign:RippleAssist.Feedback="White" 
-                            Margin="0 0 0 0"  >
+                            Margin="0 0 0 0" Click="Button_Click"  >
                             <WrapPanel Width="190" >
                                 <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                 <TextBlock Width="110" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" >
@@ -95,7 +100,7 @@
                                 Width="190" Height="40" Margin="0 5 0 0"
                                     >
                                 <WrapPanel Width="190">
-                                    <materialDesign:PackIcon Kind="Apps" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
+                                    <materialDesign:PackIcon Kind="CityVariantOutline" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Bottom" FontSize="15">
                                         Đơn Vị Hành Chính
                                     </TextBlock>
@@ -125,9 +130,9 @@
         Foreground="White" Command="{Binding CayTrongCommand}"
         Width="190" Height="40" Margin="0 5 0 0" >
                                 <WrapPanel Width="190">
-                                    <materialDesign:PackIcon Kind="Apps" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
+                                    <materialDesign:PackIcon Kind="Sprout" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Bottom" FontSize="15">
-            Cây Trồng
+                                        Cây Trồng
                                     </TextBlock>
                                 </WrapPanel>
                             </Button>
@@ -139,7 +144,7 @@
                                 <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="MapMarkerRadiusOutline" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Bottom" FontSize="15">
-            Vùng Trồng
+                                        Vùng Trồng
                                     </TextBlock>
                                 </WrapPanel>
                             </Button>
@@ -169,7 +174,7 @@ Foreground="White"
                                 <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="Apps" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Bottom" FontSize="15">
-    Phân Loại
+                                        Phân Loại
                                     </TextBlock>
                                 </WrapPanel>
                             </Button>
@@ -180,7 +185,7 @@ Width="190" Height="40" Margin="0 5 0 0" >
                                 <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="Shop" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Bottom" FontSize="15">
-    Cơ Sở
+                                         Cơ Sở
                                     </TextBlock>
                                 </WrapPanel>
                             </Button>
@@ -211,7 +216,7 @@ Width="190" Height="40" Margin="0 5 0 0" >
                                 <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="Apps" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Center" FontSize="15">
-    Thuốc BVTV
+                                            Thuốc BVTV
                                     </TextBlock>
                                 </WrapPanel>
                             </Button>
@@ -222,7 +227,7 @@ Width="190" Height="40" Margin="0 5 0 0" >
                                 <WrapPanel Width="190">
                                     <materialDesign:PackIcon Kind="Shop" VerticalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0" />
                                     <TextBlock Width="110" VerticalAlignment="Center" FontSize="15">
-    Cơ Sở
+                                        Cơ Sở
                                     </TextBlock>
                                 </WrapPanel>
                             </Button>
@@ -369,7 +374,7 @@ Margin="0 0 0 0"   Click="HeThongButton_Click">
                     </StackPanel>
                 </materialDesign:ColorZone>
                 <materialDesign:ColorZone Grid.Row="1" Background="White">
-                    <ContentControl x:Name="MainPage" Height="762" Margin="5 0 5 0"/>
+                    <Border x:Name="MyBorder" Height="762" Margin="5 0 5 0" Background="{StaticResource DefaultBackground}" />
                 </materialDesign:ColorZone>
             </Grid>
         </materialDesign:ColorZone>
